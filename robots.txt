@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://dsalamin12.github.io/QuickQR-Generator/sitemap.xml
