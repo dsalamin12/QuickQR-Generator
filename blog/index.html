@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>QR Code Guides & Tips — QuickQR Blog</title>
+  <meta name="description" content="Free guides on how to create QR codes for restaurants, business cards, WhatsApp, Instagram, email signatures and more. Step-by-step tutorials by QuickQR." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://dsalamin12.github.io/QuickQR-Generator/blog/" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0f1117;
+      --bg2: #161b27;
+      --bg3: #1e2435;
+      --accent: #6366f1;
+      --accent2: #818cf8;
+      --accent-glow: rgba(99,102,241,0.18);
+      --text: #e8eaf6;
+      --text-muted: #8b92b3;
+      --border: rgba(99,102,241,0.2);
+      --card-hover: #1a2038;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      line-height: 1.7;
+    }
+
+    /* NAV */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(15,17,23,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 1.5rem;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 60px;
+    }
+    .nav-brand { display: flex; align-items: center; gap: 0.5rem; text-decoration: none; }
+    .nav-logo {
+      width: 32px; height: 32px;
+      background: var(--accent);
+      border-radius: 8px;
+      display: grid; place-items: center;
+      font-family: 'Syne', sans-serif;
+      font-weight: 800; font-size: 0.75rem;
+      color: white; letter-spacing: -0.5px;
+    }
+    .nav-brand span { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1rem; color: var(--text); }
+    .nav-links { display: flex; gap: 1.5rem; list-style: none; }
+    .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--accent2); }
+    .nav-cta {
+      background: var(--accent); color: white; border: none;
+      padding: 0.45rem 1.1rem; border-radius: 8px;
+      font-size: 0.85rem; font-weight: 500; cursor: pointer;
+      text-decoration: none; transition: background 0.2s;
+    }
+    .nav-cta:hover { background: var(--accent2); }
+
+    /* HERO */
+    .hero {
+      padding: 4rem 1.5rem 3rem;
+      text-align: center;
+      max-width: 700px; margin: 0 auto;
+      animation: fadeUp 0.6s ease both;
+    }
+    .hero-tag {
+      display: inline-block;
+      background: var(--accent-glow);
+      border: 1px solid var(--border);
+      color: var(--accent2);
+      font-size: 0.78rem; font-weight: 500;
+      padding: 0.3rem 0.9rem; border-radius: 100px;
+      margin-bottom: 1.2rem; letter-spacing: 0.04em; text-transform: uppercase;
+    }
+    h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 800; line-height: 1.15;
+      color: var(--text);
+      margin-bottom: 1rem;
+    }
+    h1 em { font-style: normal; color: var(--accent2); }
+    .hero p {
+      color: var(--text-muted); font-size: 1.05rem;
+      max-width: 520px; margin: 0 auto;
+    }
+
+    /* GRID */
+    .blog-grid {
+      max-width: 1100px; margin: 0 auto;
+      padding: 1rem 1.5rem 5rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.8rem;
+      text-decoration: none;
+      display: flex; flex-direction: column; gap: 0.9rem;
+      transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+      animation: fadeUp 0.5s ease both;
+    }
+    .card:hover {
+      background: var(--card-hover);
+      transform: translateY(-3px);
+      box-shadow: 0 12px 40px rgba(99,102,241,0.12);
+    }
+    .card:nth-child(1) { animation-delay: 0.05s; }
+    .card:nth-child(2) { animation-delay: 0.1s; }
+    .card:nth-child(3) { animation-delay: 0.15s; }
+    .card:nth-child(4) { animation-delay: 0.2s; }
+    .card:nth-child(5) { animation-delay: 0.25s; }
+    .card:nth-child(6) { animation-delay: 0.3s; }
+
+    .card-icon {
+      width: 44px; height: 44px;
+      background: var(--accent-glow);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      display: grid; place-items: center;
+      font-size: 1.3rem;
+    }
+    .card-tag {
+      font-size: 0.72rem; font-weight: 500;
+      color: var(--accent2); text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .card h2 {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.1rem; font-weight: 700;
+      color: var(--text); line-height: 1.3;
+    }
+    .card p {
+      font-size: 0.9rem; color: var(--text-muted);
+      line-height: 1.6; flex: 1;
+    }
+    .card-link {
+      display: flex; align-items: center; gap: 0.4rem;
+      font-size: 0.85rem; font-weight: 500;
+      color: var(--accent2);
+      margin-top: 0.3rem;
+    }
+    .card-link svg { transition: transform 0.2s; }
+    .card:hover .card-link svg { transform: translateX(3px); }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem 1.5rem;
+      text-align: center;
+      color: var(--text-muted); font-size: 0.85rem;
+    }
+    footer a { color: var(--accent2); text-decoration: none; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 600px) {
+      .nav-links { display: none; }
+      .blog-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-brand" href="../index.html">
+    <div class="nav-logo">QR</div>
+    <span>QuickQR</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="../index.html">Generator</a></li>
+    <li><a href="index.html">Blog</a></li>
+  </ul>
+  <a class="nav-cta" href="../index.html">Create QR Free →</a>
+</nav>
+
+<div class="hero">
+  <div class="hero-tag">Free Guides</div>
+  <h1>QR Code <em>Tips & Tutorials</em></h1>
+  <p>Step-by-step guides for restaurants, businesses, freelancers and creators — learn how to use QR codes to save time and grow.</p>
+</div>
+
+<div class="blog-grid">
+
+  <a class="card" href="wifi-qr-code-restaurant.html">
+    <div class="card-icon">📶</div>
+    <div class="card-tag">Restaurants & Cafés</div>
+    <h2>How to Create a WiFi QR Code for Your Restaurant or Café</h2>
+    <p>Let customers connect to your WiFi instantly — no more reading out passwords. Free, takes 2 minutes, works on any phone.</p>
+    <div class="card-link">Read guide <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M7 3l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+  </a>
+
+  <a class="card" href="whatsapp-qr-code.html">
+    <div class="card-icon">💬</div>
+    <div class="card-tag">Business Communication</div>
+    <h2>How to Make a WhatsApp QR Code — Free, Fast & No Sign-Up</h2>
+    <p>One scan and anyone can message you on WhatsApp instantly. Perfect for businesses, freelancers, and customer support.</p>
+    <div class="card-link">Read guide <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M7 3l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+  </a>
+
+  <a class="card" href="qr-code-business-cards.html">
+    <div class="card-icon">📇</div>
+    <div class="card-tag">Networking</div>
+    <h2>QR Code for Business Cards — The Complete Guide</h2>
+    <p>Add a QR code to your card so contacts save your details in 3 seconds. Covers vCard setup, Canva design, and print tips.</p>
+    <div class="card-link">Read guide <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M7 3l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+  </a>
+
+  <a class="card" href="qr-code-restaurant-menu.html">
+    <div class="card-icon">🍽️</div>
+    <div class="card-tag">Restaurants & Cafés</div>
+    <h2>How to Create a QR Code for Your Restaurant Menu</h2>
+    <p>Go paperless — customers scan the table and your menu opens on their phone. Update prices anytime without reprinting.</p>
+    <div class="card-link">Read guide <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M7 3l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+  </a>
+
+  <a class="card" href="qr-code-email-signature.html">
+    <div class="card-icon">✉️</div>
+    <div class="card-tag">Professionals</div>
+    <h2>How to Add a QR Code to Your Email Signature</h2>
+    <p>Turn your email signature into a one-scan contact save, WhatsApp opener, or website link. Works in Gmail and Outlook.</p>
+    <div class="card-link">Read guide <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M7 3l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+  </a>
+
+  <a class="card" href="qr-code-instagram.html">
+    <div class="card-icon">📸</div>
+    <div class="card-tag">Social Media</div>
+    <h2>QR Code for Instagram — Grow Your Followers with One Scan</h2>
+    <p>Put your Instagram QR on flyers, packaging, or your shop window — anyone who scans goes straight to your profile.</p>
+    <div class="card-link">Read guide <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M7 3l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+  </a>
+
+</div>
+
+<footer>
+  <p>© 2026 <a href="../index.html">QuickQR</a> — Free, private QR code generator. No sign-up. No tracking. &nbsp;|&nbsp; <a href="../index.html">Create a QR Code →</a></p>
+</footer>
+
+</body>
+</html>
