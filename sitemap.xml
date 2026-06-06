@@ -6,4 +6,40 @@
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
+  <url>
+  <loc>https://dsalamin12.github.io/QuickQR-Generator/blog/</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://dsalamin12.github.io/QuickQR-Generator/blog/wifi-qr-code-restaurant.html</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://dsalamin12.github.io/QuickQR-Generator/blog/whatsapp-qr-code.html</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://dsalamin12.github.io/QuickQR-Generator/blog/qr-code-business-cards.html</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://dsalamin12.github.io/QuickQR-Generator/blog/qr-code-restaurant-menu.html</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://dsalamin12.github.io/QuickQR-Generator/blog/qr-code-email-signature.html</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://dsalamin12.github.io/QuickQR-Generator/blog/qr-code-instagram.html</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.7</priority>
+</url>
+
 </urlset>
