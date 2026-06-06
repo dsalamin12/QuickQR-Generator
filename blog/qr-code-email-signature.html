@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How to Add a QR Code to Your Email Signature (Free Guide) — QuickQR</title>
+  <meta name="description" content="Add a QR code to your email signature so recipients can instantly save your contact, visit your website, or message you on WhatsApp — free and easy." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://dsalamin12.github.io/QuickQR-Generator/blog/qr-code-email-signature.html" />
+  <meta property="og:title" content="How to Add a QR Code to Your Email Signature (Free Guide) — QuickQR" />
+  <meta property="og:description" content="Add a QR code to your email signature so recipients can instantly save your contact, visit your website, or message you on WhatsApp — free and easy." />
+  <meta property="og:type" content="article" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0f1117;
+      --bg2: #161b27;
+      --bg3: #1e2435;
+      --accent: #6366f1;
+      --accent2: #818cf8;
+      --accent-glow: rgba(99,102,241,0.15);
+      --text: #e8eaf6;
+      --text-muted: #8b92b3;
+      --border: rgba(99,102,241,0.2);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; line-height: 1.75; }
+
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(15,17,23,0.92); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 1.5rem;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 60px;
+    }
+    .nav-brand { display: flex; align-items: center; gap: 0.5rem; text-decoration: none; }
+    .nav-logo { width:32px;height:32px;background:var(--accent);border-radius:8px;display:grid;place-items:center;font-family:'Syne',sans-serif;font-weight:800;font-size:.75rem;color:white; }
+    .nav-brand span { font-family:'Syne',sans-serif;font-weight:700;font-size:1rem;color:var(--text); }
+    .nav-links { display:flex;gap:1.5rem;list-style:none; }
+    .nav-links a { color:var(--text-muted);text-decoration:none;font-size:.9rem;transition:color .2s; }
+    .nav-links a:hover { color:var(--accent2); }
+    .nav-cta { background:var(--accent);color:white;border:none;padding:.45rem 1.1rem;border-radius:8px;font-size:.85rem;font-weight:500;cursor:pointer;text-decoration:none;transition:background .2s; }
+    .nav-cta:hover { background:var(--accent2); }
+
+    .article-wrap { max-width: 760px; margin: 0 auto; padding: 3rem 1.5rem 6rem; animation: fadeUp 0.5s ease both; }
+
+    .breadcrumb { display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:var(--text-muted);margin-bottom:2rem; }
+    .breadcrumb a { color:var(--text-muted);text-decoration:none; }
+    .breadcrumb a:hover { color:var(--accent2); }
+    .breadcrumb span { color:var(--text-muted); }
+
+    .article-header { margin-bottom: 2.5rem; }
+    .article-tag {
+      display:inline-flex;align-items:center;gap:.4rem;
+      background:var(--accent-glow);border:1px solid var(--border);
+      color:var(--accent2);font-size:.75rem;font-weight:500;
+      padding:.3rem .9rem;border-radius:100px;
+      margin-bottom:1.2rem;letter-spacing:.04em;text-transform:uppercase;
+    }
+    h1 {
+      font-family:'Syne',sans-serif;
+      font-size:clamp(1.7rem,4vw,2.4rem);
+      font-weight:800;line-height:1.2;
+      color:var(--text);margin-bottom:1rem;
+    }
+    .article-meta { font-size:.85rem;color:var(--text-muted); }
+
+    /* CONTENT STYLES */
+    .article-content h2 {
+      font-family:'Syne',sans-serif;
+      font-size:1.35rem;font-weight:700;
+      color:var(--text);margin:2.2rem 0 .8rem;
+      padding-bottom:.5rem;
+      border-bottom:1px solid var(--border);
+    }
+    .article-content h3 {
+      font-family:'Syne',sans-serif;
+      font-size:1.05rem;font-weight:600;
+      color:var(--accent2);margin:1.5rem 0 .5rem;
+    }
+    .article-content p { color:#c5c9e0;margin-bottom:1rem;font-size:.97rem; }
+    .article-content ul, .article-content ol {
+      padding-left:1.4rem;margin-bottom:1rem;
+    }
+    .article-content li { color:#c5c9e0;margin-bottom:.4rem;font-size:.97rem; }
+    .article-content strong { color:var(--text);font-weight:600; }
+    .article-content em { color:var(--accent2);font-style:normal; }
+    .article-content a { color:var(--accent2);text-decoration:underline;text-underline-offset:3px; }
+    .article-content a:hover { color:white; }
+    .article-content blockquote {
+      border-left:3px solid var(--accent);
+      padding:.6rem 1rem;
+      background:var(--bg2);
+      border-radius:0 8px 8px 0;
+      margin:1.2rem 0;
+      color:var(--text-muted);font-size:.93rem;
+    }
+    .article-content code {
+      background:var(--bg3);color:var(--accent2);
+      padding:.15rem .45rem;border-radius:5px;
+      font-family:monospace;font-size:.88rem;
+    }
+    .article-content pre {
+      background:var(--bg2);border:1px solid var(--border);
+      border-radius:10px;padding:1.2rem;
+      overflow-x:auto;margin:1.2rem 0;
+    }
+    .article-content pre code { background:none;padding:0;font-size:.88rem; }
+
+    /* TABLE */
+    .article-content table {
+      width:100%;border-collapse:collapse;
+      margin:1.5rem 0;font-size:.9rem;
+    }
+    .article-content th {
+      background:var(--bg3);color:var(--accent2);
+      padding:.65rem 1rem;text-align:left;
+      font-family:'Syne',sans-serif;font-size:.82rem;
+      font-weight:600;letter-spacing:.03em;
+      border:1px solid var(--border);
+    }
+    .article-content td {
+      padding:.6rem 1rem;border:1px solid var(--border);
+      color:#c5c9e0;vertical-align:top;
+    }
+    .article-content tr:nth-child(even) td { background:var(--bg2); }
+
+    /* CTA BOX */
+    .cta-box {
+      background: linear-gradient(135deg, var(--bg3) 0%, rgba(99,102,241,0.12) 100%);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2rem;
+      text-align: center;
+      margin: 3rem 0 1rem;
+    }
+    .cta-box h3 { font-family:'Syne',sans-serif;font-size:1.2rem;font-weight:700;color:var(--text);margin-bottom:.6rem; }
+    .cta-box p { color:var(--text-muted);font-size:.92rem;margin-bottom:1.3rem; }
+    .cta-btn {
+      display:inline-block;
+      background:var(--accent);color:white;
+      padding:.7rem 1.8rem;border-radius:10px;
+      font-weight:600;font-size:.95rem;
+      text-decoration:none;transition:background .2s,transform .15s;
+    }
+    .cta-btn:hover { background:var(--accent2);transform:translateY(-1px); }
+
+    /* BACK LINK */
+    .back-link {
+      display:inline-flex;align-items:center;gap:.4rem;
+      color:var(--text-muted);text-decoration:none;font-size:.88rem;
+      margin-top:3rem;transition:color .2s;
+    }
+    .back-link:hover { color:var(--accent2); }
+
+    footer {
+      border-top:1px solid var(--border);
+      padding:2rem 1.5rem;text-align:center;
+      color:var(--text-muted);font-size:.85rem;
+    }
+    footer a { color:var(--accent2);text-decoration:none; }
+
+    @keyframes fadeUp {
+      from { opacity:0;transform:translateY(16px); }
+      to   { opacity:1;transform:translateY(0); }
+    }
+    @media(max-width:600px) { .nav-links { display:none; } }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-brand" href="../index.html">
+    <div class="nav-logo">QR</div>
+    <span>QuickQR</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="../index.html">Generator</a></li>
+    <li><a href="index.html">Blog</a></li>
+  </ul>
+  <a class="nav-cta" href="../index.html">Create QR Free →</a>
+</nav>
+
+<div class="article-wrap">
+  <div class="breadcrumb">
+    <a href="../index.html">Home</a>
+    <span>›</span>
+    <a href="index.html">Blog</a>
+    <span>›</span>
+    <span>How to Add a QR Code to Your Email Signature (Free...</span>
+  </div>
+
+  <div class="article-header">
+    <div class="article-tag">✉️ Professionals</div>
+    <h1>How to Add a QR Code to Your Email Signature (Free Guide)</h1>
+    <div class="article-meta">QuickQR Guide &nbsp;·&nbsp; Free &nbsp;·&nbsp; 5 min read</div>
+  </div>
+
+  <div class="article-content">
+    
+<p>Your email signature is seen by every person you email. Most signatures have a name, title, and phone number. That's fine. But adding a <strong>QR code</strong> turns your signature into something interactive — one scan and the recipient can save your contact, open WhatsApp, or visit your website, all on their phone.</p>
+
+<h2>Why Add a QR Code to Your Email Signature?</h2>
+<p>Most people read email on their computer but want to act on their phone. Switching devices is friction. A QR code removes that friction entirely.</p>
+<ul>
+  <li>Client wants to save your number → scan → contact saved in 3 seconds</li>
+  <li>Client wants to WhatsApp you → scan → WhatsApp opens with your number</li>
+  <li>Contact wants to visit your site → scan → website opens on their phone</li>
+</ul>
+
+<h2>Step 1: Choose What Your QR Code Will Do</h2>
+<table>
+  <tr><th>QR Type</th><th>Best For</th></tr>
+  <tr><td>vCard (Contact)</td><td>Letting people save your full contact info</td></tr>
+  <tr><td>WhatsApp</td><td>Inviting clients to message you directly</td></tr>
+  <tr><td>URL (Website)</td><td>Driving people to your portfolio or LinkedIn</td></tr>
+  <tr><td>Email</td><td>Opening a pre-addressed email to you</td></tr>
+</table>
+<p><strong>Recommendation:</strong> Use a <em>vCard QR code</em> — it contains your name, phone, email, company, and job title all in one scan.</p>
+
+<h2>Step 2: Create at QuickQR</h2>
+<p>Go to <a href="../index.html">QuickQR</a>, select the <strong>📇 vCard</strong> tab (or WhatsApp/URL as needed), fill in your details, and download as <strong>PNG</strong> — the right format for email signatures.</p>
+
+<h2>Step 3: Design Tips for Email</h2>
+<ul>
+  <li>Use black dots on white background — most reliable at small sizes</li>
+  <li>Skip the logo for email — clean code scans more reliably when small</li>
+  <li>Download PNG at full resolution — it will display sharply at 80–100px wide in the signature</li>
+</ul>
+
+<h2>Step 4: Add to Gmail</h2>
+<ol>
+  <li>Open Gmail → gear icon → <strong>See all settings</strong></li>
+  <li>Scroll to the <strong>Signature</strong> section</li>
+  <li>Click the Insert Image icon → upload your QR code PNG</li>
+  <li>Resize to roughly 80–100px wide</li>
+  <li>Click Save Changes</li>
+</ol>
+
+<h2>Step 4 (Outlook): Add to Outlook</h2>
+<ol>
+  <li>File → Options → Mail → <strong>Signatures</strong></li>
+  <li>Edit your signature → click the Insert Picture button</li>
+  <li>Select your QR code PNG → resize to ~80px wide</li>
+  <li>Save</li>
+</ol>
+
+<h2>Step 5: Add a Label</h2>
+<p>Add one short line above or below the QR code: <em>"Scan to save my contact"</em> or <em>"Scan to WhatsApp me"</em>. This one line doubles the number of people who actually use it.</p>
+
+<h2>Frequently Asked Questions</h2>
+
+<h3>Will the QR code show in plain-text emails?</h3>
+<p>No — plain-text emails don't support images. The QR code appears in HTML-formatted emails, which is the default for all modern email clients.</p>
+
+<h3>Does the recipient need an app to scan it?</h3>
+<p>No. The built-in camera on all modern iPhones and Android phones scans QR codes directly.</p>
+
+<h3>Does the QR code expire?</h3>
+<p>No. QuickQR creates static QR codes that never expire and have no server dependency.</p>
+
+
+    <div class="cta-box">
+      <h3>Ready to create your QR code?</h3>
+      <p>Free, private, no sign-up needed. Works entirely in your browser — your data never leaves your device.</p>
+      <a class="cta-btn" href="../index.html">Create Your Free QR Code →</a>
+    </div>
+  </div>
+
+  <a class="back-link" href="index.html">← Back to all guides</a>
+</div>
+
+<footer>
+  <p>© 2026 <a href="../index.html">QuickQR</a> — Free, private QR code generator. No sign-up. No tracking. &nbsp;|&nbsp; <a href="../index.html">Create a QR Code →</a></p>
+</footer>
+
+</body>
+</html>

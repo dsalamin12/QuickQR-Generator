@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How to Create a QR Code for Your Restaurant Menu (Free) — QuickQR</title>
+  <meta name="description" content="Create a free QR code for your restaurant menu — no app, no sign-up, no monthly fee. Customers scan and view your menu instantly on their phone." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://dsalamin12.github.io/QuickQR-Generator/blog/qr-code-restaurant-menu.html" />
+  <meta property="og:title" content="How to Create a QR Code for Your Restaurant Menu (Free) — QuickQR" />
+  <meta property="og:description" content="Create a free QR code for your restaurant menu — no app, no sign-up, no monthly fee. Customers scan and view your menu instantly on their phone." />
+  <meta property="og:type" content="article" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0f1117;
+      --bg2: #161b27;
+      --bg3: #1e2435;
+      --accent: #6366f1;
+      --accent2: #818cf8;
+      --accent-glow: rgba(99,102,241,0.15);
+      --text: #e8eaf6;
+      --text-muted: #8b92b3;
+      --border: rgba(99,102,241,0.2);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; line-height: 1.75; }
+
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(15,17,23,0.92); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 1.5rem;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 60px;
+    }
+    .nav-brand { display: flex; align-items: center; gap: 0.5rem; text-decoration: none; }
+    .nav-logo { width:32px;height:32px;background:var(--accent);border-radius:8px;display:grid;place-items:center;font-family:'Syne',sans-serif;font-weight:800;font-size:.75rem;color:white; }
+    .nav-brand span { font-family:'Syne',sans-serif;font-weight:700;font-size:1rem;color:var(--text); }
+    .nav-links { display:flex;gap:1.5rem;list-style:none; }
+    .nav-links a { color:var(--text-muted);text-decoration:none;font-size:.9rem;transition:color .2s; }
+    .nav-links a:hover { color:var(--accent2); }
+    .nav-cta { background:var(--accent);color:white;border:none;padding:.45rem 1.1rem;border-radius:8px;font-size:.85rem;font-weight:500;cursor:pointer;text-decoration:none;transition:background .2s; }
+    .nav-cta:hover { background:var(--accent2); }
+
+    .article-wrap { max-width: 760px; margin: 0 auto; padding: 3rem 1.5rem 6rem; animation: fadeUp 0.5s ease both; }
+
+    .breadcrumb { display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:var(--text-muted);margin-bottom:2rem; }
+    .breadcrumb a { color:var(--text-muted);text-decoration:none; }
+    .breadcrumb a:hover { color:var(--accent2); }
+    .breadcrumb span { color:var(--text-muted); }
+
+    .article-header { margin-bottom: 2.5rem; }
+    .article-tag {
+      display:inline-flex;align-items:center;gap:.4rem;
+      background:var(--accent-glow);border:1px solid var(--border);
+      color:var(--accent2);font-size:.75rem;font-weight:500;
+      padding:.3rem .9rem;border-radius:100px;
+      margin-bottom:1.2rem;letter-spacing:.04em;text-transform:uppercase;
+    }
+    h1 {
+      font-family:'Syne',sans-serif;
+      font-size:clamp(1.7rem,4vw,2.4rem);
+      font-weight:800;line-height:1.2;
+      color:var(--text);margin-bottom:1rem;
+    }
+    .article-meta { font-size:.85rem;color:var(--text-muted); }
+
+    /* CONTENT STYLES */
+    .article-content h2 {
+      font-family:'Syne',sans-serif;
+      font-size:1.35rem;font-weight:700;
+      color:var(--text);margin:2.2rem 0 .8rem;
+      padding-bottom:.5rem;
+      border-bottom:1px solid var(--border);
+    }
+    .article-content h3 {
+      font-family:'Syne',sans-serif;
+      font-size:1.05rem;font-weight:600;
+      color:var(--accent2);margin:1.5rem 0 .5rem;
+    }
+    .article-content p { color:#c5c9e0;margin-bottom:1rem;font-size:.97rem; }
+    .article-content ul, .article-content ol {
+      padding-left:1.4rem;margin-bottom:1rem;
+    }
+    .article-content li { color:#c5c9e0;margin-bottom:.4rem;font-size:.97rem; }
+    .article-content strong { color:var(--text);font-weight:600; }
+    .article-content em { color:var(--accent2);font-style:normal; }
+    .article-content a { color:var(--accent2);text-decoration:underline;text-underline-offset:3px; }
+    .article-content a:hover { color:white; }
+    .article-content blockquote {
+      border-left:3px solid var(--accent);
+      padding:.6rem 1rem;
+      background:var(--bg2);
+      border-radius:0 8px 8px 0;
+      margin:1.2rem 0;
+      color:var(--text-muted);font-size:.93rem;
+    }
+    .article-content code {
+      background:var(--bg3);color:var(--accent2);
+      padding:.15rem .45rem;border-radius:5px;
+      font-family:monospace;font-size:.88rem;
+    }
+    .article-content pre {
+      background:var(--bg2);border:1px solid var(--border);
+      border-radius:10px;padding:1.2rem;
+      overflow-x:auto;margin:1.2rem 0;
+    }
+    .article-content pre code { background:none;padding:0;font-size:.88rem; }
+
+    /* TABLE */
+    .article-content table {
+      width:100%;border-collapse:collapse;
+      margin:1.5rem 0;font-size:.9rem;
+    }
+    .article-content th {
+      background:var(--bg3);color:var(--accent2);
+      padding:.65rem 1rem;text-align:left;
+      font-family:'Syne',sans-serif;font-size:.82rem;
+      font-weight:600;letter-spacing:.03em;
+      border:1px solid var(--border);
+    }
+    .article-content td {
+      padding:.6rem 1rem;border:1px solid var(--border);
+      color:#c5c9e0;vertical-align:top;
+    }
+    .article-content tr:nth-child(even) td { background:var(--bg2); }
+
+    /* CTA BOX */
+    .cta-box {
+      background: linear-gradient(135deg, var(--bg3) 0%, rgba(99,102,241,0.12) 100%);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2rem;
+      text-align: center;
+      margin: 3rem 0 1rem;
+    }
+    .cta-box h3 { font-family:'Syne',sans-serif;font-size:1.2rem;font-weight:700;color:var(--text);margin-bottom:.6rem; }
+    .cta-box p { color:var(--text-muted);font-size:.92rem;margin-bottom:1.3rem; }
+    .cta-btn {
+      display:inline-block;
+      background:var(--accent);color:white;
+      padding:.7rem 1.8rem;border-radius:10px;
+      font-weight:600;font-size:.95rem;
+      text-decoration:none;transition:background .2s,transform .15s;
+    }
+    .cta-btn:hover { background:var(--accent2);transform:translateY(-1px); }
+
+    /* BACK LINK */
+    .back-link {
+      display:inline-flex;align-items:center;gap:.4rem;
+      color:var(--text-muted);text-decoration:none;font-size:.88rem;
+      margin-top:3rem;transition:color .2s;
+    }
+    .back-link:hover { color:var(--accent2); }
+
+    footer {
+      border-top:1px solid var(--border);
+      padding:2rem 1.5rem;text-align:center;
+      color:var(--text-muted);font-size:.85rem;
+    }
+    footer a { color:var(--accent2);text-decoration:none; }
+
+    @keyframes fadeUp {
+      from { opacity:0;transform:translateY(16px); }
+      to   { opacity:1;transform:translateY(0); }
+    }
+    @media(max-width:600px) { .nav-links { display:none; } }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-brand" href="../index.html">
+    <div class="nav-logo">QR</div>
+    <span>QuickQR</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="../index.html">Generator</a></li>
+    <li><a href="index.html">Blog</a></li>
+  </ul>
+  <a class="nav-cta" href="../index.html">Create QR Free →</a>
+</nav>
+
+<div class="article-wrap">
+  <div class="breadcrumb">
+    <a href="../index.html">Home</a>
+    <span>›</span>
+    <a href="index.html">Blog</a>
+    <span>›</span>
+    <span>How to Create a QR Code for Your Restaurant Menu (...</span>
+  </div>
+
+  <div class="article-header">
+    <div class="article-tag">🍽️ Restaurants & Cafés</div>
+    <h1>How to Create a QR Code for Your Restaurant Menu (Free)</h1>
+    <div class="article-meta">QuickQR Guide &nbsp;·&nbsp; Free &nbsp;·&nbsp; 5 min read</div>
+  </div>
+
+  <div class="article-content">
+    
+<p>Paper menus are expensive to reprint every time prices change. They get dirty, worn out, and lost. A <strong>QR code menu</strong> solves all of this — customers scan it at the table and your menu opens on their phone. No physical menus to manage. No reprinting. No cost after setup.</p>
+
+<h2>How a QR Code Menu Works</h2>
+<ol>
+  <li>Put your menu online (PDF, Google Drive link, or webpage)</li>
+  <li>Generate a QR code pointing to that link</li>
+  <li>Print the QR code and place it on your tables</li>
+  <li>Customers scan → menu opens instantly</li>
+</ol>
+<p>No app needed for the customer. No monthly subscription for you.</p>
+
+<h2>Step 1: Put Your Menu Online (Free Options)</h2>
+
+<h3>Option A: Google Drive PDF (Easiest)</h3>
+<ol>
+  <li>Open Google Drive and upload your menu as a PDF</li>
+  <li>Right-click → Share → set to "Anyone with the link can view"</li>
+  <li>Copy the link — this is your menu URL</li>
+</ol>
+
+<h3>Option B: Google Docs</h3>
+<p>Type your menu in a Google Doc, share it publicly, and copy the link.</p>
+
+<h3>Option C: Canva Webpage</h3>
+<p>Use Canva's free menu templates and publish as a webpage — looks most professional on a customer's phone.</p>
+
+<blockquote>Tip: Open the link on your own phone first and check it looks good on a small screen before printing.</blockquote>
+
+<h2>Step 2–5: Create, Customise & Download</h2>
+<p>Go to <a href="../index.html">QuickQR</a>, select the <strong>🔗 URL</strong> tab, paste your menu link, customise colours and dot style to match your restaurant, then download as SVG (for printing) or PNG (for digital).</p>
+
+<h2>Where to Print & Place It</h2>
+<table>
+  <tr><th>Format</th><th>Best For</th></tr>
+  <tr><td>Table tent card (laminated)</td><td>Most common, wipe-clean</td></tr>
+  <tr><td>Sticker on table surface</td><td>Minimal clutter</td></tr>
+  <tr><td>Printed coaster</td><td>Doubles as decoration</td></tr>
+  <tr><td>Menu insert (first/last page)</td><td>With physical menu</td></tr>
+</table>
+<p>Minimum QR code size for table cards: <strong>5cm × 5cm</strong>. Add a small label: <em>"📱 Scan to view our menu"</em></p>
+
+<h2>How to Update Your Menu Later</h2>
+<p>This is the best part — <strong>you never need to reprint the QR code</strong>. Just update the file at the same link. Change prices, add seasonal dishes, remove sold-out items — the QR code automatically shows the new menu. The only time you need a new QR code is if you change the link itself.</p>
+
+<h2>Frequently Asked Questions</h2>
+
+<h3>Does the customer need an app?</h3>
+<p>No. The built-in camera app on all modern iPhones and Android phones scans QR codes directly.</p>
+
+<h3>What if I don't have a menu as a PDF?</h3>
+<p>Type your menu into a Google Doc and share that link. It doesn't need to be a PDF — any shareable web link works.</p>
+
+<h3>Is there a monthly fee?</h3>
+<p>No. QuickQR is completely free with no subscription, no watermarks, and no scan limits. Your QR code works forever.</p>
+
+<h3>What if my internet goes down?</h3>
+<p>The customer's phone needs internet to load the menu. Keep a small stack of physical menus as backup for offline situations.</p>
+
+
+    <div class="cta-box">
+      <h3>Ready to create your QR code?</h3>
+      <p>Free, private, no sign-up needed. Works entirely in your browser — your data never leaves your device.</p>
+      <a class="cta-btn" href="../index.html">Create Your Free QR Code →</a>
+    </div>
+  </div>
+
+  <a class="back-link" href="index.html">← Back to all guides</a>
+</div>
+
+<footer>
+  <p>© 2026 <a href="../index.html">QuickQR</a> — Free, private QR code generator. No sign-up. No tracking. &nbsp;|&nbsp; <a href="../index.html">Create a QR Code →</a></p>
+</footer>
+
+</body>
+</html>

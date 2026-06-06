@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>QR Code for Instagram — Grow Your Followers with One Scan — QuickQR</title>
+  <meta name="description" content="Create a free QR code for your Instagram profile. Share it on flyers, business cards, or in-store — anyone who scans it goes straight to your page." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://dsalamin12.github.io/QuickQR-Generator/blog/qr-code-instagram.html" />
+  <meta property="og:title" content="QR Code for Instagram — Grow Your Followers with One Scan — QuickQR" />
+  <meta property="og:description" content="Create a free QR code for your Instagram profile. Share it on flyers, business cards, or in-store — anyone who scans it goes straight to your page." />
+  <meta property="og:type" content="article" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0f1117;
+      --bg2: #161b27;
+      --bg3: #1e2435;
+      --accent: #6366f1;
+      --accent2: #818cf8;
+      --accent-glow: rgba(99,102,241,0.15);
+      --text: #e8eaf6;
+      --text-muted: #8b92b3;
+      --border: rgba(99,102,241,0.2);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; line-height: 1.75; }
+
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(15,17,23,0.92); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 1.5rem;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 60px;
+    }
+    .nav-brand { display: flex; align-items: center; gap: 0.5rem; text-decoration: none; }
+    .nav-logo { width:32px;height:32px;background:var(--accent);border-radius:8px;display:grid;place-items:center;font-family:'Syne',sans-serif;font-weight:800;font-size:.75rem;color:white; }
+    .nav-brand span { font-family:'Syne',sans-serif;font-weight:700;font-size:1rem;color:var(--text); }
+    .nav-links { display:flex;gap:1.5rem;list-style:none; }
+    .nav-links a { color:var(--text-muted);text-decoration:none;font-size:.9rem;transition:color .2s; }
+    .nav-links a:hover { color:var(--accent2); }
+    .nav-cta { background:var(--accent);color:white;border:none;padding:.45rem 1.1rem;border-radius:8px;font-size:.85rem;font-weight:500;cursor:pointer;text-decoration:none;transition:background .2s; }
+    .nav-cta:hover { background:var(--accent2); }
+
+    .article-wrap { max-width: 760px; margin: 0 auto; padding: 3rem 1.5rem 6rem; animation: fadeUp 0.5s ease both; }
+
+    .breadcrumb { display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:var(--text-muted);margin-bottom:2rem; }
+    .breadcrumb a { color:var(--text-muted);text-decoration:none; }
+    .breadcrumb a:hover { color:var(--accent2); }
+    .breadcrumb span { color:var(--text-muted); }
+
+    .article-header { margin-bottom: 2.5rem; }
+    .article-tag {
+      display:inline-flex;align-items:center;gap:.4rem;
+      background:var(--accent-glow);border:1px solid var(--border);
+      color:var(--accent2);font-size:.75rem;font-weight:500;
+      padding:.3rem .9rem;border-radius:100px;
+      margin-bottom:1.2rem;letter-spacing:.04em;text-transform:uppercase;
+    }
+    h1 {
+      font-family:'Syne',sans-serif;
+      font-size:clamp(1.7rem,4vw,2.4rem);
+      font-weight:800;line-height:1.2;
+      color:var(--text);margin-bottom:1rem;
+    }
+    .article-meta { font-size:.85rem;color:var(--text-muted); }
+
+    /* CONTENT STYLES */
+    .article-content h2 {
+      font-family:'Syne',sans-serif;
+      font-size:1.35rem;font-weight:700;
+      color:var(--text);margin:2.2rem 0 .8rem;
+      padding-bottom:.5rem;
+      border-bottom:1px solid var(--border);
+    }
+    .article-content h3 {
+      font-family:'Syne',sans-serif;
+      font-size:1.05rem;font-weight:600;
+      color:var(--accent2);margin:1.5rem 0 .5rem;
+    }
+    .article-content p { color:#c5c9e0;margin-bottom:1rem;font-size:.97rem; }
+    .article-content ul, .article-content ol {
+      padding-left:1.4rem;margin-bottom:1rem;
+    }
+    .article-content li { color:#c5c9e0;margin-bottom:.4rem;font-size:.97rem; }
+    .article-content strong { color:var(--text);font-weight:600; }
+    .article-content em { color:var(--accent2);font-style:normal; }
+    .article-content a { color:var(--accent2);text-decoration:underline;text-underline-offset:3px; }
+    .article-content a:hover { color:white; }
+    .article-content blockquote {
+      border-left:3px solid var(--accent);
+      padding:.6rem 1rem;
+      background:var(--bg2);
+      border-radius:0 8px 8px 0;
+      margin:1.2rem 0;
+      color:var(--text-muted);font-size:.93rem;
+    }
+    .article-content code {
+      background:var(--bg3);color:var(--accent2);
+      padding:.15rem .45rem;border-radius:5px;
+      font-family:monospace;font-size:.88rem;
+    }
+    .article-content pre {
+      background:var(--bg2);border:1px solid var(--border);
+      border-radius:10px;padding:1.2rem;
+      overflow-x:auto;margin:1.2rem 0;
+    }
+    .article-content pre code { background:none;padding:0;font-size:.88rem; }
+
+    /* TABLE */
+    .article-content table {
+      width:100%;border-collapse:collapse;
+      margin:1.5rem 0;font-size:.9rem;
+    }
+    .article-content th {
+      background:var(--bg3);color:var(--accent2);
+      padding:.65rem 1rem;text-align:left;
+      font-family:'Syne',sans-serif;font-size:.82rem;
+      font-weight:600;letter-spacing:.03em;
+      border:1px solid var(--border);
+    }
+    .article-content td {
+      padding:.6rem 1rem;border:1px solid var(--border);
+      color:#c5c9e0;vertical-align:top;
+    }
+    .article-content tr:nth-child(even) td { background:var(--bg2); }
+
+    /* CTA BOX */
+    .cta-box {
+      background: linear-gradient(135deg, var(--bg3) 0%, rgba(99,102,241,0.12) 100%);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2rem;
+      text-align: center;
+      margin: 3rem 0 1rem;
+    }
+    .cta-box h3 { font-family:'Syne',sans-serif;font-size:1.2rem;font-weight:700;color:var(--text);margin-bottom:.6rem; }
+    .cta-box p { color:var(--text-muted);font-size:.92rem;margin-bottom:1.3rem; }
+    .cta-btn {
+      display:inline-block;
+      background:var(--accent);color:white;
+      padding:.7rem 1.8rem;border-radius:10px;
+      font-weight:600;font-size:.95rem;
+      text-decoration:none;transition:background .2s,transform .15s;
+    }
+    .cta-btn:hover { background:var(--accent2);transform:translateY(-1px); }
+
+    /* BACK LINK */
+    .back-link {
+      display:inline-flex;align-items:center;gap:.4rem;
+      color:var(--text-muted);text-decoration:none;font-size:.88rem;
+      margin-top:3rem;transition:color .2s;
+    }
+    .back-link:hover { color:var(--accent2); }
+
+    footer {
+      border-top:1px solid var(--border);
+      padding:2rem 1.5rem;text-align:center;
+      color:var(--text-muted);font-size:.85rem;
+    }
+    footer a { color:var(--accent2);text-decoration:none; }
+
+    @keyframes fadeUp {
+      from { opacity:0;transform:translateY(16px); }
+      to   { opacity:1;transform:translateY(0); }
+    }
+    @media(max-width:600px) { .nav-links { display:none; } }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-brand" href="../index.html">
+    <div class="nav-logo">QR</div>
+    <span>QuickQR</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="../index.html">Generator</a></li>
+    <li><a href="index.html">Blog</a></li>
+  </ul>
+  <a class="nav-cta" href="../index.html">Create QR Free →</a>
+</nav>
+
+<div class="article-wrap">
+  <div class="breadcrumb">
+    <a href="../index.html">Home</a>
+    <span>›</span>
+    <a href="index.html">Blog</a>
+    <span>›</span>
+    <span>QR Code for Instagram — Grow Your Followers with O...</span>
+  </div>
+
+  <div class="article-header">
+    <div class="article-tag">📸 Social Media</div>
+    <h1>QR Code for Instagram — Grow Your Followers with One Scan</h1>
+    <div class="article-meta">QuickQR Guide &nbsp;·&nbsp; Free &nbsp;·&nbsp; 5 min read</div>
+  </div>
+
+  <div class="article-content">
+    
+<p>Getting people to follow your Instagram in real life is hard. You say your username, they try to find it, they misspell it, they give up. A <strong>QR code for your Instagram</strong> removes all of this — display it anywhere and anyone who scans it lands directly on your profile and can follow you in one tap.</p>
+
+<h2>Who Should Have an Instagram QR Code?</h2>
+<ul>
+  <li><strong>Small businesses</strong> — turn every in-person touchpoint into a follower opportunity</li>
+  <li><strong>Restaurants and cafés</strong> — on tables, receipts, and packaging</li>
+  <li><strong>Freelancers and creators</strong> — on business cards and portfolios</li>
+  <li><strong>Market stall owners</strong> — on banners and packaging</li>
+  <li><strong>Tutors, coaches, trainers</strong> — on leaflets and welcome packs</li>
+</ul>
+
+<h2>Find Your Instagram Profile Link</h2>
+<p>Your Instagram URL is always in this format:</p>
+<pre><code>https://www.instagram.com/yourusername</code></pre>
+<p>Replace <code>yourusername</code> with your actual Instagram handle. That's it — no login needed.</p>
+
+<h2>How to Create Your Instagram QR Code — Step by Step</h2>
+
+<h3>Step 1: Open QuickQR</h3>
+<p>Visit <a href="../index.html">QuickQR</a>. No account needed.</p>
+
+<h3>Step 2: Select URL Tab</h3>
+<p>Click the <strong>🔗 URL</strong> tab and paste your Instagram profile link.</p>
+
+<h3>Step 3: Add Instagram Branding</h3>
+<ul>
+  <li><strong>Colour:</strong> Use warm orange-to-pink or purple gradient to match Instagram's style</li>
+  <li><strong>Logo:</strong> Upload your profile photo or Instagram icon as the centre logo</li>
+  <li><strong>Dot style:</strong> "Rounded" or "Dots" for a softer, social-media feel</li>
+</ul>
+
+<h3>Step 4: Download</h3>
+<ul>
+  <li><strong>PNG</strong> — for digital sharing (Stories, posts, email, website)</li>
+  <li><strong>SVG</strong> — for printing on flyers, banners, or business cards</li>
+</ul>
+
+<h2>Best Places to Display It</h2>
+<table>
+  <tr><th>Physical</th><th>Digital</th></tr>
+  <tr><td>Business cards (back)</td><td>Email signature</td></tr>
+  <tr><td>Product packaging &amp; bags</td><td>Website footer</td></tr>
+  <tr><td>Restaurant tables &amp; menus</td><td>WhatsApp Business profile</td></tr>
+  <tr><td>Shop window stickers</td><td>Other social profiles</td></tr>
+  <tr><td>Event banners &amp; flyers</td><td>PDF documents</td></tr>
+</table>
+
+<h2>Instagram Built-in QR vs QuickQR</h2>
+<table>
+  <tr><th>Feature</th><th>Instagram's Code</th><th>QuickQR</th></tr>
+  <tr><td>Custom colours</td><td>Limited</td><td>✅ Full control</td></tr>
+  <tr><td>Add your logo</td><td>❌ No</td><td>✅ Yes</td></tr>
+  <tr><td>Download SVG for print</td><td>❌ No</td><td>✅ Yes</td></tr>
+  <tr><td>Branded to your style</td><td>❌ Generic</td><td>✅ Fully custom</td></tr>
+  <tr><td>Free</td><td>✅ Yes</td><td>✅ Yes</td></tr>
+</table>
+
+<h2>Tips for Maximum Followers</h2>
+<ul>
+  <li><strong>Always add a call to action:</strong> "Scan to follow us on Instagram"</li>
+  <li><strong>Tell people what they'll get:</strong> "Follow for weekly recipes" beats "Follow us"</li>
+  <li><strong>Use it at the right moment:</strong> Right after a positive experience is when people are most likely to follow</li>
+  <li><strong>Minimum size for print:</strong> 3cm × 3cm — smaller and people won't bother</li>
+</ul>
+
+<h2>Frequently Asked Questions</h2>
+
+<h3>Does the person need an Instagram account to view my profile?</h3>
+<p>No. Instagram profiles are publicly visible even without an account. To follow you, they do need an account.</p>
+
+<h3>Does the QR code expire?</h3>
+<p>No. QuickQR creates static QR codes with no expiry date. Works forever as long as your username stays the same.</p>
+
+<h3>Can I use this for Facebook or TikTok too?</h3>
+<p>Yes — exactly the same process. Just paste your Facebook or TikTok profile URL instead.</p>
+
+
+    <div class="cta-box">
+      <h3>Ready to create your QR code?</h3>
+      <p>Free, private, no sign-up needed. Works entirely in your browser — your data never leaves your device.</p>
+      <a class="cta-btn" href="../index.html">Create Your Free QR Code →</a>
+    </div>
+  </div>
+
+  <a class="back-link" href="index.html">← Back to all guides</a>
+</div>
+
+<footer>
+  <p>© 2026 <a href="../index.html">QuickQR</a> — Free, private QR code generator. No sign-up. No tracking. &nbsp;|&nbsp; <a href="../index.html">Create a QR Code →</a></p>
+</footer>
+
+</body>
+</html>
