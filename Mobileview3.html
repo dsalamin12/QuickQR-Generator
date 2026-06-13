@@ -3,9 +3,10 @@
 <head>
   <meta name="google-site-verification" content="eqaidnGY34QBEkDKvBTGbddkul8hJCayppxTPUnL_J8" />
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-CVL3PE1DGQ"></script>
-<script>
- 
-</script>
+
+  <!-- There was 1st Script (js) block was here -->
+
+  
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
 <title>QuickQR — Free QR Code Generator | Custom Colors, Logo &amp; WiFi QR Codes</title>
@@ -23,9 +24,10 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
-<style>
 
-</style>
+<!-- There was Style (CSS) Block was here  -->
+<link rel="stylesheet" href="assets/style.css">
+  
 </head>
 <body>
 
@@ -33,27 +35,9 @@
 <div id="toast"><span id="toast-icon">✓</span><span id="toast-msg">Done!</span></div>
 
 <!-- ══ MOBILE FIXED PREVIEW BAR ══ -->
-<div id="mobile-bar">
-  <div id="mobile-bar-canvas-wrap">⬛</div>
-  <div id="mobile-bar-label">
-    <div class="bar-title"><div class="live-dot"></div>Live Preview</div>
-    <div class="bar-hints">
-      📐 <strong>SVG</strong> — perfect for print<br>
-      🖼️ <strong>PNG</strong> — ideal for digital<br>
-      ⌨️ <strong>Ctrl+Enter</strong> = PNG
-    </div>
-  </div>
-  <div id="mobile-bar-btns">
-    <button class="mb-png" onclick="downloadQR('png')">
-      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-      PNG
-    </button>
-    <button class="mb-svg" onclick="downloadQR('svg')">
-      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-      SVG
-    </button>
-  </div>
-</div>
+<!-- ══ There was mobile blocks was here moved to separate file ══ -->
+
+<div id="mobile-bar-placeholder"></div>
 
 <!-- ══════════════ STICKY HEADER ══════════════ -->
 <header id="site-header">
@@ -408,8 +392,10 @@
   </div>
 </footer>
 
-<script>
+<!-- There was 2nd Script (js) block was here -->
 
-</script>
+<script src="assets/mobile-bar.js"></script>
+<script src="assets/qr-engine.js"></script> 
+  
 </body>
 </html>
