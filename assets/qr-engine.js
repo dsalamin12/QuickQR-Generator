@@ -1,6 +1,6 @@
 //first script
 
-  window.dataLayer = window.dataLayer || [];
+ window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
@@ -23,14 +23,50 @@ let bulkRows = null;
 let bulkTpl = null;
 let bulkFileName = '';
 
-// ── Sticky right col offset: match header height ──
+// ── Sticky right col + mobile bar positioning ──
 function updateStickyTop() {
   const hh = document.getElementById('site-header').offsetHeight;
-  document.getElementById('right-col').style.top = (hh + 12) + 'px';
-  document.getElementById('right-col').style.maxHeight = 'calc(100vh - ' + (hh + 24) + 'px)';
+  const isMobile = window.innerWidth <= 768;
+  if (!isMobile) {
+    // Desktop: sticky right col
+    document.getElementById('right-col').style.top = (hh + 12) + 'px';
+    document.getElementById('right-col').style.maxHeight = 'calc(100vh - ' + (hh + 24) + 'px)';
+    document.getElementById('app-layout').style.paddingTop = '';
+  } else {
+    // Mobile: position fixed bar directly below fixed header
+    const bar = document.getElementById('mobile-bar');
+    if (bar) {
+      bar.style.top = hh + 'px';
+      requestAnimationFrame(() => {
+        const barH = bar.offsetHeight || 90;
+        document.getElementById('app-layout').style.paddingTop = (hh + barH + 8) + 'px';
+      });
+    }
+  }
 }
-updateStickyTop();
+// Run after full paint so header height is accurate
+requestAnimationFrame(() => { updateStickyTop(); });
+setTimeout(updateStickyTop, 200); // second pass after fonts/images load
 window.addEventListener('resize', updateStickyTop);
+
+// ── Mirror QR canvas into mobile bar thumbnail ──
+function syncMobileBar() {
+  if (window.innerWidth > 768) return;
+  const wrap = document.getElementById('mobile-bar-canvas-wrap');
+  if (!wrap) return;
+  const old = wrap.querySelector('canvas');
+  if (old) old.remove();
+  const src = document.getElementById('qr-container').querySelector('canvas');
+  if (src && src.width > 0) {
+    wrap.textContent = '';
+    const c = document.createElement('canvas');
+    c.width = 68; c.height = 68;
+    c.getContext('2d').drawImage(src, 0, 0, 68, 68);
+    wrap.appendChild(c);
+  } else {
+    wrap.textContent = '⬛';
+  }
+}
 
 // ── Theme ──
 const themeToggle = document.getElementById('theme-toggle');
@@ -55,6 +91,8 @@ document.querySelectorAll('.tab-btn').forEach(btn => {
     if (panel) panel.classList.add('active');
     updateBulkUI();
     scheduleQR();
+    // Fix: sync mobile bar after tab switch renders new QR
+    setTimeout(syncMobileBar, 600);
   });
 });
 
@@ -122,6 +160,8 @@ function applyPreset(fg, bg) {
   document.getElementById('color-eye-outer-hex').textContent = fg;
   document.getElementById('color-eye-inner-hex').textContent = fg;
   generateQR();
+  // Fix: sync mobile bar after preset colour renders
+  setTimeout(syncMobileBar, 600);
 }
 document.getElementById('color-fg').addEventListener('input', e => { document.getElementById('color-fg-hex').textContent = e.target.value; });
 document.getElementById('color-bg').addEventListener('input', e => { document.getElementById('color-bg-hex').textContent = e.target.value; });
@@ -287,6 +327,13 @@ function generateQR() {
 
   ['canvas','svg'].forEach(tag => { const el = container.querySelector(tag); if (el) el.remove(); });
 
+  // Guard: QRCodeStyling library may not be loaded yet on slow connections
+  if (typeof QRCodeStyling === 'undefined') {
+    console.warn('QRCodeStyling not loaded yet — retrying in 500ms');
+    setTimeout(generateQR, 500);
+    return;
+  }
+
   try {
     qrInstance = new QRCodeStyling(options);
     qrInstance.append(container);
@@ -295,6 +342,9 @@ function generateQR() {
   qrMeta.style.display = 'block';
   document.getElementById('meta-type').textContent = getMetaType();
   document.getElementById('meta-size').textContent = `${size}×${size}`;
+
+  // Sync mobile bar thumbnail after canvas renders (~300ms for QRCodeStyling)
+  setTimeout(syncMobileBar, 350);
 }
 
 function scheduleQR() {
@@ -630,7 +680,26 @@ function showToast(msg, color = 'var(--brand-light)') {
 updateECBadge('L');
 document.getElementById('input-url').value = 'https://example.com';
 updateBulkUI();
-setTimeout(generateQR, 350);
+
+// Patch scheduleQR so mobile bar always syncs after every debounced render
+const _origScheduleQR = scheduleQR;
+scheduleQR = function() {
+  _origScheduleQR.apply(this, arguments);
+  setTimeout(syncMobileBar, 700);
+};
+
+// Wait for QRCodeStyling to be available (fixes console error on slow connections)
+function initWhenReady(attempts) {
+  if (typeof QRCodeStyling !== 'undefined') {
+    generateQR();
+    setTimeout(syncMobileBar, 700);
+    setTimeout(updateStickyTop, 300);
+  } else if (attempts > 0) {
+    setTimeout(() => initWhenReady(attempts - 1), 300);
+  }
+}
+initWhenReady(10);
+
 document.addEventListener('keydown', e => {
   if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') { e.preventDefault(); downloadQR('png'); }
 });
