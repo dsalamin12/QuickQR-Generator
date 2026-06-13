@@ -20,3 +20,4 @@ document.getElementById("mobile-bar-placeholder").innerHTML = `
     </button>
   </div>
 </div>
+`;
