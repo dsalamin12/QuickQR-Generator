@@ -117,6 +117,8 @@ function toggleAccordion(header) {
   header.classList.toggle('open', !isOpen);
   body.classList.toggle('open', !isOpen);
   chevron.classList.toggle('rotated', !isOpen);
+ // 🟢  to make accordion accessibility work properly on 20 Jun'26
+  header.setAttribute('aria-expanded', !isOpen);
 }
 function toggleSeoAccordion(header) {
   const body = header.nextElementSibling;
