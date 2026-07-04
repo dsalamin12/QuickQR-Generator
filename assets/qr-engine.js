@@ -1,10 +1,4 @@
-//first script
-
- window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-CVL3PE1DGQ');
+//first script (Deleted)
   
 //2nd Script
 
