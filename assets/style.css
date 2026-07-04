@@ -53,6 +53,12 @@ body>*{position:relative;z-index:1;}
 .privacy-pill strong{color:var(--text);}
 
 /* ── LAYOUT ── */
+.hero-section{
+    max-width:1280px;
+    margin:0 auto;
+    padding:20px 24px 0;
+}
+
 #app-layout{
   max-width:1280px;margin:0 auto;padding:20px 24px 48px;
   display:flex;gap:20px;align-items:flex-start;
@@ -297,119 +303,182 @@ input[type="range"]::-webkit-slider-thumb{
 *{transition:background-color 0.22s,border-color 0.22s,color 0.18s;}
 input,textarea,select{transition:border-color 0.18s,box-shadow 0.18s;}
 
-/* ══════════════════════════════════════════
-   MOBILE STYLES — max-width: 768px
-   Desktop completely untouched above.
-══════════════════════════════════════════ */
-
 /* MOBILE BAR hidden on desktop */
 #mobile-bar{ display:none; }
 
+/* ══════════════════════════════════════════
+   ===== Mobile Optimization (≤ 768px) =====
+   Isolated overrides to fix layout overlaps,
+   excessive spaces, and visibility issues.
+══════════════════════════════════════════ */
 @media(max-width:768px){
+  html, body { overflow-x: hidden; }
+  #app-layout, #left-col, .glass-card { max-width:100% !important; box-sizing:border-box; }
+  img, canvas { max-width:100% !important; }
 
-  /* Prevent layout wider than screen / initial zoom-out */
-  html,body{ overflow-x:hidden; }
-  #app-layout,#left-col,.glass-card{ max-width:100% !important;box-sizing:border-box; }
-  img,canvas{ max-width:100% !important; }
-
-  /* HEADER — position:fixed ensures it ALWAYS freezes on mobile */
-  #site-header{ position:fixed !important;top:0 !important;left:0 !important;right:0 !important;z-index:200 !important;width:100% !important; }
-  .header-inner{ padding:8px 12px;gap:6px;flex-wrap:nowrap; }
-  .privacy-pill{ display:none; }
-  .logo-mark{ width:28px;height:28px;border-radius:7px;flex-shrink:0; }
-  .header-inner h1{ font-size:0.95rem !important; }
-  .header-inner>div>p{ display:none; }
-  .header-inner a[href="blog/index.html"]{ font-size:0.75rem !important;white-space:nowrap;flex-shrink:0; }
-  #theme-toggle #theme-label{ display:none; }
-  #theme-toggle{ padding:6px 9px !important;flex-shrink:0; }
-
-  /* LAYOUT */
-  #app-layout{ flex-direction:column;padding:10px 10px 24px;gap:10px; }
-  #right-col{ display:none !important; }
-  #left-col{ width:100%;gap:10px; }
-
-  /* MOBILE BAR */
-  /* Updated to improve MV, Al-Amin */
-  #mobile-bar{
-    display:flex;
-    position:fixed;
-    top:0;
-    left:0;
-    right:0;
-    width:100%;
-
-    z-index:199;
-
-    background:rgba(22,27,39,0.92);
-    backdrop-filter:blur(10px);
-
-    border-bottom:1px solid var(--border);
-    box-shadow:0 2px 10px rgba(0,0,0,.16);
-
-    padding:5px 10px;
-
-    align-items:center;
-    gap:8px;
-
-    box-sizing:border-box;
-}
-/*2nd improvement for MV, Al-Amin*/
-  #mobile-bar-canvas-wrap{
-    width:58px;
-    height:58px;
-    flex-shrink:0;
-
-    border-radius:8px;
-    overflow:hidden;
-
-    background:var(--muted);
-    border:1px solid var(--border);
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    font-size:1.2rem;
-}
-/*Improvement 3, MV, Al-Amin*/
-  #mobile-bar-canvas-wrap canvas{
-    width:58px !important;
-    height:58px !important;
-    display:block;
-}
-  #mobile-bar-label{ flex:1;min-width:0;padding-top:1px; }
-  #mobile-bar-label .bar-title{
-    font-family:'Syne',sans-serif;font-weight:700;font-size:0.70rem;
-    color:var(--text);display:flex;align-items:center;gap:5px;margin-bottom:4px;
+  /* ===== Mobile Optimization: Fixed Elements ===== */
+  /* Fixes overlap: Explicit standard heights assigned to prevent stacked compression elements */
+  #site-header {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    z-index: 200 !important;
+    height: 48px !important;
+    border-bottom: 1px solid rgba(255,255,255,.08) !important;
   }
-  #mobile-bar-label .bar-hints{ font-size:0.6rem;color:var(--text-faint);line-height:1.6; }
-  #mobile-bar-btns{ display:flex;flex-direction:column;gap:4px;flex-shrink:0; }
-  #mobile-bar-btns button{
-    font-family:'Syne',sans-serif;font-weight:600;font-size:0.69rem;letter-spacing:0.02em;
-    padding:5px 9px;border-radius:7px;border:none;cursor:pointer;
-    display:flex;align-items:center;gap:4px;white-space:nowrap;transition:all 0.18s;
+  .header-inner {
+    padding: 6px 12px !important;
+    height: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    flex-wrap: nowrap !important;
+    gap: 8px !important;
   }
-  #mobile-bar-btns .mb-png{ background:linear-gradient(135deg,#4f46e5,#6366f1);color:#fff;box-shadow:0 2px 8px rgba(99,102,241,0.3); }
-  #mobile-bar-btns .mb-svg{ background:var(--muted);color:var(--text);border:1px solid var(--border); }
+  .header-inner h1 { font-size: 0.90rem !important; line-height: 1 !important; }
+  .header-inner p { display: none !important; }
+  .header-inner a[href="blog/index.html"] { font-size: 0.75rem !important; padding: 5px 10px !important; flex-shrink: 0 !important; }
+  #theme-toggle { padding: 6px 8px !important; flex-shrink: 0 !important; }
+  #theme-toggle #theme-label { display: none !important; }
+  .privacy-pill { display: none !important; } /* Reclaimed space by clearing low-value elements on mobile */
+  .logo-mark { width: 24px !important; height: 24px !important; border-radius: 6px !important; }
 
-  /* TABS */
-  .tab-bar{ flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding-bottom:4px;gap:4px; }
-  .tab-bar::-webkit-scrollbar{ display:none; }
-  .tab-btn{ padding:8px 12px;font-size:0.8rem;flex-shrink:0; }
+  /* ===== Mobile Optimization: Sticky Live Preview Bar ===== */
+  /* Docks directly underneath the header at 48px to resolve the layout collisions */
+  #mobile-bar {
+    display: inline-flex !important;
+    position: fixed !important;
+    top: 48px !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    z-index: 199 !important;
+    background: var(--card) !important;
+    border-bottom: 1px solid var(--border) !important;
+    padding: 4px 12px !important;
+    align-items: center !important;
+    gap: 10px !important;
+    box-sizing: border-box !important;
+    height: 72px !important;
+  }
+  #mobile-bar-canvas-wrap {
+    width: 68px !important;
+    height: 68px !important;
+    flex-shrink: 0 !important;
+    border-radius: 8px !important;
+    background: var(--muted) !important;
+    border: 1px solid var(--border) !important;
 
-  /* INPUTS */
-  .inp{ padding:11px 12px;font-size:0.9rem; }
-  .grid2{ grid-template-columns:1fr; }
-  .card-body{ padding:12px; }
-  .accordion-header{ padding:13px; }
-  .pill-row{ gap:5px; }
-  .shape-pill{ padding:7px 8px;flex:1;min-width:52px; }
-  .seo-section{ padding:0 10px 48px; }
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+  #mobile-bar-canvas-wrap canvas {
+    width: 64px !important;
+    height: 64px !important;
+    display: block !important;
+  }
+  #mobile-bar-label { flex: 1 !important; min-width: 0 !important; padding-top: 0 !important; }
+  #mobile-bar-label .bar-title {
+    font-family: 'Syne', sans-serif !important;
+    font-weight: 700 !important;
+    font-size: 0.75rem !important;
+    color: var(--text) !important;
+    margin-bottom: 1px !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 4px !important;
+  }
+  #mobile-bar-label .bar-hints {
+    display: none !important;
+  }
+  #mobile-bar-btns {
+    display: flex !important;
+    flex-direction: row !important; /* Side-by-side arrangement saves vertical screenspace folds */
+    gap: 6px !important;
+    flex-shrink: 0 !important;
+  }
+  #mobile-bar-btns button {
+    font-family: 'Syne', sans-serif !important;
+    font-weight: 600 !important;
+    font-size: 0.7rem !important;
+    padding: 6px 10px !important;
+    border-radius: 6px !important;
+    height: 34px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
 
-  /* TOAST */
-  #toast{ bottom:16px;right:10px;left:10px;border-radius:11px;max-width:100%;justify-content:center; }
+  /* ===== Mobile Optimization: Main Content Push-down & Hero ===== */
+  /* Safely pushes text past the combined 96px header height without relying on HTML changes */
+  .hero-section {
+    padding: 126px 12px 0.0px !important; /* 48px Header + 48px Bar + 16px calculated margin gap */
+    margin-bottom: 8px !important;
+    max-width: 100% !important;
+  }
+  .hero-section h1 {
+    font-size: 1.35rem !important;
+    line-height: 1.00 !important;
+    margin-bottom: 2px !important;
+  }
+  .hero-section p {
+    font-size: 0.85rem !important;
+    line-height: 1.35 !important;
+    margin-bottom: 2px !important;
+  }
 
-  /* FOOTER */
-  footer{ padding:14px 10px; }
-  footer>div{ justify-content:center;text-align:center; }
+  /* ===== Mobile Optimization: Layout Constraints ===== */
+  #app-layout {
+    padding: 0 12px 32px !important;
+    gap: 12px !important;
+  }
+  #right-col {
+    display: none !important; /* Removes duplicate rendering; logic completely handled by #mobile-bar */
+  }
+  #left-col {
+    width: 100% !important;
+    gap: 12px !important;
+  }
+
+  /* ===== Mobile Optimization: Density & Cards ===== */
+  /* Systematic whitespace scale optimization across elements */
+  .card-body { padding: 12px !important; }
+  .section-title { margin-bottom: 8px !important; font-size: 0.65rem !important; }
+  .field-gap { gap: 10px !important; }
+  .grid2 {
+    grid-template-columns: 1fr !important; /* Collapses two columns to clear touch boundaries safely */
+    gap: 8px !important;
+  }
+  .inp { padding: 8px 10px !important; font-size: 0.85rem !important; }
+  .accordion-header { padding: 10px 12px !important; }
+  .accordion-body { padding: 12px 12px !important; }
+
+  /* ===== Mobile Optimization: Navigation Tabs ===== */
+  /* Provides frictionless native swiping without sacrificing visibility dimensions */
+  .tab-bar {
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    scrollbar-width: none !important;
+    gap: 6px !important;
+    margin-bottom: 12px !important;
+    padding-bottom: 4px !important;
+  }
+  .tab-bar::-webkit-scrollbar { display: none !important; }
+  .tab-btn {
+    padding: 6px 12px !important;
+    font-size: 0.75rem !important;
+    flex-shrink: 0 !important;
+  }
+
+  /* ===== Mobile Optimization: Option Swatches & Elements ===== */
+  .pill-row { gap: 6px !important; }
+  .shape-pill { padding: 6px 8px !important; min-width: 50px !important; }
+  .seo-section { padding: 0 12px 40px !important; }
+  #toast { bottom: 16px !important; right: 12px !important; left: 12px !important; max-width: calc(100% - 24px) !important; justify-content: center !important; }
+  footer { padding: 16px 12px !important; }
+  footer > div { justify-content: center !important; text-align: center !important; flex-direction: column !important; gap: 8px !important; }
 }
