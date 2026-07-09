@@ -25,6 +25,10 @@
   z-index: 9999;
 }
 
+#qq-consent-banner.show{
+    display:block;
+}
+
 #qq-consent-banner h3{
   margin:0 0 10px;
   font-size:1rem;
