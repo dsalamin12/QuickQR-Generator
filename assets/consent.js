@@ -1,37 +1,26 @@
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", () => {
 
-  const banner = document.getElementById("cookie-consent");
-  const acceptBtn = document.getElementById("cookie-accept");
-  const declineBtn = document.getElementById("cookie-decline");
+  const banner = document.getElementById("qq-consent-banner");
+  const accept = document.getElementById("qq-consent-accept");
+  const decline = document.getElementById("qq-consent-decline");
 
-  // Stop if banner doesn't exist
   if (!banner) return;
 
-  // Show banner only if user hasn't made a choice
+  // Show banner if user has not chosen before
   if (!localStorage.getItem("quickqr_cookie_choice")) {
     banner.classList.add("show");
   }
 
   // Accept
-  if (acceptBtn) {
-    acceptBtn.addEventListener("click", function () {
-
-      localStorage.setItem("quickqr_cookie_choice", "accepted");
-
-      banner.classList.remove("show");
-
-    });
-  }
+  accept?.addEventListener("click", () => {
+    localStorage.setItem("quickqr_cookie_choice", "accepted");
+    banner.classList.remove("show");
+  });
 
   // Decline
-  if (declineBtn) {
-    declineBtn.addEventListener("click", function () {
-
-      localStorage.setItem("quickqr_cookie_choice", "declined");
-
-      banner.classList.remove("show");
-
-    });
-  }
+  decline?.addEventListener("click", () => {
+    localStorage.setItem("quickqr_cookie_choice", "declined");
+    banner.classList.remove("show");
+  });
 
 });
