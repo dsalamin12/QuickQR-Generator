@@ -4,7 +4,7 @@
 
 // ── State ──
 let qrInstance = null;
-let activeTab = 'url';
+let activeTab = (document.querySelector('.tab-btn.active') && document.querySelector('.tab-btn.active').dataset.tab) || 'url';
 let activeDotStyle = 'square';
 let activeCornerStyle = 'square';
 let logoDataURL = null;
@@ -75,17 +75,42 @@ themeToggle.addEventListener('click', () => {
 });
 
 // ── Tabs ──
+// Updated for dedicated pages to show dedicated description when navigated to other pages
 document.querySelectorAll('.tab-btn').forEach(btn => {
   btn.addEventListener('click', () => {
+
+    const pageMap = {
+      url: 'url-qr.html',
+      text: 'text-qr.html',
+      wifi: 'wifi-qr.html',
+      whatsapp: 'whatsapp-qr.html',
+      vcard: 'vcard-qr.html',
+      email: 'email-qr.html',
+      sms: 'sms-qr.html'
+    };
+
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    const targetPage = pageMap[btn.dataset.tab];
+
+    // Dedicated pages navigate to the corresponding dedicated page.
+    // Homepage keeps the current tab-switching behavior.
+    if (currentPage !== 'index.html' && currentPage !== '' && targetPage && currentPage !== targetPage) {
+      window.location.href = targetPage;
+      return;
+    }
+
     document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
     document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+
     btn.classList.add('active');
     activeTab = btn.dataset.tab;
+
     const panel = document.getElementById('tab-' + activeTab);
     if (panel) panel.classList.add('active');
+
     updateBulkUI();
     scheduleQR();
-    // Fix: sync mobile bar after tab switch renders new QR
+
     setTimeout(syncMobileBar, 600);
   });
 });
