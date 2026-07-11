@@ -1,3 +1,9 @@
+// ==========================================
+// QuickQR Cookie Consent Banner
+// Banner is a non-blocking fixed card (no backdrop/overlay), so visitors
+// can keep scrolling and using the site without tapping Accept or Decline.
+// ==========================================
+
 document.addEventListener("DOMContentLoaded", () => {
 
   const banner = document.getElementById("qq-consent-banner");
@@ -6,18 +12,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (!banner) return;
 
-  // Show banner if user has not chosen before
   if (!localStorage.getItem("quickqr_cookie_choice")) {
     banner.classList.add("show");
   }
 
-  // Accept
   accept?.addEventListener("click", () => {
     localStorage.setItem("quickqr_cookie_choice", "accepted");
     banner.classList.remove("show");
   });
 
-  // Decline
   decline?.addEventListener("click", () => {
     localStorage.setItem("quickqr_cookie_choice", "declined");
     banner.classList.remove("show");
