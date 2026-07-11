@@ -482,3 +482,56 @@ input,textarea,select{transition:border-color 0.18s,box-shadow 0.18s;}
   footer { padding: 16px 12px !important; }
   footer > div { justify-content: center !important; text-align: center !important; flex-direction: column !important; gap: 8px !important; }
 }
+
+/* ── QR TYPE CARDS (QR Code Types & Use Cases section) ── */
+.qr-types-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:16px;
+  margin-bottom:24px;
+}
+.qr-type-card{
+  display:flex;
+  flex-direction:column;
+  height:100%;
+  padding:18px 20px;
+  border-radius:12px;
+  background:var(--muted);
+  border:1px solid var(--border);
+  transition:border-color 0.18s, background 0.18s;
+}
+.qr-type-card:hover{
+  border-color:var(--brand);
+  background:var(--hover);
+}
+.qr-type-title{
+  font-family:'Syne',sans-serif;
+  font-weight:700;
+  font-size:0.92rem;
+  color:var(--text);
+  margin-bottom:6px;
+}
+.qr-type-description{
+  font-size:0.8rem;
+  color:var(--text-muted);
+  line-height:1.6;
+  flex-grow:1;
+  margin-bottom:14px;
+}
+.qr-type-button{
+  white-space:normal;
+  width:100%;
+  text-align:center;
+  text-decoration:none;
+  margin-top:auto;
+  border-color:var(--brand);
+  color:var(--brand);
+  font-weight:600;
+  transition:all 0.18s;
+}
+.qr-type-button:hover{
+  text-decoration:none;
+  background:var(--brand);
+  color:#fff;
+  border-color:var(--brand);
+}
