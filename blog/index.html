@@ -251,5 +251,28 @@
   <p>© 2026 <a href="../index.html">QuickQR</a> — Free, private QR code generator. No sign-up. No tracking. &nbsp;|&nbsp; <a href="../index.html">Create a QR Code →</a></p>
 </footer>
 
+<!-- To return to the dedicated page -->
+<script>
+(function () {
+  var VALID_FROM = ["url", "text", "wifi", "vcard", "whatsapp", "sms", "email"];
+  var params = new URLSearchParams(window.location.search);
+  var from = params.get("from");
+
+  if (from && VALID_FROM.indexOf(from) !== -1) {
+    var target = "../" + from + "-qr.html";
+
+    // Point every "back to generator" link at the specific tool page
+    document.querySelectorAll('a[href="../index.html"]').forEach(function (link) {
+      link.setAttribute("href", target);
+    });
+
+    // Carry the "from" context into whichever article the visitor opens next
+    document.querySelectorAll('.blog-grid a.card').forEach(function (link) {
+      link.setAttribute("href", link.getAttribute("href") + "?from=" + from);
+    });
+  }
+})();
+</script>
+
 </body>
 </html>
