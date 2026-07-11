@@ -627,31 +627,42 @@
           QuickQR supports the most common QR code formats, each optimised for a specific scenario.
         </p>
 
-        <!-- Feature grid unchanged -->
-        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:9px;margin-bottom:20px;">
-          <div style="padding:11px 13px;border-radius:9px;background:var(--muted);border:1px solid var(--border);">
-            <strong style="color:var(--text);font-size:0.84rem;">🔗 URL QR Code</strong>
-            <p style="font-size:0.75rem;color:var(--text-muted);margin-top:3px;">Link to any website, social profile, or landing page.</p>
+        <!-- Feature grid: reusable component classes, cards link to dedicated generator pages -->
+        <div class="qr-types-grid">
+          <div class="qr-type-card">
+            <strong class="qr-type-title">🔗 URL QR Code</strong>
+            <p class="qr-type-description">Link to any website, social profile, or landing page. Great for marketing materials, packaging, and printed signage.</p>
+            <a href="url-qr.html" class="btn btn-outline btn-sm qr-type-button">Open URL QR Generator</a>
           </div>
-          <div style="padding:11px 13px;border-radius:9px;background:var(--muted);border:1px solid var(--border);">
-            <strong style="color:var(--text);font-size:0.84rem;">📶 WiFi QR Code</strong>
-            <p style="font-size:0.75rem;color:var(--text-muted);margin-top:3px;">Let guests connect to your network by scanning — no password typing.</p>
+          <div class="qr-type-card">
+            <strong class="qr-type-title">📝 Text QR Code</strong>
+            <p class="qr-type-description">Turn any note, message, or instructions into a scannable code. Great for offline notes, product packaging, and quick reference codes.</p>
+            <a href="text-qr.html" class="btn btn-outline btn-sm qr-type-button">Open Text QR Generator</a>
           </div>
-          <div style="padding:11px 13px;border-radius:9px;background:var(--muted);border:1px solid var(--border);">
-            <strong style="color:var(--text);font-size:0.84rem;">💬 WhatsApp QR Code</strong>
-            <p style="font-size:0.75rem;color:var(--text-muted);margin-top:3px;">One scan opens a WhatsApp chat with a pre-filled message.</p>
+          <div class="qr-type-card">
+            <strong class="qr-type-title">📶 WiFi QR Code</strong>
+            <p class="qr-type-description">Let guests connect to your network by scanning — no password typing. Ideal for cafés, offices, and short-term rentals.</p>
+            <a href="wifi-qr.html" class="btn btn-outline btn-sm qr-type-button">Open WiFi QR Generator</a>
           </div>
-          <div style="padding:11px 13px;border-radius:9px;background:var(--muted);border:1px solid var(--border);">
-            <strong style="color:var(--text);font-size:0.84rem;">📇 vCard QR Code</strong>
-            <p style="font-size:0.75rem;color:var(--text-muted);margin-top:3px;">Save your full contact details to someone's phone in one scan.</p>
+          <div class="qr-type-card">
+            <strong class="qr-type-title">💬 WhatsApp QR Code</strong>
+            <p class="qr-type-description">One scan opens a WhatsApp chat with a pre-filled message. A fast way for customers to reach you directly.</p>
+            <a href="whatsapp-qr.html" class="btn btn-outline btn-sm qr-type-button">Open WhatsApp QR Generator</a>
           </div>
-          <div style="padding:11px 13px;border-radius:9px;background:var(--muted);border:1px solid var(--border);">
-            <strong style="color:var(--text);font-size:0.84rem;">✉️ Email QR Code</strong>
-            <p style="font-size:0.75rem;color:var(--text-muted);margin-top:3px;">Open a pre-addressed email with subject and body ready to send.</p>
+          <div class="qr-type-card">
+            <strong class="qr-type-title">📇 vCard QR Code</strong>
+            <p class="qr-type-description">Save your full contact details to someone's phone in one scan. Perfect for business cards and conference badges.</p>
+            <a href="vcard-qr.html" class="btn btn-outline btn-sm qr-type-button">Open vCard QR Generator</a>
           </div>
-          <div style="padding:11px 13px;border-radius:9px;background:var(--muted);border:1px solid var(--border);">
-            <strong style="color:var(--text);font-size:0.84rem;">💬 SMS QR Code</strong>
-            <p style="font-size:0.75rem;color:var(--text-muted);margin-top:3px;">Open a text message to your number with a pre-written message.</p>
+          <div class="qr-type-card">
+            <strong class="qr-type-title">✉️ Email QR Code</strong>
+            <p class="qr-type-description">Open a pre-addressed email with subject and body ready to send. Useful for support requests and feedback forms.</p>
+            <a href="email-qr.html" class="btn btn-outline btn-sm qr-type-button">Open Email QR Generator</a>
+          </div>
+          <div class="qr-type-card">
+            <strong class="qr-type-title">💬 SMS QR Code</strong>
+            <p class="qr-type-description">Open a text message to your number with a pre-written message. Handy for opt-ins, RSVPs, and quick customer replies.</p>
+            <a href="sms-qr.html" class="btn btn-outline btn-sm qr-type-button">Open SMS QR Generator</a>
           </div>
         </div>
 
@@ -664,38 +675,42 @@
   To track scans, create a short URL with Bitly and paste it into QuickQR.
 </p>
 
+<h3 style="font-family:'Syne',sans-serif;font-weight:600;font-size:1.1rem;color:var(--text);margin-bottom:6px;">📝 Text QR Codes</h3>
+<p style="color:var(--text-muted);font-size:0.85rem;line-height:1.8;margin-bottom:14px;">
+  A text QR code stores plain words directly in the pattern — a note, instructions, or a short message that displays the moment it's scanned. 
+  No app, no link, no internet connection needed on the scanning device. 
+  Useful for product care instructions, reference codes, and offline messages.
+</p>
+
 <h3 style="font-family:'Syne',sans-serif;font-weight:600;font-size:1.1rem;color:var(--text);margin-bottom:6px;">📶 WiFi QR Codes</h3>
 <p style="color:var(--text-muted);font-size:0.85rem;line-height:1.8;margin-bottom:14px;">
   A WiFi QR code lets guests connect to your network by scanning — no password needed. 
   Perfect for cafés, hotels, and home networks. Choose WPA/WPA2 for security or set it to open access. 
-  Print it on a table tent or wall sign and never repeat “What’s the Wi‑Fi password?” again.
+  Print it on a table tent or wall sign and never repeat "What's the Wi‑Fi password?" again.
 </p>
-
 
 <h3 style="font-family:'Syne',sans-serif;font-weight:600;font-size:1.1rem;color:var(--text);margin-bottom:6px;">💬 WhatsApp QR Codes</h3>
 <p style="color:var(--text-muted);font-size:0.85rem;line-height:1.8;margin-bottom:14px;">
   One scan opens a WhatsApp chat directly — no need to save the number first. 
-  You can pre‑fill a message like “I’m interested in your services”. 
+  You can pre‑fill a message like "I'm interested in your services". 
   Small businesses use WhatsApp QR codes on flyers, product inserts, and store windows.
 </p>
 
-
 <h3 style="font-family:'Syne',sans-serif;font-weight:600;font-size:1.1rem;color:var(--text);margin-bottom:6px;">📇 vCard QR Codes</h3>
 <p style="color:var(--text-muted);font-size:0.85rem;line-height:1.8;margin-bottom:14px;">
-  A digital business card. When scanned, the user’s phone prompts to save your name, phone, email, company, and job title. 
-  Use it on printed business cards, email signatures, or conference badges. 
-  Read our <a href="blog/qr-code-business-cards.html" style="color:var(--brand-light);">full guide to vCard QR codes</a>.
+  A digital business card. When scanned, the user's phone prompts to save your name, phone, email, company, and job title. 
+  Use it on printed business cards, email signatures, or conference badges.
 </p>
 
 <h3 style="font-family:'Syne',sans-serif;font-weight:600;font-size:1.1rem;color:var(--text);margin-bottom:6px;">✉️ Email QR Codes</h3>
-<p style="color:var(--text-muted);font-size:0.85rem;line-height:1.8;margin-bottom:20px;">
+<p style="color:var(--text-muted);font-size:0.85rem;line-height:1.8;margin-bottom:14px;">
   An email QR code opens the default mail app with the recipient, subject, and body already filled. 
   Ideal for customer feedback forms, event RSVPs, or internal IT help‑desk requests. 
   You can create multiple email QR codes in bulk using the CSV upload feature.
 </p>
 
 <h3 style="font-family:'Syne',sans-serif;font-weight:600;font-size:1.1rem;color:var(--text);margin-bottom:6px;">💬 SMS QR Codes</h3>
-<p style="color:var(--text-muted);font-size:0.85rem;line-height:1.8;margin-bottom:14px;">
+<p style="color:var(--text-muted);font-size:0.85rem;line-height:1.8;margin-bottom:20px;">
   Scanning opens the SMS app with a pre‑filled phone number and message. 
   Used for text‑to‑subscribe campaigns, event check‑ins, and quick customer support. 
   Keep your message short — SMS is limited to 160 characters.
@@ -754,7 +769,26 @@
         </div>
         <span style="font-family:'Syne',sans-serif;font-size:0.8rem;font-weight:700;color:var(--text);">QuickQR</span>
       </div>
-      <p style="font-size:0.72rem;color:var(--text-faint);text-align:center;">100% client-side processing. No data is ever sent to any server. <a href="blog/index.html" style="color:var(--brand-light);text-decoration:none;">QR Code Guides →</a></p>
+      
+      <p style="font-size:0.72rem;color:var(--text-faint);text-align:center;">
+  100% client-side processing. No data is ever sent to any server.
+  <br><br>
+
+  <a href="privacy-policy.html" style="color:var(--brand-light);text-decoration:none;">Privacy Policy</a>
+  &nbsp;•&nbsp;
+
+  <a href="terms.html" style="color:var(--brand-light);text-decoration:none;">Terms</a>
+  &nbsp;•&nbsp;
+
+  <a href="about.html" style="color:var(--brand-light);text-decoration:none;">About</a>
+  &nbsp;•&nbsp;
+
+  <a href="contact.html" style="color:var(--brand-light);text-decoration:none;">Contact</a>
+  &nbsp;•&nbsp;
+
+  <a href="blog/index.html" style="color:var(--brand-light);text-decoration:none;">Blog</a>
+
+</p>
       <div style="display:flex;align-items:center;gap:5px;"><div class="live-dot" aria-hidden="true"></div><span style="font-size:0.7rem;font-family:'Syne',sans-serif;font-weight:600;color:var(--success);">PRIVATE &amp; SECURE</span></div>
     </div>
   </footer>
@@ -763,18 +797,24 @@
   <script src="assets/qr-engine.js"></script>
 
     <!-- Adding Consent Mode Bannar, AL-Amin-->
-<div id="qq-consent-banner">
+<div id="qq-consent-banner" role="dialog" aria-live="polite" aria-label="Cookie and privacy notice">
 
-  <h3>🍪 Privacy & Analytics</h3>
+  <div class="qq-consent-icon" aria-hidden="true">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/>
+    </svg>
+  </div>
 
   <p>
-    QuickQR uses anonymous analytics to improve the website. QR codes are generated 
-    entirely in your browser and are never uploaded or stored on our servers. You can 
-    change your choice anytime.
+    <span class="qq-consent-text-full">QuickQR uses anonymous analytics to improve the website. QR codes are generated 
+    entirely in your browser and are never uploaded or stored on our servers.
+     <a href="privacy-policy.html">Privacy policy</a></span>
+    <span class="qq-consent-text-short">QuickQR uses anonymous analytics to improve the website. QR codes are generated 
+    entirely in your browser and are never uploaded or stored on our servers.
+    <a href="privacy-policy.html">Privacy policy</a></span>
   </p>
 
   <div class="qq-consent-actions">
-
     <button
       id="qq-consent-decline"
       class="qq-btn qq-btn-decline">
@@ -786,9 +826,7 @@
       class="qq-btn qq-btn-accept">
       Accept
     </button>
-
   </div>
-
 </div>
   
   <script src="assets/consent.js"></script>
