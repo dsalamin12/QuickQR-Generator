@@ -1,6 +1,6 @@
 /* ==========================================
    QuickQR Cookie Consent Banner
-   Version 1.0
+   Version 2.0 — flat horizontal layout
 ========================================== */
 
 #qq-consent-banner {
@@ -8,89 +8,131 @@
   left: 50%;
   bottom: 20px;
   transform: translateX(-50%);
-  width: min(92%, 520px);
+  width: min(94%, 640px);
+
+  display: none;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px;
 
   background: var(--card);
   color: var(--text);
 
-  border: 1px solid var(--border);
+  border: 1.5px solid var(--brand);
   border-radius: 16px;
 
-  padding: 18px;
+  padding: 14px 18px;
 
-  box-shadow: 0 20px 45px rgba(0,0,0,.25);
-
-  display: none;
+  box-shadow: 0 20px 45px rgba(0,0,0,.25), 0 0 0 4px var(--brand-glow);
 
   z-index: 9999;
 }
 
 #qq-consent-banner.show{
-    display:block;
+  display: flex;
 }
 
-#qq-consent-banner h3{
-  margin:0 0 10px;
-  font-size:1rem;
+.qq-consent-icon{
+  flex-shrink: 0;
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: var(--brand-glow);
+  color: var(--brand-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.qq-consent-icon svg{
+  width: 19px;
+  height: 19px;
 }
 
 #qq-consent-banner p{
-  margin:0;
-  line-height:1.6;
-  font-size:.92rem;
+  margin: 0;
+  flex: 1 1 260px;
+  min-width: 200px;
+  line-height: 1.5;
+  font-size: .88rem;
+  color: var(--text);
 }
 
+#qq-consent-banner p a{
+  color: var(--brand-light);
+  text-decoration: underline;
+  white-space: nowrap;
+}
+
+.qq-consent-text-short{ display: none; }
+
 .qq-consent-actions{
-  display:flex;
-  gap:12px;
-  justify-content:flex-end;
-  margin-top:18px;
+  display: flex;
+  gap: 10px;
+  flex-shrink: 0;
+  align-items: center;
 }
 
 .qq-btn{
-  border:none;
-  border-radius:10px;
-  padding:10px 18px;
-  cursor:pointer;
-  font-weight:600;
-  transition:.2s;
+  border-radius: 10px;
+  padding: 9px 18px;
+  cursor: pointer;
+  font-size: .85rem;
+  font-weight: 600;
+  line-height: 1.2;
+  white-space: nowrap;
+  transition: .2s;
 }
 
 .qq-btn-decline{
-  background:transparent;
-  border:1px solid var(--border);
-  color:var(--text);
+  background: transparent;
+  border: 1.5px solid var(--brand);
+  color: var(--text);
+}
+.qq-btn-decline:hover{
+  background: var(--brand-glow);
 }
 
 .qq-btn-accept{
-  background:var(--brand);
-  color:#fff;
+  background: var(--brand);
+  border: 1.5px solid var(--brand);
+  color: #fff;
+}
+.qq-btn-accept:hover{
+  background: var(--brand-light);
+  border-color: var(--brand-light);
 }
 
 .qq-btn:hover{
-  transform:translateY(-1px);
+  transform: translateY(-1px);
+}
+.qq-btn:focus-visible{
+  outline: 2px solid var(--brand-light);
+  outline-offset: 2px;
 }
 
-@media(max-width:600px){
+@media (max-width: 600px){
 
   #qq-consent-banner{
+    bottom: 25px;
+    padding: 12px 14px;
+    gap: 10px;
+  }
 
-    bottom:12px;
+  .qq-consent-text-full{ display: none; }
+  .qq-consent-text-short{ display: inline; }
 
-    padding:16px;
+  #qq-consent-banner p{
+    font-size: .85rem;
+    flex-basis: 100%;
+  }
 
+  .qq-consent-icon{
+    width: 34px;
+    height: 34px;
   }
 
   .qq-consent-actions{
-
-    flex-direction:column;
-
+    flex-basis: 100%;
+    justify-content: flex-start;
   }
-
-  .qq-btn{
-
-    width:100%;
-
-  }
-
 }
