@@ -51,7 +51,7 @@ If you want a proper mobile menu page, [Canva](https://canva.com) has free menu 
 
 ## Step 2: Create Your QR Code
 
-Once you have your menu link, go to **[QuickQR — Free QR Code Generator](https://dsalamin12.github.io/QuickQR-Generator/)**.
+Once you have your menu link, go to **[QuickQR — Free QR Code Generator](https://getquickqr.com/)**.
 
 1. Select the **🔗 URL** tab
 2. Paste your menu link into the URL field
@@ -161,7 +161,7 @@ No. QuickQR is completely free, with no subscription, no watermarks, and no scan
 
 Your restaurant menu QR code takes under 2 minutes to create and costs nothing. Update it anytime, print it once, and let customers serve themselves the information they need.
 
-👉 **[Create your free restaurant menu QR code at QuickQR](https://dsalamin12.github.io/QuickQR-Generator/)**
+👉 **[Create your free restaurant menu QR code at QuickQR](https://getquickqr.com/)**
 
 Free. Private. No sign-up. Works forever.
 

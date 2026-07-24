@@ -120,4 +120,22 @@
     <priority>0.70</priority>
   </url>
 
+  <url>
+    <loc>https://getquickqr.com/blog/qr-code-for-website-url.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+  </url>
+
+  <url>
+    <loc>https://getquickqr.com/blog/sms-qr-code.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+  </url>
+
+  <url>
+    <loc>https://getquickqr.com/blog/text-qr-code-guide.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+  </url>
+
 </urlset>

@@ -49,7 +49,7 @@ Just replace `yourusername` with your actual Instagram handle. You don't need to
 
 ### Step 1: Go to QuickQR
 
-Visit **[QuickQR — Free QR Code Generator](https://dsalamin12.github.io/QuickQR-Generator/)**.
+Visit **[QuickQR — Free QR Code Generator](https://getquickqr.com/)**.
 
 No account needed. No sign-up. Works in any browser.
 
@@ -179,7 +179,7 @@ Every person you meet in real life is a potential follower — but only if findi
 
 Create yours now — free, no sign-up, done in under 2 minutes.
 
-👉 **[Create your Instagram QR code at QuickQR](https://dsalamin12.github.io/QuickQR-Generator/)**
+👉 **[Create your Instagram QR code at QuickQR](https://getquickqr.com/)**
 
 ---
 

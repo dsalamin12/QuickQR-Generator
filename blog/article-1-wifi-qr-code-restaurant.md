@@ -37,7 +37,7 @@ It works on:
 
 ### Step 1: Go to QuickQR Generator
 
-Visit **[QuickQR — Free QR Code Generator](https://dsalamin12.github.io/QuickQR-Generator/)** — it's completely free, requires no sign-up, and works entirely in your browser. Your WiFi password is never sent to any server.
+Visit **[QuickQR — Free QR Code Generator](https://getquickqr.com/)** — it's completely free, requires no sign-up, and works entirely in your browser. Your WiFi password is never sent to any server.
 
 ### Step 2: Select the WiFi Tab
 
@@ -128,7 +128,7 @@ Absolutely — and we recommend it. A branded QR code that matches your logo col
 
 Creating a WiFi QR code is one of the easiest, most impactful improvements you can make for your guests today — and it costs nothing.
 
-👉 **[Create your free WiFi QR code now at QuickQR](https://dsalamin12.github.io/QuickQR-Generator/)**
+👉 **[Create your free WiFi QR code now at QuickQR](https://getquickqr.com/)**
 
 No sign-up. No app. No cost. Done in under 2 minutes.
 

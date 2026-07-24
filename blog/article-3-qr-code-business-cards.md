@@ -45,7 +45,7 @@ It supports: full name, phone number, email address, company name, job title, an
 
 ### Step 1: Open QuickQR
 
-Visit **[QuickQR — Free QR Code Generator](https://dsalamin12.github.io/QuickQR-Generator/)**.
+Visit **[QuickQR — Free QR Code Generator](https://getquickqr.com/)**.
 
 No account required. Works in any browser on phone or desktop.
 
@@ -176,7 +176,7 @@ Total time: under 5 minutes. Cost: free.
 
 ---
 
-👉 **[Create your free vCard QR code at QuickQR](https://dsalamin12.github.io/QuickQR-Generator/)**
+👉 **[Create your free vCard QR code at QuickQR](https://getquickqr.com/)**
 
 ---
 

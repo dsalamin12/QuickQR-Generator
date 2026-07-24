@@ -47,7 +47,7 @@ First, choose what happens when someone scans your email signature QR code. The 
 
 ## Step 2: Create Your QR Code at QuickQR
 
-Go to **[QuickQR — Free QR Code Generator](https://dsalamin12.github.io/QuickQR-Generator/)**.
+Go to **[QuickQR — Free QR Code Generator](https://getquickqr.com/)**.
 
 **For a vCard (contact) QR code:**
 - Click the **📇 vCard** tab
@@ -173,7 +173,7 @@ No. QuickQR creates static QR codes that never expire and have no server depende
 
 Adding a QR code to your email signature is a 10-minute task that makes every email you send slightly more useful. The people who scan it will appreciate the instant convenience — and it sets you apart from the standard name-and-phone-number signature everyone else uses.
 
-👉 **[Create your free email signature QR code at QuickQR](https://dsalamin12.github.io/QuickQR-Generator/)**
+👉 **[Create your free email signature QR code at QuickQR](https://getquickqr.com/)**
 
 Free. No sign-up. Ready in minutes.
 

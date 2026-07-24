@@ -44,7 +44,7 @@ If customers or clients contact you on WhatsApp, a QR code makes that 10x easier
 
 ### Step 1: Open QuickQR
 
-Go to **[QuickQR — Free QR Code Generator](https://dsalamin12.github.io/QuickQR-Generator/)**.
+Go to **[QuickQR — Free QR Code Generator](https://getquickqr.com/)**.
 
 No account needed. No personal data collected. It works entirely in your browser.
 
@@ -144,7 +144,7 @@ No. QuickQR runs entirely in your browser. Your number is embedded in the QR cod
 
 A WhatsApp QR code is a tiny thing that makes a real difference. It removes every barrier between someone seeing your business and actually contacting you — and takes under 2 minutes to create.
 
-👉 **[Make your free WhatsApp QR code at QuickQR](https://dsalamin12.github.io/QuickQR-Generator/)**
+👉 **[Make your free WhatsApp QR code at QuickQR](https://getquickqr.com/)**
 
 Free. Private. No sign-up. No expiry.
 

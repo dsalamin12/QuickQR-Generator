@@ -1,14 +1,14 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 :root{
   --bg:#f0f4ff;--card:#ffffff;--border:#dde3f0;--muted:#f1f5ff;--hover:#e6eaf8;
-  --text:#0f172a;--text-muted:#64748b;--text-faint:#94a3b8;
+  --text:#0f172a;--text-muted:#64748b;--text-faint:#5b6b85;
   --brand:#4f46e5;--brand-light:#6366f1;--brand-glow:rgba(79,70,229,0.12);
   --success:#059669;--warning:#d97706;
   --bg-gradient:linear-gradient(135deg,#eef2ff 0%,#f0f4ff 40%,#faf5ff 100%);
 }
 [data-theme="dark"]{
   --bg:#0f1117;--card:#161b27;--border:#1e2535;--muted:#252d3d;--hover:#2a3347;
-  --text:#f1f5f9;--text-muted:#94a3b8;--text-faint:#475569;
+  --text:#f1f5f9;--text-muted:#94a3b8;--text-faint:#7c8aa3;
   --brand:#6366f1;--brand-light:#818cf8;--brand-glow:rgba(99,102,241,0.2);
   --success:#10b981;--warning:#f59e0b;--bg-gradient:none;
 }
@@ -171,7 +171,7 @@ label.lbl{
 .btn-brand:active{transform:translateY(0);}
 .btn-outline{background:var(--muted);color:var(--text);border:1px solid var(--border);}
 .btn-outline:hover{background:var(--hover);border-color:var(--brand);color:var(--brand-light);}
-.btn-sm{padding:5px 10px;font-size:0.72rem;}
+.btn-sm{padding:5px 10px;font-size:0.72rem;min-height:32px;}
 .btn:disabled{opacity:0.5;pointer-events:none;}
 .w-full{width:100%;}
 
@@ -236,6 +236,9 @@ input[type="range"]{
 input[type="range"]::-webkit-slider-thumb{
   -webkit-appearance:none;width:15px;height:15px;border-radius:50%;
   background:var(--brand);box-shadow:0 0 0 3px var(--brand-glow);cursor:pointer;
+}
+input[type="range"]:focus-visible{
+  outline:2px solid var(--brand);outline-offset:3px;
 }
 
 /* ── EC BADGE ── */
