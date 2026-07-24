@@ -231,7 +231,7 @@
   <!-- ══════════════════════════════════════════════
        HEADER – brand name as <span>, not an h1
   ══════════════════════════════════════════════ -->
-  <header id="site-header" role="banner">
+  <header id="site-header">
     <div class="header-inner">
       <div style="display:flex;align-items:center;gap:10px;flex-shrink:0;">
         <a href="https://getquickqr.com/" aria-label="QuickQR Home">
@@ -325,7 +325,7 @@
                 </div>
               </div>
               <div><label class="lbl" for="wifi-sec">Security Type</label><select class="inp" id="wifi-sec" aria-label="WiFi security type"><option value="WPA">WPA / WPA2 (Recommended)</option><option value="WEP">WEP</option><option value="nopass">None (Open network)</option></select></div>
-              <label class="toggle-wrap"><div class="toggle" id="wifi-hidden-toggle" onclick="this.classList.toggle('on');scheduleQR();" role="switch" aria-checked="false" aria-label="Hidden network toggle"></div><span style="font-size:0.85rem;color:var(--text-muted);">Hidden network (SSID not broadcast)</span></label>
+              <label class="toggle-wrap"><span class="toggle" id="wifi-hidden-toggle" onclick="this.classList.toggle('on');scheduleQR();" role="switch" aria-checked="false" aria-label="Hidden network toggle"></span><span style="font-size:0.85rem;color:var(--text-muted);">Hidden network (SSID not broadcast)</span></label>
             </div>
           </div>
 
@@ -421,23 +421,23 @@
             </h3>
             <div class="accordion-body" id="acc-colors-body">
               <label class="toggle-wrap" style="margin-bottom:13px;">
-                <div class="toggle" id="gradient-toggle" onclick="this.classList.toggle('on');toggleGradientUI();scheduleQR();" role="switch" aria-checked="false" aria-label="Enable dot colour gradient"></div>
+                <span class="toggle" id="gradient-toggle" onclick="this.classList.toggle('on');toggleGradientUI();scheduleQR();" role="switch" aria-checked="false" aria-label="Enable dot colour gradient"></span>
                 <span style="font-size:0.85rem;color:var(--text-muted);font-weight:600;">Enable Dot Color Gradient</span>
               </label>
               <div id="gradient-ui" style="display:none;margin-bottom:13px;">
                 <div style="margin-bottom:10px;"><label class="lbl" for="gradient-type">Gradient Type</label><select class="inp" id="gradient-type"><option value="linear">Linear</option><option value="radial">Radial</option></select></div>
                 <div><label class="lbl" for="color-grad-end">Gradient End Color</label>
-                  <label class="color-swatch-wrap" for="color-grad-end"><input type="color" id="color-grad-end" value="#6366f1" oninput="scheduleQR()" aria-label="Gradient end colour"/><div><div style="font-family:'Syne',sans-serif;font-size:0.78rem;font-weight:600;color:var(--text);">End Color</div><div style="font-size:0.68rem;color:var(--text-faint);" id="color-grad-end-hex">#6366f1</div></div></label>
+                  <label class="color-swatch-wrap" for="color-grad-end"><input type="color" id="color-grad-end" value="#6366f1" oninput="scheduleQR()" aria-label="Gradient end colour"/><span><span style="display:block;font-family:'Syne',sans-serif;font-size:0.78rem;font-weight:600;color:var(--text);">End Color</span><span style="display:block;font-size:0.68rem;color:var(--text-faint);" id="color-grad-end-hex">#6366f1</span></span></label>
                 </div>
               </div>
               <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px;">
-                <div><label class="lbl" for="color-fg">Dots Color</label><label class="color-swatch-wrap" for="color-fg"><input type="color" id="color-fg" value="#000000" oninput="scheduleQR()" aria-label="QR dot colour"/><div><div style="font-family:'Syne',sans-serif;font-size:0.78rem;font-weight:600;color:var(--text);">Dot Color</div><div style="font-size:0.68rem;color:var(--text-faint);" id="color-fg-hex">#000000</div></div></label></div>
-                <div><label class="lbl" for="color-bg">Background</label><label class="color-swatch-wrap" for="color-bg"><input type="color" id="color-bg" value="#ffffff" oninput="scheduleQR()" aria-label="Background colour"/><div><div style="font-family:'Syne',sans-serif;font-size:0.78rem;font-weight:600;color:var(--text);">BG Color</div><div style="font-size:0.68rem;color:var(--text-faint);" id="color-bg-hex">#ffffff</div></div></label></div>
+                <div><label class="lbl" for="color-fg">Dots Color</label><label class="color-swatch-wrap" for="color-fg"><input type="color" id="color-fg" value="#000000" oninput="scheduleQR()" aria-label="QR dot colour"/><span><span style="display:block;font-family:'Syne',sans-serif;font-size:0.78rem;font-weight:600;color:var(--text);">Dot Color</span><span style="display:block;font-size:0.68rem;color:var(--text-faint);" id="color-fg-hex">#000000</span></span></label></div>
+                <div><label class="lbl" for="color-bg">Background</label><label class="color-swatch-wrap" for="color-bg"><input type="color" id="color-bg" value="#ffffff" oninput="scheduleQR()" aria-label="Background colour"/><span><span style="display:block;font-family:'Syne',sans-serif;font-size:0.78rem;font-weight:600;color:var(--text);">BG Color</span><span style="display:block;font-size:0.68rem;color:var(--text-faint);" id="color-bg-hex">#ffffff</span></span></label></div>
               </div>
               <div style="margin-bottom:13px;"><label class="lbl">Corner Eye Colors</label>
                 <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
-                  <label class="color-swatch-wrap" for="color-eye-outer"><input type="color" id="color-eye-outer" value="#000000" oninput="scheduleQR()" aria-label="Corner eye outer colour"/><div><div style="font-family:'Syne',sans-serif;font-size:0.73rem;font-weight:600;color:var(--text);">Outer Square</div><div style="font-size:0.65rem;color:var(--text-faint);" id="color-eye-outer-hex">#000000</div></div></label>
-                  <label class="color-swatch-wrap" for="color-eye-inner"><input type="color" id="color-eye-inner" value="#000000" oninput="scheduleQR()" aria-label="Corner eye inner colour"/><div><div style="font-family:'Syne',sans-serif;font-size:0.73rem;font-weight:600;color:var(--text);">Inner Dot</div><div style="font-size:0.65rem;color:var(--text-faint);" id="color-eye-inner-hex">#000000</div></div></label>
+                  <label class="color-swatch-wrap" for="color-eye-outer"><input type="color" id="color-eye-outer" value="#000000" oninput="scheduleQR()" aria-label="Corner eye outer colour"/><span><span style="display:block;font-family:'Syne',sans-serif;font-size:0.73rem;font-weight:600;color:var(--text);">Outer Square</span><span style="display:block;font-size:0.65rem;color:var(--text-faint);" id="color-eye-outer-hex">#000000</span></span></label>
+                  <label class="color-swatch-wrap" for="color-eye-inner"><input type="color" id="color-eye-inner" value="#000000" oninput="scheduleQR()" aria-label="Corner eye inner colour"/><span><span style="display:block;font-family:'Syne',sans-serif;font-size:0.73rem;font-weight:600;color:var(--text);">Inner Dot</span><span style="display:block;font-size:0.65rem;color:var(--text-faint);" id="color-eye-inner-hex">#000000</span></span></label>
                 </div>
               </div>
               <div><label class="lbl">Quick Presets</label>
@@ -485,10 +485,10 @@
               <svg class="chevron" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
             </h3>
             <div class="accordion-body" id="acc-logo-body">
+              <input type="file" id="logo-file" accept="image/png,image/jpeg,image/jpg,image/svg+xml" onchange="handleLogoUpload(this)" aria-label="Upload logo file (PNG, JPG or SVG, max 2MB)" style="display:none;"/>
               <div id="logo-dropzone" class="file-drop" onclick="document.getElementById('logo-file').click()" role="button" aria-label="Click to upload logo image" tabindex="0">
-                <input type="file" id="logo-file" accept="image/png,image/jpeg,image/jpg,image/svg+xml" onchange="handleLogoUpload(this)" aria-label="Upload logo file (PNG, JPG or SVG, max 2MB)"/>
                 <div id="logo-placeholder"><p style="font-size:1.4rem;margin-bottom:6px;" aria-hidden="true">🖼️</p><p style="font-family:'Syne',sans-serif;font-weight:600;font-size:0.855rem;color:var(--text);">Click to Upload Logo</p><p style="font-size:0.73rem;color:var(--text-faint);margin-top:3px;">PNG, JPG or SVG — max 2MB</p></div>
-                <div id="logo-preview-wrap" style="display:none;align-items:center;gap:11px;"><img id="logo-preview" style="width:44px;height:44px;object-fit:contain;border-radius:7px;border:1px solid var(--border);" alt="Uploaded logo preview"/><div><p style="font-family:'Syne',sans-serif;font-size:0.79rem;font-weight:600;color:var(--text);" id="logo-name">logo.png</p><p style="font-size:0.69rem;color:var(--text-faint);">Error correction forced to High ⬆️</p></div></div>
+                <div id="logo-preview-wrap" style="display:none;align-items:center;gap:11px;"><img id="logo-preview" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" style="width:44px;height:44px;object-fit:contain;border-radius:7px;border:1px solid var(--border);" alt="Uploaded logo preview"/><div><p style="font-family:'Syne',sans-serif;font-size:0.79rem;font-weight:600;color:var(--text);" id="logo-name">logo.png</p><p style="font-size:0.69rem;color:var(--text-faint);">Error correction forced to High ⬆️</p></div></div>
               </div>
               <div id="logo-controls" style="display:none;margin-top:13px;gap:11px;flex-direction:column;">
                 <div><label class="lbl" for="logo-size">Logo Size <span id="logo-size-label" style="font-weight:400;text-transform:none;letter-spacing:0;color:var(--text-faint);">25%</span></label><input type="range" min="10" max="40" value="25" step="1" id="logo-size" oninput="document.getElementById('logo-size-label').textContent=this.value+'%';scheduleQR();" aria-label="Logo size percentage"/></div>
@@ -522,7 +522,7 @@
             <div style="display:flex;align-items:center;gap:5px;"><div class="live-dot" aria-hidden="true"></div><span style="font-size:0.66rem;font-family:'Syne',sans-serif;font-weight:700;color:var(--success);" aria-live="polite">LIVE</span></div>
           </div>
           <p style="font-size:0.68rem;color:var(--text-faint);margin-bottom:9px;">QR updates automatically as you type.</p>
-          <div id="qr-container" style="min-height:240px;" aria-label="QR code preview" aria-live="polite">
+          <div id="qr-container" style="min-height:240px;" role="region" aria-label="QR code preview" aria-live="polite">
             <div class="qr-placeholder" id="placeholder-view">
               <div class="qr-placeholder-icon" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke="var(--text-faint)" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><path d="M14 14h.01M14 17h.01M17 14h.01M20 14v1M20 17v1M20 20h-2M17 20h-1M17 17v3"/></svg></div>
               <div><p style="font-family:'Syne',sans-serif;font-weight:600;font-size:0.84rem;color:var(--text-muted);">Awaiting your input…</p><p style="font-size:0.72rem;color:var(--text-faint);margin-top:3px;">Fill in the fields on the left.</p></div>
@@ -718,7 +718,7 @@
   </main><!-- /main-content -->
 
   <!-- Footer (unchanged) -->
-  <footer style="border-top:1px solid var(--border);padding:18px 24px;" role="contentinfo">
+  <footer style="border-top:1px solid var(--border);padding:18px 24px;">
     <div style="max-width:1280px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;">
       <div style="display:flex;align-items:center;gap:9px;">
         <div style="width:22px;height:22px;border-radius:5px;background:linear-gradient(135deg,#4f46e5,#818cf8);display:flex;align-items:center;justify-content:center;" aria-hidden="true">
