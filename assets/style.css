@@ -540,6 +540,10 @@ input,textarea,select{transition:border-color 0.18s,box-shadow 0.18s;}
   background:#514fd0;
   border-color:#514fd0;
 }
+.nav-blog{color:var(--brand);}
+[data-theme="dark"] .nav-blog{color:var(--brand-light);}
+.ec-locked-text{color:#92400e;}
+[data-theme="dark"] .ec-locked-text{color:#f59e0b;}
 .qr-type-button:hover{
   text-decoration:none;
   background:var(--brand);

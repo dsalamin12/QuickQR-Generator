@@ -285,7 +285,7 @@
       </div>
 
       <nav aria-label="Site navigation" style="display:flex;align-items:center;gap:10px;">
-        <a href="blog/index.html" class="nav-blog" style="color:#818cf8;text-decoration:none;font-size:0.9rem;" aria-label="QR Code guides and tutorials blog">📚 Blog</a>
+        <a href="blog/index.html" class="nav-blog" style="text-decoration:none;font-size:0.9rem;" aria-label="QR Code guides and tutorials blog">📚 Blog</a>
         <button id="theme-toggle" class="btn btn-outline" style="padding:7px 13px;flex-shrink:0;" aria-label="Toggle dark and light mode">
           <span id="theme-icon" aria-hidden="true">🌙</span>
           <span id="theme-label" style="font-size:0.78rem;">Dark</span>
@@ -536,7 +536,7 @@
             <div class="accordion-body" id="acc-ec-body">
               <div style="display:flex;align-items:center;gap:8px;margin-bottom:11px;"><label class="lbl" style="margin:0;" for="ec-level">Error Correction Level</label><span id="ec-badge" class="ec-badge normal" aria-live="polite">L — Low</span></div>
               <select class="inp" id="ec-level" onchange="updateECBadge(this.value);scheduleQR();" aria-label="Error correction level"><option value="L">L — Low (7% recovery)</option><option value="M">M — Medium (15% recovery)</option><option value="Q">Q — Quartile (25% recovery)</option><option value="H">H — High (30%) — Recommended with logo</option></select>
-              <div id="ec-locked-note" style="display:none;margin-top:9px;padding:9px 12px;border-radius:8px;background:rgba(245,158,11,0.1);border:1px solid rgba(245,158,11,0.25);" role="alert"><p style="font-size:0.73rem;color:#f59e0b;">⚠️ <strong>Locked to High</strong> — A logo is embedded. This ensures the QR code stays scannable.</p></div>
+              <div id="ec-locked-note" style="display:none;margin-top:9px;padding:9px 12px;border-radius:8px;background:rgba(245,158,11,0.1);border:1px solid rgba(245,158,11,0.25);" role="alert"><p style="font-size:0.73rem;" class="ec-locked-text">⚠️ <strong>Locked to High</strong> — A logo is embedded. This ensures the QR code stays scannable.</p></div>
             </div>
           </div>
 
