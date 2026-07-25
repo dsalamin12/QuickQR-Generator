@@ -98,7 +98,8 @@ body>*{position:relative;z-index:1;}
   transition:all 0.18s;
 }
 .tab-btn:hover{color:var(--text);background:var(--hover);}
-.tab-btn.active{color:var(--brand-light);background:var(--brand-glow);border-color:var(--brand);}
+.tab-btn.active{color:var(--brand);background:var(--brand-glow);border-color:var(--brand);}
+[data-theme="dark"] .tab-btn.active{color:var(--brand-light);}
 .tab-panel{display:none;animation:fadeIn 0.22s ease-out;}
 .tab-panel.active{display:block;}
 @keyframes fadeIn{from{opacity:0;transform:translateY(4px);}to{opacity:1;transform:translateY(0);}}
@@ -170,7 +171,8 @@ label.lbl{
 .btn-brand:hover{transform:translateY(-1px);box-shadow:0 5px 18px rgba(99,102,241,0.4);}
 .btn-brand:active{transform:translateY(0);}
 .btn-outline{background:var(--muted);color:var(--text);border:1px solid var(--border);}
-.btn-outline:hover{background:var(--hover);border-color:var(--brand);color:var(--brand-light);}
+.btn-outline:hover{background:var(--hover);border-color:var(--brand);color:var(--brand);}
+[data-theme="dark"] .btn-outline:hover{color:#a0aafc;}
 .btn-sm{padding:5px 10px;font-size:0.72rem;min-height:32px;}
 .btn:disabled{opacity:0.5;pointer-events:none;}
 .w-full{width:100%;}
@@ -198,9 +200,11 @@ input[type="color"]::-webkit-color-swatch{border:none;border-radius:7px;}
 .shape-pill:hover{border-color:var(--brand-light);background:var(--hover);}
 .shape-pill.active{border-color:var(--brand);background:var(--brand-glow);}
 .shape-pill svg{color:var(--text-muted);transition:color 0.18s;}
-.shape-pill.active svg{color:var(--brand-light);}
+.shape-pill.active svg{color:var(--brand);}
+[data-theme="dark"] .shape-pill.active svg{color:var(--brand-light);}
 .shape-pill span{font-size:0.65rem;font-family:'Syne',sans-serif;font-weight:600;color:var(--text-muted);}
-.shape-pill.active span{color:var(--brand-light);}
+.shape-pill.active span{color:var(--brand);}
+[data-theme="dark"] .shape-pill.active span{color:var(--brand-light);}
 .pill-row{display:flex;gap:6px;flex-wrap:wrap;}
 
 /* ── TOGGLE ── */

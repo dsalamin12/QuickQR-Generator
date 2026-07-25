@@ -58,9 +58,12 @@
 }
 
 #qq-consent-banner p a{
-  color: var(--brand-light);
+  color: var(--brand);
   text-decoration: underline;
   white-space: nowrap;
+}
+[data-theme="dark"] #qq-consent-banner p a{
+  color: var(--brand-light);
 }
 
 .qq-consent-text-short{ display: none; }
@@ -100,6 +103,10 @@
 .qq-btn-accept:hover{
   background: var(--brand-light);
   border-color: var(--brand-light);
+}
+[data-theme="dark"] .qq-btn-accept{
+  background: #514fd0;
+  border-color: #514fd0;
 }
 
 .qq-btn:hover{
