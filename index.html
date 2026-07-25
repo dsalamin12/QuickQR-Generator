@@ -6,14 +6,26 @@
        Google Search Console verification & GA4 kept exactly as you had them
   ══════════════════════════════════════════════ -->
   <meta name="google-site-verification" content="eqaidnGY34QBEkDKvBTGbddkul8hJCayppxTPUnL_J8"/>
- <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-5L76DT2QYB"></script>
+ <!-- Google tag (gtag.js) — dataLayer/gtag defined immediately so any gtag() calls still queue correctly;
+       the actual gtag.js network request (158KiB, mostly unused on first paint) is deferred until
+       after the page has finished loading, keeping it off the critical rendering path. -->
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-5L76DT2QYB');
+
+  function loadGtagScript(){
+    var s = document.createElement('script');
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=G-5L76DT2QYB';
+    s.async = true;
+    document.head.appendChild(s);
+  }
+  if (document.readyState === 'complete') {
+    loadGtagScript();
+  } else {
+    window.addEventListener('load', loadGtagScript);
+  }
 </script>
 
   <meta charset="UTF-8"/>
@@ -218,11 +230,12 @@
   <!-- Fonts & libraries — now self-hosted (was Google Fonts CDN + unpkg/jsdelivr) -->
   <link rel="preload" as="font" type="font/woff2" href="assets/fonts/syne-latin-800-normal.woff2" crossorigin/>
   <link rel="preload" as="font" type="font/woff2" href="assets/fonts/dm-sans-latin-400-normal.woff2" crossorigin/>
-  <link rel="stylesheet" href="assets/fonts.css"/>
+  <link rel="preload" as="style" href="assets/fonts.css" onload="this.onload=null;this.rel='stylesheet'"/>
+  <noscript><link rel="stylesheet" href="assets/fonts.css"/></noscript>
   <script src="assets/vendor/qr-code-styling.min.js" defer></script>
-  <script src="assets/vendor/jszip.min.js" defer></script>
   <link rel="stylesheet" href="assets/style.css"/>
-  <link rel="stylesheet" href="assets/consent.css"/>
+  <link rel="preload" as="style" href="assets/consent.css" onload="this.onload=null;this.rel='stylesheet'"/>
+  <noscript><link rel="stylesheet" href="assets/consent.css"/></noscript>
 
 </head>
 

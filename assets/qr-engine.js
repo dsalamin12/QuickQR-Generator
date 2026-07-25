@@ -610,10 +610,22 @@ function handleBulkCSV(input) {
   reader.readAsText(file);
 }
 
+function loadJSZipIfNeeded() {
+  if (window.JSZip) return Promise.resolve();
+  return new Promise((resolve, reject) => {
+    const s = document.createElement('script');
+    s.src = 'assets/vendor/jszip.min.js';
+    s.onload = resolve;
+    s.onerror = reject;
+    document.head.appendChild(s);
+  });
+}
+
 async function generateBulkZip() {
   if (!bulkRows || !bulkTpl) {
     showToast('⚠️ Please upload a CSV file first.', '#f59e0b'); return;
   }
+  await loadJSZipIfNeeded();
 
   const tpl = bulkTpl;
   const dataRows = bulkRows;
