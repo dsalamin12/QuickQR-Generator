@@ -8,7 +8,7 @@
 }
 [data-theme="dark"]{
   --bg:#0f1117;--card:#161b27;--border:#1e2535;--muted:#252d3d;--hover:#2a3347;
-  --text:#f1f5f9;--text-muted:#94a3b8;--text-faint:#7c8aa3;
+  --text:#f1f5f9;--text-muted:#94a3b8;--text-faint:#8b98b5;
   --brand:#6366f1;--brand-light:#818cf8;--brand-glow:rgba(99,102,241,0.2);
   --success:#10b981;--warning:#f59e0b;--bg-gradient:none;
 }
