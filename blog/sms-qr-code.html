@@ -169,6 +169,14 @@
       to   { opacity:1;transform:translateY(0); }
     }
     @media(max-width:600px) { .nav-links { display:none; } }
+
+    .related-guides { margin-top: 2.2rem; padding-top: 1.8rem; border-top: 1px solid var(--border); }
+    .related-guides h3 { font-family:'Syne',sans-serif; font-size:1.05rem; font-weight:700; color:var(--text); margin-bottom: 1rem; }
+    .related-guides-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: .8rem; }
+    .related-guide-card { display: block; padding: .9rem 1rem; border: 1px solid var(--border); border-radius: 10px; text-decoration: none; transition: border-color .18s, background .18s; }
+    .related-guide-card:hover { border-color: var(--brand); background: var(--hover); }
+    .related-guide-tag { font-size: .72rem; color: var(--text-faint); margin-bottom: .3rem; }
+    .related-guide-title { font-family:'Syne',sans-serif; font-size: .88rem; font-weight: 600; color: var(--text); line-height: 1.35; }
   </style>
   <script type="application/ld+json">
   {
@@ -278,6 +286,24 @@
     </div>
   </div>
 
+
+    <div class="related-guides">
+      <h3>Related Guides</h3>
+      <div class="related-guides-grid">
+      <a class="related-guide-card" href="whatsapp-qr-code.html">
+        <div class="related-guide-tag">💬 WhatsApp</div>
+        <div class="related-guide-title">How to Make a WhatsApp QR Code</div>
+      </a>
+      <a class="related-guide-card" href="wifi-qr-code-restaurant.html">
+        <div class="related-guide-tag">📶 WiFi</div>
+        <div class="related-guide-title">How to Create a WiFi QR Code for Your Restaurant or Café</div>
+      </a>
+      <a class="related-guide-card" href="qr-code-business-cards.html">
+        <div class="related-guide-tag">📇 Business Cards</div>
+        <div class="related-guide-title">QR Code for Business Cards — The Complete Guide</div>
+      </a>
+      </div>
+    </div>
   <a class="back-link" href="index.html">&larr; Back to all guides</a>
 </div>
 

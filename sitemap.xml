@@ -121,6 +121,30 @@
   </url>
 
   <url>
+    <loc>https://getquickqr.com/blog/qr-code-for-events.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+  </url>
+
+  <url>
+    <loc>https://getquickqr.com/blog/qr-code-for-patient-forms.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+  </url>
+
+  <url>
+    <loc>https://getquickqr.com/blog/qr-code-for-classrooms.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+  </url>
+
+  <url>
+    <loc>https://getquickqr.com/blog/qr-code-for-real-estate.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+  </url>
+
+  <url>
     <loc>https://getquickqr.com/blog/qr-code-for-website-url.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.70</priority>

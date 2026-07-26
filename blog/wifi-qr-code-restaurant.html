@@ -169,7 +169,38 @@
       to   { opacity:1;transform:translateY(0); }
     }
     @media(max-width:600px) { .nav-links { display:none; } }
+
+    .related-guides { margin-top: 2.2rem; padding-top: 1.8rem; border-top: 1px solid var(--border); }
+    .related-guides h3 { font-family:'Syne',sans-serif; font-size:1.05rem; font-weight:700; color:var(--text); margin-bottom: 1rem; }
+    .related-guides-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: .8rem; }
+    .related-guide-card { display: block; padding: .9rem 1rem; border: 1px solid var(--border); border-radius: 10px; text-decoration: none; transition: border-color .18s, background .18s; }
+    .related-guide-card:hover { border-color: var(--brand); background: var(--hover); }
+    .related-guide-tag { font-size: .72rem; color: var(--text-faint); margin-bottom: .3rem; }
+    .related-guide-title { font-family:'Syne',sans-serif; font-size: .88rem; font-weight: 600; color: var(--text); line-height: 1.35; }
   </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "How to Create a WiFi QR Code for Your Restaurant or Caf\u00e9",
+    "description": "Create a free WiFi QR code for your restaurant, caf\u00e9, or shop in under 2 minutes. No sign-up needed. Customers scan and connect instantly.",
+    "author": {
+      "@type": "Organization",
+      "name": "QuickQR"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "QuickQR",
+      "url": "https://getquickqr.com/"
+    },
+    "datePublished": "2026-04-01",
+    "dateModified": "2026-07-25",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://getquickqr.com/blog/wifi-qr-code-restaurant.html"
+    }
+  }
+  </script>
 </head>
 <body>
 
@@ -273,6 +304,25 @@
     </div>
   </div>
 
+
+    <div class="related-guides">
+      <h3>Related Guides</h3>
+      <div class="related-guides-grid">
+      <a class="related-guide-card" href="qr-code-restaurant-menu.html">
+        <div class="related-guide-tag">🍽️ Restaurant Menu</div>
+        <div class="related-guide-title">How to Create a QR Code for Your Restaurant Menu</div>
+      </a>
+      <a class="related-guide-card" href="sms-qr-code.html">
+        <div class="related-guide-tag">📱 SMS</div>
+        <div class="related-guide-title">SMS QR Codes: Let Customers Text You Instantly</div>
+      </a>
+      <a class="related-guide-card" href="qr-code-business-cards.html">
+        <div class="related-guide-tag">📇 Business Cards</div>
+        <div class="related-guide-title">QR Code for Business Cards — The Complete Guide</div>
+      </a>
+      </div>
+    </div>
+  
   <a class="back-link" href="index.html">← Back to all guides</a>
 </div>
 
