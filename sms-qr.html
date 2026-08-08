@@ -211,6 +211,17 @@
 
 <body>
 
+  <!-- Wide-screen side rails: only visible on very large monitors where genuine blank space exists. Fixed position, zero effect on normal layout/flow. -->
+  <aside class="side-rail side-rail-left" aria-label="Support QuickQR">
+    <strong>❤️ Enjoying QuickQR?</strong><br>
+    It's free and always will be. If it's useful, consider <a href="support.html">leaving a tip</a>.
+  </aside>
+  <aside class="side-rail side-rail-right" aria-label="Tools we recommend">
+    <strong>🔧 Tools We Recommend</strong><br>
+    Domains, printing, and more — see our <a href="about.html#tools">recommended tools</a>.
+  </aside>
+
+
   <!-- Toast notification (unchanged) -->
   <div id="toast" role="alert" aria-live="polite" aria-atomic="true">
     <span id="toast-icon">✓</span><span id="toast-msg">Done!</span>
@@ -268,6 +279,7 @@
 
       <nav aria-label="Site navigation" style="display:flex;align-items:center;gap:10px;">
         <a href="blog/index.html?from=sms" class="nav-blog" style="text-decoration:none;font-size:0.9rem;" aria-label="QR Code guides and tutorials blog">📚 Blog</a>
+        <a href="support.html" style="text-decoration:none;font-size:0.9rem;color:var(--text);" aria-label="Support QuickQR with a tip">❤️ Support</a>
         <button id="theme-toggle" class="btn btn-outline" style="padding:7px 13px;flex-shrink:0;" aria-label="Toggle dark and light mode">
           <span id="theme-icon" aria-hidden="true">🌙</span>
           <span id="theme-label" style="font-size:0.78rem;">Dark</span>
@@ -726,6 +738,8 @@
       </div><!-- /.glass-card (seo-section wrapper) -->
     </section>
 
+    <div id="feedback-widget-mount"></div>
+
   </main><!-- /main-content -->
 
   <!-- Footer (unchanged) -->
@@ -754,6 +768,9 @@
   <a href="contact.html" style="color:var(--brand-light);text-decoration:underline;text-underline-offset:2px;">Contact</a>
   &nbsp;•&nbsp;
 
+  <a href="support.html" style="color:var(--brand-light);text-decoration:underline;text-underline-offset:2px;">❤️ Support</a>
+  &nbsp;•&nbsp;
+
   <a href="blog/index.html?from=sms" style="color:var(--brand-light);text-decoration:underline;text-underline-offset:2px;">Blog</a>
 
 </p>
@@ -763,6 +780,7 @@
 
   <!-- Shared JS engine – no changes -->
   <script src="assets/qr-engine.js" defer></script>
+  <script src="assets/feedback-widget.js" defer></script>
 
     <!-- Adding Consent Mode Bannar, AL-Amin-->
 <div id="qq-consent-banner" role="dialog" aria-live="polite" aria-label="Cookie and privacy notice">

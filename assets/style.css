@@ -328,6 +328,36 @@ input,textarea,select{transition:border-color 0.18s,box-shadow 0.18s;}
    Isolated overrides to fix layout overlaps,
    excessive spaces, and visibility issues.
 ══════════════════════════════════════════ */
+/* ══════════════════════════════════════════════
+   WIDE-SCREEN SIDE RAILS
+   Only shown where genuine blank space exists (viewport ≥1600px,
+   since #app-layout caps at 1280px centered). Fixed positioning =
+   zero effect on document flow, so no risk to normal desktop or
+   mobile layout at any narrower width.
+   ══════════════════════════════════════════════ */
+.side-rail{
+  display:none;
+  position:fixed;
+  top:130px;
+  width:150px;
+  z-index:50;
+  padding:14px;
+  border-radius:12px;
+  background:var(--card);
+  border:1px solid var(--border);
+  box-shadow:0 4px 16px rgba(0,0,0,0.08);
+  font-size:0.78rem;
+  line-height:1.5;
+  color:var(--text-muted);
+}
+.side-rail a{color:var(--brand-light);text-decoration:underline;text-underline-offset:2px;}
+.side-rail strong{color:var(--text);}
+.side-rail-left{left:16px;}
+.side-rail-right{right:16px;}
+@media(min-width:1600px){
+  .side-rail{display:block;}
+}
+
 @media(max-width:768px){
   html, body { overflow-x: hidden; }
   #app-layout, #left-col, .glass-card { max-width:100% !important; box-sizing:border-box; }
@@ -357,6 +387,7 @@ input,textarea,select{transition:border-color 0.18s,box-shadow 0.18s;}
   .header-inner h1 { font-size: 0.90rem !important; line-height: 1 !important; }
   .header-inner p { display: none !important; }
   .header-inner a[href="blog/index.html"] { font-size: 0.75rem !important; padding: 5px 10px !important; flex-shrink: 0 !important; }
+  .header-inner a[href="support.html"] { display: none !important; } /* Reachable via footer on mobile instead — protects the tuned 48px header */
   #theme-toggle { padding: 6px 8px !important; flex-shrink: 0 !important; }
   #theme-toggle #theme-label { display: none !important; }
   .privacy-pill { display: none !important; } /* Reclaimed space by clearing low-value elements on mobile */
