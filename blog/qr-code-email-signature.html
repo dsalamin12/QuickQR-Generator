@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Theme init: runs before CSS paints to avoid a flash of the wrong theme.
+       Priority: explicit user choice (localStorage, shared with generator pages) > OS preference > dark default. -->
+  <script>
+    (function(){
+      var saved = localStorage.getItem('quickqr_theme');
+      var theme = saved || ((window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) ? 'light' : 'dark');
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+  </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>How to Add a QR Code to Your Email Signature (Free Guide) — QuickQR</title>
@@ -23,7 +32,28 @@
       --accent-glow: rgba(99,102,241,0.15);
       --text: #e8eaf6;
       --text-muted: #8b92b3;
+      --text-faint: #6b7299;
+      --text-body: #c5c9e0;
       --border: rgba(99,102,241,0.2);
+      --nav-bg: rgba(15,17,23,0.92);
+      --cta-glow: rgba(99,102,241,0.12);
+      --hover: #1a2038;
+    }
+    [data-theme="light"] {
+      --bg: #f0f4ff;
+      --bg2: #ffffff;
+      --bg3: #e6eaf8;
+      --accent: #4f46e5;
+      --accent2: #6366f1;
+      --accent-glow: rgba(79,70,229,0.12);
+      --text: #0f172a;
+      --text-muted: #55637a;
+      --text-faint: #5b6b85;
+      --text-body: #3f4863;
+      --border: #dde3f0;
+      --nav-bg: rgba(255,255,255,0.92);
+      --cta-glow: rgba(79,70,229,0.08);
+      --hover: #e6eaf8;
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
@@ -31,7 +61,7 @@
 
     nav {
       position: sticky; top: 0; z-index: 100;
-      background: rgba(15,17,23,0.92); backdrop-filter: blur(12px);
+      background: var(--nav-bg); backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
       padding: 0 1.5rem;
       display: flex; align-items: center; justify-content: space-between;
@@ -82,11 +112,11 @@
       font-size:1.05rem;font-weight:600;
       color:var(--accent2);margin:1.5rem 0 .5rem;
     }
-    .article-content p { color:#c5c9e0;margin-bottom:1rem;font-size:.97rem; }
+    .article-content p { color:var(--text-body);margin-bottom:1rem;font-size:.97rem; }
     .article-content ul, .article-content ol {
       padding-left:1.4rem;margin-bottom:1rem;
     }
-    .article-content li { color:#c5c9e0;margin-bottom:.4rem;font-size:.97rem; }
+    .article-content li { color:var(--text-body);margin-bottom:.4rem;font-size:.97rem; }
     .article-content strong { color:var(--text);font-weight:600; }
     .article-content em { color:var(--accent2);font-style:normal; }
     .article-content a { color:var(--accent2);text-decoration:underline;text-underline-offset:3px; }
@@ -125,13 +155,13 @@
     }
     .article-content td {
       padding:.6rem 1rem;border:1px solid var(--border);
-      color:#c5c9e0;vertical-align:top;
+      color:var(--text-body);vertical-align:top;
     }
     .article-content tr:nth-child(even) td { background:var(--bg2); }
 
     /* CTA BOX */
     .cta-box {
-      background: linear-gradient(135deg, var(--bg3) 0%, rgba(99,102,241,0.12) 100%);
+      background: linear-gradient(135deg, var(--bg3) 0%, var(--cta-glow) 100%);
       border: 1px solid var(--border);
       border-radius: 16px;
       padding: 2rem;
@@ -174,7 +204,7 @@
     .related-guides h3 { font-family:'Syne',sans-serif; font-size:1.05rem; font-weight:700; color:var(--text); margin-bottom: 1rem; }
     .related-guides-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: .8rem; }
     .related-guide-card { display: block; padding: .9rem 1rem; border: 1px solid var(--border); border-radius: 10px; text-decoration: none; transition: border-color .18s, background .18s; }
-    .related-guide-card:hover { border-color: var(--brand); background: var(--hover); }
+    .related-guide-card:hover { border-color: var(--accent); background: var(--hover); }
     .related-guide-tag { font-size: .72rem; color: var(--text-faint); margin-bottom: .3rem; }
     .related-guide-title { font-family:'Syne',sans-serif; font-size: .88rem; font-weight: 600; color: var(--text); line-height: 1.35; }
   </style>
@@ -213,7 +243,13 @@
     <li><a href="../index.html">Generator</a></li>
     <li><a href="index.html">Blog</a></li>
   </ul>
-  <a class="nav-cta" href="../index.html">Create QR Free →</a>
+  <div style="display:flex;align-items:center;gap:10px;">
+    <button id="theme-toggle" aria-label="Toggle dark and light mode" style="display:flex;align-items:center;gap:6px;background:transparent;border:1px solid var(--border);color:var(--text-muted);padding:6px 12px;border-radius:8px;font-size:0.82rem;cursor:pointer;font-family:'DM Sans',sans-serif;transition:border-color 0.2s,color 0.2s;">
+      <span id="theme-icon" aria-hidden="true">🌙</span>
+      <span id="theme-label">Dark</span>
+    </button>
+    <a class="nav-cta" href="../index.html">Create QR Free →</a>
+  </div>
 </nav>
 
 <main id="main-content">
@@ -355,5 +391,6 @@
 })();
 </script>
 
+<script src="../assets/blog-theme.js" defer></script>
 </body>
 </html>

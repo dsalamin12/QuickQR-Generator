@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Theme init: runs before CSS paints to avoid a flash of the wrong theme.
+       Priority: explicit user choice (localStorage, shared with generator pages) > OS preference > dark default. -->
+  <script>
+    (function(){
+      var saved = localStorage.getItem('quickqr_theme');
+      var theme = saved || ((window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) ? 'light' : 'dark');
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+  </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>QR Code Guides & Tips — QuickQR Blog</title>
@@ -22,6 +31,20 @@
       --text-muted: #8b92b3;
       --border: rgba(99,102,241,0.2);
       --card-hover: #1a2038;
+      --nav-bg: rgba(15,17,23,0.92);
+    }
+    [data-theme="light"] {
+      --bg: #f0f4ff;
+      --bg2: #ffffff;
+      --bg3: #e6eaf8;
+      --accent: #4f46e5;
+      --accent2: #6366f1;
+      --accent-glow: rgba(79,70,229,0.12);
+      --text: #0f172a;
+      --text-muted: #55637a;
+      --border: #dde3f0;
+      --card-hover: #e6eaf8;
+      --nav-bg: rgba(255,255,255,0.92);
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
@@ -36,7 +59,7 @@
     /* NAV */
     nav {
       position: sticky; top: 0; z-index: 100;
-      background: rgba(15,17,23,0.92);
+      background: var(--nav-bg);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
       padding: 0 1.5rem;
@@ -187,7 +210,13 @@
     <li><a href="../index.html">Generator</a></li>
     <li><a href="index.html">Blog</a></li>
   </ul>
-  <a class="nav-cta" href="../index.html">Create QR Free →</a>
+  <div style="display:flex;align-items:center;gap:10px;">
+    <button id="theme-toggle" aria-label="Toggle dark and light mode" style="display:flex;align-items:center;gap:6px;background:transparent;border:1px solid var(--border);color:var(--text-muted);padding:6px 12px;border-radius:8px;font-size:0.82rem;cursor:pointer;font-family:'DM Sans',sans-serif;transition:border-color 0.2s,color 0.2s;">
+      <span id="theme-icon" aria-hidden="true">🌙</span>
+      <span id="theme-label">Dark</span>
+    </button>
+    <a class="nav-cta" href="../index.html">Create QR Free →</a>
+  </div>
 </nav>
 
 <main id="main-content">
@@ -335,5 +364,6 @@
 })();
 </script>
 
+<script src="../assets/blog-theme.js" defer></script>
 </body>
 </html>
