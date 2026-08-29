@@ -19,6 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
   accept?.addEventListener("click", () => {
     localStorage.setItem("quickqr_cookie_choice", "accepted");
     banner.classList.remove("show");
+    window.qqLoadGtagIfConsented && window.qqLoadGtagIfConsented();
   });
 
   decline?.addEventListener("click", () => {

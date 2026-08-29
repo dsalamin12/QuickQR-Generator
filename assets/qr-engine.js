@@ -43,6 +43,33 @@ requestAnimationFrame(() => { updateStickyTop(); });
 setTimeout(updateStickyTop, 200); // second pass after fonts/images load
 window.addEventListener('resize', updateStickyTop);
 
+// ── Keyboard-open fixed-position fix (Android Chrome) ──
+// Diagnosed behavior: on Android Chrome the sticky header / mobile live-preview
+// bar don't reposition the instant the keyboard opens — only once the user
+// scrolls afterward. That's because the standard window 'resize' event doesn't
+// fire reliably at the moment the keyboard opens; window.visualViewport's own
+// 'resize'/'scroll' events do. We use its offsetTop to actively re-pin the
+// header and mobile bar the instant the visual viewport shifts.
+function pinToVisualViewport() {
+  const header = document.getElementById('site-header');
+  const bar = document.getElementById('mobile-bar');
+  if (window.innerWidth > 768 || !window.visualViewport) {
+    if (header) header.style.transform = '';
+    if (bar) bar.style.transform = '';
+    return;
+  }
+  const offset = window.visualViewport.offsetTop || 0;
+  const shift = offset ? `translateY(${offset}px)` : '';
+  if (header) header.style.transform = shift;
+  if (bar) bar.style.transform = shift;
+}
+if (window.visualViewport) {
+  window.visualViewport.addEventListener('resize', pinToVisualViewport);
+  window.visualViewport.addEventListener('scroll', pinToVisualViewport);
+}
+window.addEventListener('resize', pinToVisualViewport);
+pinToVisualViewport();
+
 // ── Mirror QR canvas into mobile bar thumbnail ──
 function syncMobileBar() {
   if (window.innerWidth > 768) return;
@@ -64,14 +91,15 @@ function syncMobileBar() {
 
 // ── Theme ──
 const themeToggle = document.getElementById('theme-toggle');
-let isDark = true;
-document.getElementById('theme-icon').textContent = '☀️';
-document.getElementById('theme-label').textContent = 'Light';
+let isDark = document.documentElement.getAttribute('data-theme') !== 'light';
+document.getElementById('theme-icon').textContent = isDark ? '☀️' : '🌙';
+document.getElementById('theme-label').textContent = isDark ? 'Light' : 'Dark';
 themeToggle.addEventListener('click', () => {
   isDark = !isDark;
   document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
   document.getElementById('theme-icon').textContent = isDark ? '☀️' : '🌙';
   document.getElementById('theme-label').textContent = isDark ? 'Light' : 'Dark';
+  localStorage.setItem('quickqr_theme', isDark ? 'dark' : 'light');
 });
 
 // ── Tabs ──
@@ -712,6 +740,18 @@ function showToast(msg, color = 'var(--brand-light)') {
 // ── Init ──
 updateECBadge('L');
 document.getElementById('input-url').value = 'https://example.com';
+document.getElementById('input-text').value = 'Hello from QuickQR!';
+document.getElementById('wifi-ssid').value = 'MyHomeNetwork';
+document.getElementById('wifi-pass').value = 'SecurePass123';
+document.getElementById('vcard-first').value = 'John';
+document.getElementById('vcard-last').value = 'Doe';
+document.getElementById('vcard-phone').value = '+1 (555) 019-2834';
+document.getElementById('vcard-email').value = 'john@company.com';
+document.getElementById('vcard-org').value = 'Acme Corp';
+document.getElementById('vcard-title').value = 'Director';
+document.getElementById('wa-phone').value = '1234567890';
+document.getElementById('sms-phone').value = '+1234567890';
+document.getElementById('email-to').value = 'recipient@example.com';
 updateBulkUI();
 
 // Patch scheduleQR so mobile bar always syncs after every debounced render

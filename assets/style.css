@@ -175,6 +175,8 @@ label.lbl{
 [data-theme="dark"] .btn-outline:hover{color:#a0aafc;}
 .btn-sm{padding:5px 10px;font-size:0.72rem;min-height:32px;}
 .btn:disabled{opacity:0.5;pointer-events:none;}
+.btn:focus-visible{outline:none;box-shadow:0 0 0 3px var(--brand-glow);border-color:var(--brand);}
+.tab-btn:focus-visible{outline:none;box-shadow:0 0 0 3px var(--brand-glow);}
 .w-full{width:100%;}
 
 /* ── COLOR PICKERS ── */

@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
+  <!-- Theme init: runs before CSS paints to avoid a flash of the wrong theme.
+       Priority: explicit user choice (localStorage) > OS preference > dark default. -->
+  <script>
+    (function(){
+      var saved = localStorage.getItem('quickqr_theme');
+      var theme = saved || ((window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) ? 'light' : 'dark');
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+  </script>
 
   <!-- ══════════════════════════════════════════════
        Google Search Console verification & GA4 kept exactly as you had them
@@ -23,10 +32,22 @@
     s.async = true;
     document.head.appendChild(s);
   }
+  // Consent gate: only fire the GA4 network request once the visitor has
+  // actually accepted cookies. If no choice has been made yet, or the
+  // visitor declined, this does nothing — consent.js calls
+  // window.qqLoadGtagIfConsented() itself the instant "Accept" is tapped.
+  window.qqGtagLoaded = false;
+  window.qqLoadGtagIfConsented = function(){
+    if (window.qqGtagLoaded) return;
+    if (localStorage.getItem('quickqr_cookie_choice') === 'accepted') {
+      window.qqGtagLoaded = true;
+      loadGtagScript();
+    }
+  };
   if (document.readyState === 'complete') {
-    loadGtagScript();
+    window.qqLoadGtagIfConsented();
   } else {
-    window.addEventListener('load', loadGtagScript);
+    window.addEventListener('load', window.qqLoadGtagIfConsented);
   }
 </script>
 
