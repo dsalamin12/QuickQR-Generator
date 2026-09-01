@@ -5,8 +5,8 @@
 // ── State ──
 let qrInstance = null;
 let activeTab = (document.querySelector('.tab-btn.active') && document.querySelector('.tab-btn.active').dataset.tab) || 'url';
-let activeDotStyle = 'square';
-let activeCornerStyle = 'square';
+let activeDotStyle = 'rounded';
+let activeCornerStyle = 'extra-rounded';
 let logoDataURL = null;
 let logoForced = false;
 let debounceTimer = null;
@@ -753,6 +753,17 @@ document.getElementById('wa-phone').value = '1234567890';
 document.getElementById('sms-phone').value = '+1234567890';
 document.getElementById('email-to').value = 'recipient@example.com';
 updateBulkUI();
+
+// ── Sample data styling: mark seeded fields as muted "example" text until
+// the visitor actually types, then switch to normal active-input color. ──
+['input-url','input-text','wifi-ssid','wifi-pass','vcard-first','vcard-last',
+ 'vcard-phone','vcard-email','vcard-org','vcard-title','wa-phone','sms-phone','email-to']
+  .forEach(id => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.classList.add('is-sample');
+    el.addEventListener('input', () => el.classList.remove('is-sample'), { once: true });
+  });
 
 // Patch scheduleQR so mobile bar always syncs after every debounced render
 const _origScheduleQR = scheduleQR;
