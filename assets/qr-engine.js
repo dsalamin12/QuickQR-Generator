@@ -5,8 +5,8 @@
 // ── State ──
 let qrInstance = null;
 let activeTab = (document.querySelector('.tab-btn.active') && document.querySelector('.tab-btn.active').dataset.tab) || 'url';
-let activeDotStyle = 'rounded';
-let activeCornerStyle = 'extra-rounded';
+let activeDotStyle = 'square';
+let activeCornerStyle = 'square';
 let logoDataURL = null;
 let logoForced = false;
 let debounceTimer = null;
@@ -210,6 +210,39 @@ function applyPreset(fg, bg) {
   document.getElementById('color-eye-inner-hex').textContent = fg;
   generateQR();
   // Fix: sync mobile bar after preset colour renders
+  setTimeout(syncMobileBar, 600);
+}
+
+// ── Beautiful Templates (full style presets: shape + color + gradient in one click) ──
+function applyStyleTemplate(dot, corner, fg, bg, eyeOuter, eyeInner, gradientOn, gradEnd, gradType) {
+  const dotBtn = document.querySelector(`[data-dot="${dot}"]`);
+  const cornerBtn = document.querySelector(`[data-corner="${corner}"]`);
+  if (dotBtn) selectDot(dotBtn);
+  if (cornerBtn) selectCorner(cornerBtn);
+
+  document.getElementById('color-fg').value = fg;
+  document.getElementById('color-bg').value = bg;
+  document.getElementById('color-eye-outer').value = eyeOuter;
+  document.getElementById('color-eye-inner').value = eyeInner;
+  document.getElementById('color-fg-hex').textContent = fg;
+  document.getElementById('color-bg-hex').textContent = bg;
+  document.getElementById('color-eye-outer-hex').textContent = eyeOuter;
+  document.getElementById('color-eye-inner-hex').textContent = eyeInner;
+
+  const gradToggle = document.getElementById('gradient-toggle');
+  if (gradientOn) {
+    gradToggle.classList.add('on');
+    gradToggle.setAttribute('aria-checked', 'true');
+    document.getElementById('color-grad-end').value = gradEnd;
+    document.getElementById('color-grad-end-hex').textContent = gradEnd;
+    document.getElementById('gradient-type').value = gradType || 'linear';
+  } else {
+    gradToggle.classList.remove('on');
+    gradToggle.setAttribute('aria-checked', 'false');
+  }
+  toggleGradientUI();
+
+  generateQR();
   setTimeout(syncMobileBar, 600);
 }
 document.getElementById('color-fg').addEventListener('input', e => { document.getElementById('color-fg-hex').textContent = e.target.value; });

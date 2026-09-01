@@ -338,7 +338,7 @@
           <!-- URL Tab -->
           <div class="tab-panel active" id="tab-url" role="tabpanel" aria-labelledby="tab-url-btn">
             <label class="lbl" for="input-url">Website URL</label>
-            <input type="url" class="inp" id="input-url" placeholder="https://example.com" autocomplete="off" spellcheck="false" aria-describedby="url-hint"/>
+            <input type="url" class="inp inp-hero" id="input-url" placeholder="https://example.com" autocomplete="off" spellcheck="false" aria-describedby="url-hint"/>
             <p id="url-hint" style="font-size:0.73rem;color:var(--text-faint);margin-top:7px;">Include https:// for best compatibility.</p>
           </div>
 
@@ -448,6 +448,37 @@
         <div class="glass-card card-body">
           <h2 class="section-title">Design Customization</h2>
 
+          <!-- Beautiful Templates: one-click full-style presets (shape + color + gradient) -->
+          <div style="margin-bottom:18px;">
+            <label class="lbl" style="margin-bottom:8px;display:block;">✨ Beautiful Templates — no customization needed</label>
+            <div class="template-grid">
+              <button class="template-card" onclick="applyStyleTemplate('square','square','#000000','#ffffff','#000000','#000000',false)" aria-label="Apply Classic template">
+                <span class="template-swatch" style="background:#ffffff;border-radius:8px;"><span class="template-swatch-dot" style="background:#000000;border-radius:3px;"></span></span>
+                <span>Classic</span>
+              </button>
+              <button class="template-card" onclick="applyStyleTemplate('dots','dot','#4f46e5','#eef2ff','#4f46e5','#4f46e5',false)" aria-label="Apply Indigo Dots template">
+                <span class="template-swatch" style="background:#eef2ff;border-radius:8px;"><span class="template-swatch-dot" style="background:#4f46e5;border-radius:50%;"></span></span>
+                <span>Indigo Dots</span>
+              </button>
+              <button class="template-card" onclick="applyStyleTemplate('rounded','extra-rounded','#0369a1','#f0f9ff','#0369a1','#0369a1',false)" aria-label="Apply Ocean Rounded template">
+                <span class="template-swatch" style="background:#f0f9ff;border-radius:8px;"><span class="template-swatch-dot" style="background:#0369a1;border-radius:6px;"></span></span>
+                <span>Ocean</span>
+              </button>
+              <button class="template-card" onclick="applyStyleTemplate('dots','dot','#ea580c','#fff7ed','#ea580c','#ea580c',true,'#fbbf24','linear')" aria-label="Apply Sunset Glow template">
+                <span class="template-swatch" style="background:#fff7ed;border-radius:8px;"><span class="template-swatch-dot" style="background:linear-gradient(135deg,#ea580c,#fbbf24);border-radius:50%;"></span></span>
+                <span>Sunset</span>
+              </button>
+              <button class="template-card" onclick="applyStyleTemplate('rounded','extra-rounded','#059669','#ecfdf5','#059669','#059669',false)" aria-label="Apply Emerald Soft template">
+                <span class="template-swatch" style="background:#ecfdf5;border-radius:8px;"><span class="template-swatch-dot" style="background:#059669;border-radius:6px;"></span></span>
+                <span>Emerald</span>
+              </button>
+              <button class="template-card" onclick="applyStyleTemplate('dots','dot','#4f46e5','#f8fafc','#4f46e5','#4f46e5',true,'#818cf8','radial')" aria-label="Apply Midnight Gradient template">
+                <span class="template-swatch" style="background:#f8fafc;border-radius:8px;"><span class="template-swatch-dot" style="background:linear-gradient(135deg,#4f46e5,#818cf8);border-radius:50%;"></span></span>
+                <span>Midnight</span>
+              </button>
+            </div>
+          </div>
+
           <!-- Colors accordion -->
           <div class="accordion-wrap">
             <h3 class="accordion-header" onclick="toggleAccordion(this)" aria-expanded="false" aria-controls="acc-colors-body">
@@ -466,13 +497,13 @@
                 </div>
               </div>
               <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px;">
-                <div><label class="lbl" for="color-fg">Dots Color</label><label class="color-swatch-wrap" for="color-fg"><input type="color" id="color-fg" value="#4f46e5" oninput="scheduleQR()" aria-label="QR dot colour"/><span><span style="display:block;font-family:'Syne',sans-serif;font-size:0.78rem;font-weight:600;color:var(--text);">Dot Color</span><span style="display:block;font-size:0.68rem;color:var(--text-faint);" id="color-fg-hex">#4f46e5</span></span></label></div>
-                <div><label class="lbl" for="color-bg">Background</label><label class="color-swatch-wrap" for="color-bg"><input type="color" id="color-bg" value="#eef2ff" oninput="scheduleQR()" aria-label="Background colour"/><span><span style="display:block;font-family:'Syne',sans-serif;font-size:0.78rem;font-weight:600;color:var(--text);">BG Color</span><span style="display:block;font-size:0.68rem;color:var(--text-faint);" id="color-bg-hex">#eef2ff</span></span></label></div>
+                <div><label class="lbl" for="color-fg">Dots Color</label><label class="color-swatch-wrap" for="color-fg"><input type="color" id="color-fg" value="#000000" oninput="scheduleQR()" aria-label="QR dot colour"/><span><span style="display:block;font-family:'Syne',sans-serif;font-size:0.78rem;font-weight:600;color:var(--text);">Dot Color</span><span style="display:block;font-size:0.68rem;color:var(--text-faint);" id="color-fg-hex">#000000</span></span></label></div>
+                <div><label class="lbl" for="color-bg">Background</label><label class="color-swatch-wrap" for="color-bg"><input type="color" id="color-bg" value="#ffffff" oninput="scheduleQR()" aria-label="Background colour"/><span><span style="display:block;font-family:'Syne',sans-serif;font-size:0.78rem;font-weight:600;color:var(--text);">BG Color</span><span style="display:block;font-size:0.68rem;color:var(--text-faint);" id="color-bg-hex">#ffffff</span></span></label></div>
               </div>
               <div style="margin-bottom:13px;"><label class="lbl">Corner Eye Colors</label>
                 <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
-                  <label class="color-swatch-wrap" for="color-eye-outer"><input type="color" id="color-eye-outer" value="#4f46e5" oninput="scheduleQR()" aria-label="Corner eye outer colour"/><span><span style="display:block;font-family:'Syne',sans-serif;font-size:0.73rem;font-weight:600;color:var(--text);">Outer Square</span><span style="display:block;font-size:0.65rem;color:var(--text-faint);" id="color-eye-outer-hex">#4f46e5</span></span></label>
-                  <label class="color-swatch-wrap" for="color-eye-inner"><input type="color" id="color-eye-inner" value="#4f46e5" oninput="scheduleQR()" aria-label="Corner eye inner colour"/><span><span style="display:block;font-family:'Syne',sans-serif;font-size:0.73rem;font-weight:600;color:var(--text);">Inner Dot</span><span style="display:block;font-size:0.65rem;color:var(--text-faint);" id="color-eye-inner-hex">#4f46e5</span></span></label>
+                  <label class="color-swatch-wrap" for="color-eye-outer"><input type="color" id="color-eye-outer" value="#000000" oninput="scheduleQR()" aria-label="Corner eye outer colour"/><span><span style="display:block;font-family:'Syne',sans-serif;font-size:0.73rem;font-weight:600;color:var(--text);">Outer Square</span><span style="display:block;font-size:0.65rem;color:var(--text-faint);" id="color-eye-outer-hex">#000000</span></span></label>
+                  <label class="color-swatch-wrap" for="color-eye-inner"><input type="color" id="color-eye-inner" value="#000000" oninput="scheduleQR()" aria-label="Corner eye inner colour"/><span><span style="display:block;font-family:'Syne',sans-serif;font-size:0.73rem;font-weight:600;color:var(--text);">Inner Dot</span><span style="display:block;font-size:0.65rem;color:var(--text-faint);" id="color-eye-inner-hex">#000000</span></span></label>
                 </div>
               </div>
               <div><label class="lbl">Quick Presets</label>
@@ -497,16 +528,16 @@
             <div class="accordion-body" id="acc-shapes-body">
               <label class="lbl">Dot Style</label>
               <div class="pill-row" style="margin-bottom:14px;" role="group" aria-label="Dot style options">
-                <button class="shape-pill" data-dot="square" onclick="selectDot(this)" aria-label="Square dot style" aria-pressed="false"><svg width="20" height="20" viewBox="0 0 22 22" fill="currentColor" aria-hidden="true"><rect x="1" y="1" width="8" height="8"/><rect x="13" y="1" width="8" height="8"/><rect x="1" y="13" width="8" height="8"/><rect x="13" y="13" width="8" height="8"/></svg><span>Square</span></button>
+                <button class="shape-pill active" data-dot="square" onclick="selectDot(this)" aria-label="Square dot style" aria-pressed="true"><svg width="20" height="20" viewBox="0 0 22 22" fill="currentColor" aria-hidden="true"><rect x="1" y="1" width="8" height="8"/><rect x="13" y="1" width="8" height="8"/><rect x="1" y="13" width="8" height="8"/><rect x="13" y="13" width="8" height="8"/></svg><span>Square</span></button>
                 <button class="shape-pill" data-dot="dots" onclick="selectDot(this)" aria-label="Dot style" aria-pressed="false"><svg width="20" height="20" viewBox="0 0 22 22" fill="currentColor" aria-hidden="true"><circle cx="5" cy="5" r="4"/><circle cx="17" cy="5" r="4"/><circle cx="5" cy="17" r="4"/><circle cx="17" cy="17" r="4"/></svg><span>Dots</span></button>
-                <button class="shape-pill active" data-dot="rounded" onclick="selectDot(this)" aria-label="Rounded dot style" aria-pressed="true"><svg width="20" height="20" viewBox="0 0 22 22" fill="currentColor" aria-hidden="true"><rect x="1" y="1" width="8" height="8" rx="2.5"/><rect x="13" y="1" width="8" height="8" rx="2.5"/><rect x="1" y="13" width="8" height="8" rx="2.5"/><rect x="13" y="13" width="8" height="8" rx="2.5"/></svg><span>Rounded</span></button>
+                <button class="shape-pill" data-dot="rounded" onclick="selectDot(this)" aria-label="Rounded dot style" aria-pressed="false"><svg width="20" height="20" viewBox="0 0 22 22" fill="currentColor" aria-hidden="true"><rect x="1" y="1" width="8" height="8" rx="2.5"/><rect x="13" y="1" width="8" height="8" rx="2.5"/><rect x="1" y="13" width="8" height="8" rx="2.5"/><rect x="13" y="13" width="8" height="8" rx="2.5"/></svg><span>Rounded</span></button>
                 <button class="shape-pill" data-dot="classy" onclick="selectDot(this)" aria-label="Classy dot style" aria-pressed="false"><svg width="20" height="20" viewBox="0 0 22 22" fill="currentColor" aria-hidden="true"><rect x="1" y="1" width="8" height="8" rx="4"/><rect x="13" y="1" width="8" height="8" rx="0"/><rect x="1" y="13" width="8" height="8" rx="0"/><rect x="13" y="13" width="8" height="8" rx="4"/></svg><span>Classy</span></button>
                 <button class="shape-pill" data-dot="extra-rounded" onclick="selectDot(this)" aria-label="Organic dot style" aria-pressed="false"><svg width="20" height="20" viewBox="0 0 22 22" fill="currentColor" aria-hidden="true"><circle cx="5" cy="5" r="4.5"/><circle cx="17" cy="5" r="4.5"/><circle cx="5" cy="17" r="4.5"/><rect x="13.5" y="13.5" width="7" height="7" rx="3.5"/></svg><span>Organic</span></button>
               </div>
               <label class="lbl">Corner Square Style</label>
               <div class="pill-row" style="margin-bottom:14px;" role="group" aria-label="Corner square style options">
-                <button class="shape-pill" data-corner="square" onclick="selectCorner(this)" aria-label="Square corner style" aria-pressed="false"><svg width="20" height="20" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><rect x="3" y="3" width="16" height="16"/><rect x="7" y="7" width="8" height="8" fill="currentColor" stroke="none"/></svg><span>Square</span></button>
-                <button class="shape-pill active" data-corner="extra-rounded" onclick="selectCorner(this)" aria-label="Rounded corner style" aria-pressed="true"><svg width="20" height="20" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><rect x="3" y="3" width="16" height="16" rx="5"/><rect x="7" y="7" width="8" height="8" rx="2.5" fill="currentColor" stroke="none"/></svg><span>Rounded</span></button>
+                <button class="shape-pill active" data-corner="square" onclick="selectCorner(this)" aria-label="Square corner style" aria-pressed="true"><svg width="20" height="20" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><rect x="3" y="3" width="16" height="16"/><rect x="7" y="7" width="8" height="8" fill="currentColor" stroke="none"/></svg><span>Square</span></button>
+                <button class="shape-pill" data-corner="extra-rounded" onclick="selectCorner(this)" aria-label="Rounded corner style" aria-pressed="false"><svg width="20" height="20" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><rect x="3" y="3" width="16" height="16" rx="5"/><rect x="7" y="7" width="8" height="8" rx="2.5" fill="currentColor" stroke="none"/></svg><span>Rounded</span></button>
                 <button class="shape-pill" data-corner="dot" onclick="selectCorner(this)" aria-label="Dotted corner style" aria-pressed="false"><svg width="20" height="20" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><rect x="3" y="3" width="16" height="16" rx="8"/><circle cx="11" cy="11" r="4" fill="currentColor" stroke="none"/></svg><span>Dotted</span></button>
               </div>
               <div><label class="lbl" for="qr-size">QR Code Size <span id="size-label" style="font-weight:400;text-transform:none;letter-spacing:0;color:var(--text-faint);">300 px</span></label><input type="range" min="200" max="500" value="300" step="10" id="qr-size" oninput="document.getElementById('size-label').textContent=this.value+' px';scheduleQR();" aria-label="QR code size in pixels"/></div>
