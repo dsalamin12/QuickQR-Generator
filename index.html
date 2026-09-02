@@ -370,7 +370,7 @@
           <!-- URL Tab -->
           <div class="tab-panel active" id="tab-url" role="tabpanel" aria-labelledby="tab-url-btn">
             <label class="lbl" for="input-url">Website URL</label>
-            <input type="url" class="inp inp-hero" id="input-url" placeholder="https://example.com" autocomplete="off" spellcheck="false" aria-describedby="url-hint"/>
+            <input type="url" class="inp" id="input-url" placeholder="https://example.com" autocomplete="off" spellcheck="false" aria-describedby="url-hint"/>
             <p id="url-hint" style="font-size:0.73rem;color:var(--text-faint);margin-top:7px;">Include https:// for best compatibility.</p>
           </div>
 
@@ -480,35 +480,10 @@
         <div class="glass-card card-body">
           <h2 class="section-title">Design Customization</h2>
 
-          <!-- Beautiful Templates: one-click full-style presets (shape + color + gradient) -->
+          <!-- Beautiful Templates: one-click full-style presets (shape + color + gradient), rendered as real mini QR previews -->
           <div style="margin-bottom:18px;">
             <label class="lbl" style="margin-bottom:8px;display:block;">✨ Beautiful Templates — no customization needed</label>
-            <div class="template-grid">
-              <button class="template-card" onclick="applyStyleTemplate('square','square','#000000','#ffffff','#000000','#000000',false)" aria-label="Apply Classic template">
-                <span class="template-swatch" style="background:#ffffff;border-radius:8px;"><span class="template-swatch-dot" style="background:#000000;border-radius:3px;"></span></span>
-                <span>Classic</span>
-              </button>
-              <button class="template-card" onclick="applyStyleTemplate('dots','dot','#4f46e5','#eef2ff','#4f46e5','#4f46e5',false)" aria-label="Apply Indigo Dots template">
-                <span class="template-swatch" style="background:#eef2ff;border-radius:8px;"><span class="template-swatch-dot" style="background:#4f46e5;border-radius:50%;"></span></span>
-                <span>Indigo Dots</span>
-              </button>
-              <button class="template-card" onclick="applyStyleTemplate('rounded','extra-rounded','#0369a1','#f0f9ff','#0369a1','#0369a1',false)" aria-label="Apply Ocean Rounded template">
-                <span class="template-swatch" style="background:#f0f9ff;border-radius:8px;"><span class="template-swatch-dot" style="background:#0369a1;border-radius:6px;"></span></span>
-                <span>Ocean</span>
-              </button>
-              <button class="template-card" onclick="applyStyleTemplate('dots','dot','#ea580c','#fff7ed','#ea580c','#ea580c',true,'#fbbf24','linear')" aria-label="Apply Sunset Glow template">
-                <span class="template-swatch" style="background:#fff7ed;border-radius:8px;"><span class="template-swatch-dot" style="background:linear-gradient(135deg,#ea580c,#fbbf24);border-radius:50%;"></span></span>
-                <span>Sunset</span>
-              </button>
-              <button class="template-card" onclick="applyStyleTemplate('rounded','extra-rounded','#059669','#ecfdf5','#059669','#059669',false)" aria-label="Apply Emerald Soft template">
-                <span class="template-swatch" style="background:#ecfdf5;border-radius:8px;"><span class="template-swatch-dot" style="background:#059669;border-radius:6px;"></span></span>
-                <span>Emerald</span>
-              </button>
-              <button class="template-card" onclick="applyStyleTemplate('dots','dot','#4f46e5','#f8fafc','#4f46e5','#4f46e5',true,'#818cf8','radial')" aria-label="Apply Midnight Gradient template">
-                <span class="template-swatch" style="background:#f8fafc;border-radius:8px;"><span class="template-swatch-dot" style="background:linear-gradient(135deg,#4f46e5,#818cf8);border-radius:50%;"></span></span>
-                <span>Midnight</span>
-              </button>
-            </div>
+            <div class="template-grid" id="template-gallery"></div>
           </div>
 
           <!-- Colors accordion -->

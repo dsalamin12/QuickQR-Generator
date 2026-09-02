@@ -213,7 +213,59 @@ function applyPreset(fg, bg) {
   setTimeout(syncMobileBar, 600);
 }
 
-// ── Beautiful Templates (full style presets: shape + color + gradient in one click) ──
+// ── Beautiful Templates: one-click full-style presets (shape + color + gradient in one click) ──
+const STYLE_TEMPLATES = [
+  { name:'Classic',       dot:'square',  corner:'square',        fg:'#000000', bg:'#ffffff', eyeOuter:'#000000', eyeInner:'#000000', gradient:false },
+  { name:'Indigo Dots',   dot:'dots',    corner:'dot',            fg:'#4f46e5', bg:'#eef2ff', eyeOuter:'#4f46e5', eyeInner:'#4f46e5', gradient:false },
+  { name:'Ocean',         dot:'rounded', corner:'extra-rounded',  fg:'#0369a1', bg:'#f0f9ff', eyeOuter:'#0369a1', eyeInner:'#0369a1', gradient:false },
+  { name:'Sunset',        dot:'dots',    corner:'dot',            fg:'#ea580c', bg:'#fff7ed', eyeOuter:'#ea580c', eyeInner:'#ea580c', gradient:true, gradEnd:'#fbbf24', gradType:'linear' },
+  { name:'Emerald',       dot:'rounded', corner:'extra-rounded',  fg:'#059669', bg:'#ecfdf5', eyeOuter:'#059669', eyeInner:'#059669', gradient:false },
+  { name:'Midnight',      dot:'dots',    corner:'dot',            fg:'#4f46e5', bg:'#f8fafc', eyeOuter:'#4f46e5', eyeInner:'#4f46e5', gradient:true, gradEnd:'#818cf8', gradType:'radial' },
+  { name:'Royal Blue',    dot:'dots',    corner:'extra-rounded',  fg:'#3730a3', bg:'#ffffff', eyeOuter:'#3730a3', eyeInner:'#3730a3', gradient:false },
+  { name:'Berry',         dot:'dots',    corner:'extra-rounded',  fg:'#7c3aed', bg:'#ffffff', eyeOuter:'#7c3aed', eyeInner:'#db2777', gradient:true, gradEnd:'#db2777', gradType:'linear' },
+];
+
+function buildTemplateGallery() {
+  const gallery = document.getElementById('template-gallery');
+  if (!gallery || typeof QRCodeStyling === 'undefined') return;
+  gallery.innerHTML = '';
+  STYLE_TEMPLATES.forEach(t => {
+    const card = document.createElement('button');
+    card.type = 'button';
+    card.className = 'template-card';
+    card.setAttribute('aria-label', `Apply ${t.name} template`);
+
+    const swatch = document.createElement('span');
+    swatch.className = 'template-swatch';
+    card.appendChild(swatch);
+
+    const label = document.createElement('span');
+    label.textContent = t.name;
+    card.appendChild(label);
+
+    card.addEventListener('click', () =>
+      applyStyleTemplate(t.dot, t.corner, t.fg, t.bg, t.eyeOuter, t.eyeInner, t.gradient, t.gradEnd, t.gradType));
+    gallery.appendChild(card);
+
+    // Render a real mini QR code showing exactly what this template produces
+    try {
+      const dotsOptions = { color: t.fg, type: t.dot };
+      if (t.gradient) {
+        dotsOptions.gradient = { type: t.gradType || 'linear', rotation: t.gradType === 'linear' ? 0.25 : 0,
+          colorStops: [{ offset:0, color:t.fg }, { offset:1, color:t.gradEnd }] };
+      }
+      new QRCodeStyling({
+        width: 56, height: 56, type: 'canvas', data: 'https://getquickqr.com', margin: 3,
+        dotsOptions,
+        cornersSquareOptions: { type: t.corner, color: t.eyeOuter },
+        cornersDotOptions: { type: t.corner === 'dot' ? 'dot' : 'square', color: t.eyeInner },
+        backgroundOptions: { color: t.bg },
+        qrOptions: { errorCorrectionLevel: 'M' },
+      }).append(swatch);
+    } catch (e) { console.warn('Template preview render failed:', t.name, e); }
+  });
+}
+
 function applyStyleTemplate(dot, corner, fg, bg, eyeOuter, eyeInner, gradientOn, gradEnd, gradType) {
   const dotBtn = document.querySelector(`[data-dot="${dot}"]`);
   const cornerBtn = document.querySelector(`[data-corner="${corner}"]`);
@@ -809,6 +861,7 @@ scheduleQR = function() {
 function initWhenReady(attempts) {
   if (typeof QRCodeStyling !== 'undefined') {
     generateQR();
+    buildTemplateGallery();
     setTimeout(syncMobileBar, 700);
     setTimeout(updateStickyTop, 300);
   } else if (attempts > 0) {
