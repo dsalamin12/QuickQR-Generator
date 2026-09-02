@@ -221,7 +221,7 @@ const STYLE_TEMPLATES = [
   { name:'Sunset',        dot:'dots',    corner:'dot',            fg:'#ea580c', bg:'#fff7ed', eyeOuter:'#ea580c', eyeInner:'#ea580c', gradient:true, gradEnd:'#fbbf24', gradType:'linear' },
   { name:'Emerald',       dot:'rounded', corner:'extra-rounded',  fg:'#059669', bg:'#ecfdf5', eyeOuter:'#059669', eyeInner:'#059669', gradient:false },
   { name:'Midnight',      dot:'dots',    corner:'dot',            fg:'#4f46e5', bg:'#f8fafc', eyeOuter:'#4f46e5', eyeInner:'#4f46e5', gradient:true, gradEnd:'#818cf8', gradType:'radial' },
-  { name:'Royal Blue',    dot:'dots',    corner:'extra-rounded',  fg:'#3730a3', bg:'#ffffff', eyeOuter:'#3730a3', eyeInner:'#3730a3', gradient:false },
+  { name:'Royal Blue',    dot:'dots',    corner:'extra-rounded',  fg:'#000000', bg:'#ffffff', eyeOuter:'#2d2fe0', eyeInner:'#000000', gradient:false },
   { name:'Berry',         dot:'dots',    corner:'extra-rounded',  fg:'#7c3aed', bg:'#ffffff', eyeOuter:'#7c3aed', eyeInner:'#db2777', gradient:true, gradEnd:'#db2777', gradType:'linear' },
 ];
 
@@ -357,7 +357,7 @@ function togglePwdVis() {
 // ── Data builders ──
 function buildQRData() {
   switch (activeTab) {
-    case 'url': return document.getElementById('input-url').value.trim();
+    case 'url': return document.getElementById('input-url').value.trim().replace(/[\r\n]+/g, '');
     case 'text': return document.getElementById('input-text').value.trim();
     case 'wifi': {
       const ssid = document.getElementById('wifi-ssid').value.trim();

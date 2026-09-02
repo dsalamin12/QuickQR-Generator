@@ -338,7 +338,7 @@
           <!-- URL Tab -->
           <div class="tab-panel" id="tab-url" role="tabpanel" aria-labelledby="tab-url-btn">
             <label class="lbl" for="input-url">Website URL</label>
-            <input type="url" class="inp" id="input-url" placeholder="https://example.com" autocomplete="off" spellcheck="false" aria-describedby="url-hint"/>
+            <textarea class="inp" id="input-url" placeholder="https://example.com" rows="4" style="resize:vertical;" inputmode="url" autocomplete="off" spellcheck="false" aria-describedby="url-hint" onkeydown="if(event.key==='Enter'){event.preventDefault();}"></textarea>
             <p id="url-hint" style="font-size:0.73rem;color:var(--text-faint);margin-top:7px;">Include https:// for best compatibility.</p>
           </div>
 
