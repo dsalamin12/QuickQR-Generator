@@ -34,16 +34,16 @@
       --nav-bg: rgba(15,17,23,0.92);
     }
     [data-theme="light"] {
-      --bg: #f0f4ff;
+      --bg: #e6e3fb;
       --bg2: #ffffff;
-      --bg3: #e6eaf8;
+      --bg3: #ded9f7;
       --accent: #4f46e5;
       --accent2: #6366f1;
-      --accent-glow: rgba(79,70,229,0.12);
+      --accent-glow: rgba(79,70,229,0.13);
       --text: #0f172a;
       --text-muted: #55637a;
-      --border: #dde3f0;
-      --card-hover: #e6eaf8;
+      --border: #d9d3f5;
+      --card-hover: #ece8fd;
       --nav-bg: rgba(255,255,255,0.92);
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -69,8 +69,9 @@
     .nav-logo { width:32px;height:32px;background:var(--accent);border-radius:8px;display:grid;place-items:center;font-family:'Syne',sans-serif;font-weight:800;font-size:.75rem;color:white; }
     .nav-brand span { font-family:'Syne',sans-serif;font-weight:700;font-size:1rem;color:var(--text); }
     .nav-links { display:flex;gap:1.5rem;list-style:none; }
-    .nav-links a { color:var(--text-muted);text-decoration:none;font-size:.9rem;transition:color .2s; }
+    .nav-links a { color:var(--text-muted);text-decoration:none;font-size:.9rem;font-weight:500;transition:color .2s; padding-bottom:2px; border-bottom:2px solid transparent; }
     .nav-links a:hover { color:var(--accent2); }
+    .nav-links a.active { color:var(--accent2); font-weight:700; border-bottom-color:var(--accent2); }
     .nav-cta { background:var(--accent);color:white;border:none;padding:.45rem 1.1rem;border-radius:8px;font-size:.85rem;font-weight:500;cursor:pointer;text-decoration:none;transition:background .2s; }
     .nav-cta:hover { background:var(--accent2); }
     @media(max-width:600px) { .nav-links { display:none; } }
@@ -86,13 +87,14 @@
     .hero h1 em { color:var(--accent2);font-style:normal; }
     .hero p { color:var(--text-muted);font-size:1rem;max-width:520px;margin:0 auto; }
 
-    /* CATEGORY FILTERS */
-    .filter-bar { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem 2rem; display:flex; flex-wrap:wrap; justify-content:center; gap:.6rem; }
+    /* CATEGORY FILTERS (jump links to sections) */
+    .filter-bar { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem 2rem; display:flex; flex-wrap:wrap; justify-content:center; gap:.55rem; }
     .filter-pill {
-      display:inline-flex; align-items:center; gap:.4rem;
-      font-family:'DM Sans',sans-serif; font-weight:500; font-size:.85rem;
-      padding:.5rem 1.1rem; border-radius:100px; border:1px solid var(--border);
+      display:inline-flex; align-items:center; gap:.35rem;
+      font-family:'DM Sans',sans-serif; font-weight:500; font-size:.82rem;
+      padding:.45rem .95rem; border-radius:100px; border:1px solid var(--border);
       background:var(--bg2); color:var(--text-muted); cursor:pointer; transition:all .18s; white-space:nowrap;
+      text-decoration:none;
     }
     .filter-pill:hover { border-color:var(--accent); color:var(--accent2); }
     .filter-pill.active { background:var(--accent); border-color:var(--accent); color:#fff; }
@@ -102,24 +104,25 @@
     .featured-card {
       background:var(--bg2); border:1px solid var(--border); border-radius:20px;
       display:grid; grid-template-columns: 1.1fr 1fr; overflow:hidden;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
     }
     .featured-text { padding: 2.2rem 2.4rem; display:flex; flex-direction:column; justify-content:center; }
     .featured-label {
       display:inline-flex; align-items:center; gap:.4rem; font-size:.72rem; font-weight:700;
       letter-spacing:.05em; text-transform:uppercase; color:var(--accent2); margin-bottom:.9rem;
     }
-    .featured-text h2 { font-family:'Syne',sans-serif; font-size:1.5rem; font-weight:700; color:var(--text); line-height:1.3; margin-bottom:.8rem; }
+    .featured-text h2 { font-family:'Syne',sans-serif; font-size:1.55rem; font-weight:800; color:var(--text); line-height:1.28; margin-bottom:.8rem; }
     .featured-text h2 a { color:inherit; text-decoration:none; }
     .featured-text h2 a:hover { color:var(--accent2); }
     .featured-text p { color:var(--text-muted); font-size:.95rem; margin-bottom:1.3rem; }
     .featured-meta { display:flex; align-items:center; gap:1.3rem; font-size:.85rem; color:var(--text-muted); }
     .featured-meta a { color:var(--accent2); text-decoration:none; font-weight:600; }
     .featured-meta a:hover { text-decoration:underline; }
-    .featured-image { background:#e4e0fb; display:flex; align-items:center; justify-content:center; min-height:200px; }
+    .featured-image { background:#e4e0fb; aspect-ratio: 900 / 352; }
     .featured-image img { width:100%; height:100%; object-fit:cover; display:block; }
     @media(max-width:760px) {
       .featured-card { grid-template-columns:1fr; }
-      .featured-image { min-height:160px; order:-1; }
+      .featured-image { order:-1; }
       .featured-text { padding:1.6rem 1.6rem 1.8rem; }
     }
 
@@ -128,27 +131,33 @@
       max-width: 1100px; margin: 0 auto; padding: 0 1.5rem .9rem;
       display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:.8rem;
     }
-    .guides-header h2 { font-family:'Syne',sans-serif; font-size:1.15rem; font-weight:700; color:var(--text); }
+    .guides-header h2 { font-family:'Syne',sans-serif; font-size:1.3rem; font-weight:800; color:var(--text); }
     .sort-wrap { display:flex; align-items:center; gap:.5rem; font-size:.85rem; color:var(--text-muted); }
     .sort-wrap select {
       font-family:'DM Sans',sans-serif; font-size:.85rem; color:var(--text); background:var(--bg2);
       border:1px solid var(--border); border-radius:8px; padding:.4rem .7rem; cursor:pointer;
     }
 
-    /* GUIDE GRID */
-    .guides-grid {
-      max-width: 1100px; margin: 0 auto; padding: 0 1.5rem 1rem;
-      display:grid; grid-template-columns:repeat(3,1fr); gap:1rem;
+    /* CATEGORY SECTIONS */
+    .category-section { max-width:1100px; margin:0 auto; padding: 1.6rem 1.5rem 0; scroll-margin-top: 76px; }
+    .category-section h3 {
+      font-family:'Syne',sans-serif; font-size:1.05rem; font-weight:700; color:var(--text);
+      margin-bottom: .9rem; display:flex; align-items:center; gap:.5rem;
     }
+    .category-section h3 .count { font-family:'DM Sans',sans-serif; font-weight:500; font-size:.78rem; color:var(--text-muted); }
+
+    /* GUIDE GRID */
+    .guides-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; margin-bottom: .5rem; }
     @media(max-width:860px) { .guides-grid { grid-template-columns:repeat(2,1fr); } }
     @media(max-width:600px) { .guides-grid { grid-template-columns:1fr; } }
 
     .guide-card {
       background:var(--bg2); border:1px solid var(--border); border-radius:14px;
       padding:1.3rem; display:flex; flex-direction:column; position:relative;
-      animation: fadeUp .35s ease both;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+      transition: border-color .18s, transform .18s;
     }
-    @keyframes fadeUp { from{opacity:0;transform:translateY(8px);} to{opacity:1;transform:translateY(0);} }
+    .guide-card:hover { border-color:var(--accent); transform:translateY(-2px); }
     .guide-card-top { display:flex; align-items:flex-start; justify-content:space-between; margin-bottom:.7rem; }
     .guide-icon {
       width:38px; height:38px; border-radius:10px; background:var(--accent-glow);
@@ -161,29 +170,23 @@
     .bookmark-btn:hover { opacity:1; }
     .bookmark-btn.saved { opacity:1; color:var(--accent2); }
     .guide-tag { font-size:.7rem; font-weight:700; letter-spacing:.05em; text-transform:uppercase; color:var(--accent2); margin-bottom:.4rem; }
-    .guide-card h3 { font-family:'Syne',sans-serif; font-size:1rem; font-weight:700; color:var(--text); line-height:1.35; margin-bottom:.5rem; }
-    .guide-card h3 a { color:inherit; text-decoration:none; }
-    .guide-card h3 a:hover { color:var(--accent2); }
+    .guide-card h4 { font-family:'Syne',sans-serif; font-size:1.05rem; font-weight:700; color:var(--text); line-height:1.35; margin-bottom:.5rem; }
+    .guide-card h4 a { color:inherit; text-decoration:none; }
+    .guide-card h4 a:hover { color:var(--accent2); }
     .guide-card p { color:var(--text-muted); font-size:.86rem; margin-bottom:1rem; flex-grow:1; }
     .guide-card-footer { display:flex; align-items:center; justify-content:space-between; font-size:.8rem; color:var(--text-muted); }
     .guide-card-footer a { color:var(--accent2); text-decoration:none; font-weight:600; }
     .guide-card-footer a:hover { text-decoration:underline; }
-    .guide-card.hidden { display:none; }
 
-    /* PAGINATION */
-    .pagination { max-width:1100px; margin:0 auto; padding:1.5rem 1.5rem 4rem; display:flex; justify-content:center; align-items:center; gap:.4rem; }
-    .page-btn {
-      min-width:34px; height:34px; padding:0 .5rem; border-radius:8px; border:1px solid var(--border);
-      background:var(--bg2); color:var(--text-muted); font-size:.85rem; cursor:pointer; transition:all .15s;
-      display:flex; align-items:center; justify-content:center;
-    }
-    .page-btn:hover:not(:disabled) { border-color:var(--accent); color:var(--accent2); }
-    .page-btn.active { background:var(--accent); border-color:var(--accent); color:#fff; }
-    .page-btn:disabled { opacity:.4; cursor:default; }
-    .page-ellipsis { color:var(--text-muted); font-size:.85rem; padding:0 .2rem; }
-
-    footer { border-top:1px solid var(--border); padding:2rem 1.5rem; text-align:center; color:var(--text-muted); font-size:.85rem; }
-    footer a { color:var(--accent2); text-decoration:none; }
+    /* RICH FOOTER (matches generator page) */
+    footer { border-top:1px solid var(--border); padding:1.8rem 1.5rem; margin-top:2.5rem; }
+    .footer-inner { max-width:1100px; margin:0 auto; display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:12px; }
+    .footer-brand { display:flex; align-items:center; gap:9px; }
+    .footer-links { font-size:.75rem; color:var(--text-muted); text-align:center; }
+    .footer-links a { color:var(--accent2); text-decoration:underline; text-underline-offset:2px; }
+    .footer-live { display:flex; align-items:center; gap:5px; }
+    .footer-live-dot { width:7px; height:7px; border-radius:50%; background:#10b981; box-shadow:0 0 0 3px rgba(16,185,129,0.2); }
+    .footer-live span { font-size:.7rem; font-family:'Syne',sans-serif; font-weight:600; color:#10b981; }
   </style>
 </head>
 <body>
@@ -195,7 +198,7 @@
   </a>
   <ul class="nav-links">
     <li><a href="../index.html">Generator</a></li>
-    <li><a href="index.html">Blog</a></li>
+    <li><a href="index.html" class="active">Blog</a></li>
   </ul>
   <div style="display:flex;align-items:center;gap:10px;">
     <button id="theme-toggle" aria-label="Toggle dark and light mode" style="display:flex;align-items:center;gap:6px;background:transparent;border:1px solid var(--border);color:var(--text-muted);padding:6px 12px;border-radius:8px;font-size:0.82rem;cursor:pointer;font-family:'DM Sans',sans-serif;transition:border-color 0.2s,color 0.2s;">
@@ -215,13 +218,13 @@
 </div>
 
 <div class="filter-bar" id="filter-bar">
-  <button class="filter-pill active" data-filter="all">All</button>
-  <button class="filter-pill" data-filter="hospitality">🍽️ Hospitality & Food</button>
-  <button class="filter-pill" data-filter="business">💼 Business & Networking</button>
-  <button class="filter-pill" data-filter="marketing">📣 Marketing & Social</button>
-  <button class="filter-pill" data-filter="events">🎟️ Events & Community</button>
-  <button class="filter-pill" data-filter="operations">🛠️ Operations & Utility</button>
-  <button class="filter-pill" data-filter="comparisons">⚖️ Comparisons</button>
+  <a class="filter-pill active" href="#top-of-guides" data-target="top-of-guides">All</a>
+  <a class="filter-pill" href="#cat-hospitality" data-target="cat-hospitality">🍽️ Hospitality & Food</a>
+  <a class="filter-pill" href="#cat-business" data-target="cat-business">💼 Business & Networking</a>
+  <a class="filter-pill" href="#cat-marketing" data-target="cat-marketing">📣 Marketing & Social</a>
+  <a class="filter-pill" href="#cat-events" data-target="cat-events">🎟️ Events & Community</a>
+  <a class="filter-pill" href="#cat-operations" data-target="cat-operations">🛠️ Operations & Utility</a>
+  <a class="filter-pill" href="#cat-comparisons" data-target="cat-comparisons">⚖️ Comparisons</a>
 </div>
 
 <div class="featured-wrap">
@@ -241,8 +244,8 @@
   </div>
 </div>
 
-<div class="guides-header">
-  <h2 id="guides-count">All Guides</h2>
+<div class="guides-header" id="top-of-guides">
+  <h2>All Guides</h2>
   <div class="sort-wrap">
     <label for="sort-select">Sort by:</label>
     <select id="sort-select">
@@ -252,214 +255,279 @@
   </div>
 </div>
 
-<div class="guides-grid" id="guides-grid">
+<!-- Hospitality & Food -->
+<section class="category-section" id="cat-hospitality">
+  <h3>🍽️ Hospitality & Food <span class="count">(2 guides)</span></h3>
+  <div class="guides-grid">
 
-  <article class="guide-card" data-category="hospitality" data-date="2026-04-01">
-    <div class="guide-card-top">
-      <div class="guide-icon">📶</div>
-      <button class="bookmark-btn" data-href="wifi-qr-code-restaurant.html" aria-label="Save guide">🔖</button>
-    </div>
-    <div class="guide-tag">Hospitality & Food</div>
-    <h3><a href="wifi-qr-code-restaurant.html">How to Create a WiFi QR Code for Your Restaurant or Café</a></h3>
-    <p>Let customers connect to your WiFi instantly — no more reading out passwords. Free, takes 2 minutes, works on any phone.</p>
-    <div class="guide-card-footer"><span>⏱ 5 min read</span><a href="wifi-qr-code-restaurant.html">Read guide →</a></div>
-  </article>
+    <article class="guide-card" data-date="2026-04-01">
+      <div class="guide-card-top">
+        <div class="guide-icon">📶</div>
+        <button class="bookmark-btn" data-href="wifi-qr-code-restaurant.html" aria-label="Save guide">🔖</button>
+      </div>
+      <div class="guide-tag">Hospitality & Food</div>
+      <h4><a href="wifi-qr-code-restaurant.html">How to Create a WiFi QR Code for Your Restaurant or Café</a></h4>
+      <p>Let customers connect to your WiFi instantly — no more reading out passwords. Free, takes 2 minutes, works on any phone.</p>
+      <div class="guide-card-footer"><span>⏱ 5 min read</span><a href="wifi-qr-code-restaurant.html">Read guide →</a></div>
+    </article>
 
-  <article class="guide-card" data-category="marketing" data-date="2026-04-01">
-    <div class="guide-card-top">
-      <div class="guide-icon">💬</div>
-      <button class="bookmark-btn" data-href="whatsapp-qr-code.html" aria-label="Save guide">🔖</button>
-    </div>
-    <div class="guide-tag">Marketing & Social</div>
-    <h3><a href="whatsapp-qr-code.html">How to Make a WhatsApp QR Code — Free, Fast & No Sign-Up</a></h3>
-    <p>One scan and anyone can message you on WhatsApp instantly. Perfect for businesses, freelancers, and customer support.</p>
-    <div class="guide-card-footer"><span>⏱ 5 min read</span><a href="whatsapp-qr-code.html">Read guide →</a></div>
-  </article>
+    <article class="guide-card" data-date="2026-04-01">
+      <div class="guide-card-top">
+        <div class="guide-icon">🍽️</div>
+        <button class="bookmark-btn" data-href="qr-code-restaurant-menu.html" aria-label="Save guide">🔖</button>
+      </div>
+      <div class="guide-tag">Hospitality & Food</div>
+      <h4><a href="qr-code-restaurant-menu.html">How to Create a QR Code for Your Restaurant Menu</a></h4>
+      <p>Go paperless — customers scan the table and your menu opens on their phone. Update prices anytime without reprinting.</p>
+      <div class="guide-card-footer"><span>⏱ 5 min read</span><a href="qr-code-restaurant-menu.html">Read guide →</a></div>
+    </article>
 
-  <article class="guide-card" data-category="business" data-date="2026-04-01">
-    <div class="guide-card-top">
-      <div class="guide-icon">📇</div>
-      <button class="bookmark-btn" data-href="qr-code-business-cards.html" aria-label="Save guide">🔖</button>
-    </div>
-    <div class="guide-tag">Business & Networking</div>
-    <h3><a href="qr-code-business-cards.html">QR Code for Business Cards — The Complete Guide</a></h3>
-    <p>Add a QR code to your card so contacts save your details in 3 seconds. Covers vCard setup, Canva design, and print tips.</p>
-    <div class="guide-card-footer"><span>⏱ 5 min read</span><a href="qr-code-business-cards.html">Read guide →</a></div>
-  </article>
+  </div>
+</section>
 
-  <article class="guide-card" data-category="hospitality" data-date="2026-04-01">
-    <div class="guide-card-top">
-      <div class="guide-icon">🍽️</div>
-      <button class="bookmark-btn" data-href="qr-code-restaurant-menu.html" aria-label="Save guide">🔖</button>
-    </div>
-    <div class="guide-tag">Hospitality & Food</div>
-    <h3><a href="qr-code-restaurant-menu.html">How to Create a QR Code for Your Restaurant Menu</a></h3>
-    <p>Go paperless — customers scan the table and your menu opens on their phone. Update prices anytime without reprinting.</p>
-    <div class="guide-card-footer"><span>⏱ 5 min read</span><a href="qr-code-restaurant-menu.html">Read guide →</a></div>
-  </article>
+<!-- Business & Networking -->
+<section class="category-section" id="cat-business">
+  <h3>💼 Business & Networking <span class="count">(4 guides)</span></h3>
+  <div class="guides-grid">
 
-  <article class="guide-card" data-category="business" data-date="2026-04-01">
-    <div class="guide-card-top">
-      <div class="guide-icon">✉️</div>
-      <button class="bookmark-btn" data-href="qr-code-email-signature.html" aria-label="Save guide">🔖</button>
-    </div>
-    <div class="guide-tag">Business & Networking</div>
-    <h3><a href="qr-code-email-signature.html">How to Add a QR Code to Your Email Signature</a></h3>
-    <p>Turn your email signature into a one-scan contact save, WhatsApp opener, or website link. Works in Gmail and Outlook.</p>
-    <div class="guide-card-footer"><span>⏱ 5 min read</span><a href="qr-code-email-signature.html">Read guide →</a></div>
-  </article>
+    <article class="guide-card" data-date="2026-04-01">
+      <div class="guide-card-top">
+        <div class="guide-icon">📇</div>
+        <button class="bookmark-btn" data-href="qr-code-business-cards.html" aria-label="Save guide">🔖</button>
+      </div>
+      <div class="guide-tag">Business & Networking</div>
+      <h4><a href="qr-code-business-cards.html">QR Code for Business Cards — The Complete Guide</a></h4>
+      <p>Add a QR code to your card so contacts save your details in 3 seconds. Covers vCard setup, Canva design, and print tips.</p>
+      <div class="guide-card-footer"><span>⏱ 5 min read</span><a href="qr-code-business-cards.html">Read guide →</a></div>
+    </article>
 
-  <article class="guide-card" data-category="marketing" data-date="2026-04-01">
-    <div class="guide-card-top">
-      <div class="guide-icon">📸</div>
-      <button class="bookmark-btn" data-href="qr-code-instagram.html" aria-label="Save guide">🔖</button>
-    </div>
-    <div class="guide-tag">Marketing & Social</div>
-    <h3><a href="qr-code-instagram.html">QR Code for Instagram — Grow Your Followers with One Scan</a></h3>
-    <p>Put your Instagram QR on flyers, packaging, or your shop window — anyone who scans goes straight to your profile.</p>
-    <div class="guide-card-footer"><span>⏱ 5 min read</span><a href="qr-code-instagram.html">Read guide →</a></div>
-  </article>
+    <article class="guide-card" data-date="2026-04-01">
+      <div class="guide-card-top">
+        <div class="guide-icon">✉️</div>
+        <button class="bookmark-btn" data-href="qr-code-email-signature.html" aria-label="Save guide">🔖</button>
+      </div>
+      <div class="guide-tag">Business & Networking</div>
+      <h4><a href="qr-code-email-signature.html">How to Add a QR Code to Your Email Signature</a></h4>
+      <p>Turn your email signature into a one-scan contact save, WhatsApp opener, or website link. Works in Gmail and Outlook.</p>
+      <div class="guide-card-footer"><span>⏱ 5 min read</span><a href="qr-code-email-signature.html">Read guide →</a></div>
+    </article>
 
-  <article class="guide-card" data-category="events" data-date="2026-07-25">
-    <div class="guide-card-top">
-      <div class="guide-icon">🎟️</div>
-      <button class="bookmark-btn" data-href="qr-code-for-events.html" aria-label="Save guide">🔖</button>
-    </div>
-    <div class="guide-tag">Events & Community</div>
-    <h3><a href="qr-code-for-events.html">QR Codes for Event Check-in & Tickets</a></h3>
-    <p>Link invitations, badges, or signage to registration, schedules, or venue info — one scan, no lost paper tickets.</p>
-    <div class="guide-card-footer"><span>⏱ 4 min read</span><a href="qr-code-for-events.html">Read guide →</a></div>
-  </article>
+    <article class="guide-card" data-date="2026-07-25">
+      <div class="guide-card-top">
+        <div class="guide-icon">🏠</div>
+        <button class="bookmark-btn" data-href="qr-code-for-real-estate.html" aria-label="Save guide">🔖</button>
+      </div>
+      <div class="guide-tag">Business & Networking</div>
+      <h4><a href="qr-code-for-real-estate.html">QR Codes for Real Estate — Property Listings & Yard Signs</a></h4>
+      <p>Link yard signs and open house flyers to the full listing, photos, and virtual tour — one scan, no typing a URL.</p>
+      <div class="guide-card-footer"><span>⏱ 4 min read</span><a href="qr-code-for-real-estate.html">Read guide →</a></div>
+    </article>
 
-  <article class="guide-card" data-category="operations" data-date="2026-07-25">
-    <div class="guide-card-top">
-      <div class="guide-icon">🏥</div>
-      <button class="bookmark-btn" data-href="qr-code-for-patient-forms.html" aria-label="Save guide">🔖</button>
-    </div>
-    <div class="guide-tag">Operations & Utility</div>
-    <h3><a href="qr-code-for-patient-forms.html">QR Codes for Patient Forms & Clinic Check-in</a></h3>
-    <p>Let patients fill out intake forms or check in from their own phone — one scan, no paper clipboard.</p>
-    <div class="guide-card-footer"><span>⏱ 4 min read</span><a href="qr-code-for-patient-forms.html">Read guide →</a></div>
-  </article>
+    <article class="guide-card" data-date="2026-08-29">
+      <div class="guide-card-top">
+        <div class="guide-icon">🛍️</div>
+        <button class="bookmark-btn" data-href="qr-code-for-retail.html" aria-label="Save guide">🔖</button>
+      </div>
+      <div class="guide-tag">Business & Networking</div>
+      <h4><a href="qr-code-for-retail.html">QR Codes for Retail — Packaging, Displays & Loyalty</a></h4>
+      <p>Give shoppers instant access to ingredients, loyalty signup, or reviews — straight from the shelf, window, or receipt.</p>
+      <div class="guide-card-footer"><span>⏱ 4 min read</span><a href="qr-code-for-retail.html">Read guide →</a></div>
+    </article>
 
-  <article class="guide-card" data-category="operations" data-date="2026-07-25">
-    <div class="guide-card-top">
-      <div class="guide-icon">🎓</div>
-      <button class="bookmark-btn" data-href="qr-code-for-classrooms.html" aria-label="Save guide">🔖</button>
-    </div>
-    <div class="guide-tag">Operations & Utility</div>
-    <h3><a href="qr-code-for-classrooms.html">QR Codes for Classrooms & Course Materials</a></h3>
-    <p>Link handouts and worksheets straight to course materials, assignments, or videos — one scan, no typing a URL.</p>
-    <div class="guide-card-footer"><span>⏱ 4 min read</span><a href="qr-code-for-classrooms.html">Read guide →</a></div>
-  </article>
+  </div>
+</section>
 
-  <article class="guide-card" data-category="business" data-date="2026-07-25">
-    <div class="guide-card-top">
-      <div class="guide-icon">🏠</div>
-      <button class="bookmark-btn" data-href="qr-code-for-real-estate.html" aria-label="Save guide">🔖</button>
-    </div>
-    <div class="guide-tag">Business & Networking</div>
-    <h3><a href="qr-code-for-real-estate.html">QR Codes for Real Estate — Property Listings & Yard Signs</a></h3>
-    <p>Link yard signs and open house flyers to the full listing, photos, and virtual tour — one scan, no typing a URL.</p>
-    <div class="guide-card-footer"><span>⏱ 4 min read</span><a href="qr-code-for-real-estate.html">Read guide →</a></div>
-  </article>
+<!-- Marketing & Social -->
+<section class="category-section" id="cat-marketing">
+  <h3>📣 Marketing & Social <span class="count">(3 guides)</span></h3>
+  <div class="guides-grid">
 
-  <article class="guide-card" data-category="marketing" data-date="2026-07-24">
-    <div class="guide-card-top">
-      <div class="guide-icon">🔗</div>
-      <button class="bookmark-btn" data-href="qr-code-for-website-url.html" aria-label="Save guide">🔖</button>
-    </div>
-    <div class="guide-tag">Marketing & Social</div>
-    <h3><a href="qr-code-for-website-url.html">How to Create a QR Code for a Website or Link</a></h3>
-    <p>Turn any website, landing page, or link into a scannable QR code — free and instant, no sign-up needed.</p>
-    <div class="guide-card-footer"><span>⏱ 4 min read</span><a href="qr-code-for-website-url.html">Read guide →</a></div>
-  </article>
+    <article class="guide-card" data-date="2026-04-01">
+      <div class="guide-card-top">
+        <div class="guide-icon">💬</div>
+        <button class="bookmark-btn" data-href="whatsapp-qr-code.html" aria-label="Save guide">🔖</button>
+      </div>
+      <div class="guide-tag">Marketing & Social</div>
+      <h4><a href="whatsapp-qr-code.html">How to Make a WhatsApp QR Code — Free, Fast & No Sign-Up</a></h4>
+      <p>One scan and anyone can message you on WhatsApp instantly. Perfect for businesses, freelancers, and customer support.</p>
+      <div class="guide-card-footer"><span>⏱ 5 min read</span><a href="whatsapp-qr-code.html">Read guide →</a></div>
+    </article>
 
-  <article class="guide-card" data-category="operations" data-date="2026-07-24">
-    <div class="guide-card-top">
-      <div class="guide-icon">📱</div>
-      <button class="bookmark-btn" data-href="sms-qr-code.html" aria-label="Save guide">🔖</button>
-    </div>
-    <div class="guide-tag">Operations & Utility</div>
-    <h3><a href="sms-qr-code.html">SMS QR Codes: Let Customers Text You Instantly</a></h3>
-    <p>No app needed — one scan opens a pre-filled text message. Perfect for real estate signs, retail, and lead capture.</p>
-    <div class="guide-card-footer"><span>⏱ 4 min read</span><a href="sms-qr-code.html">Read guide →</a></div>
-  </article>
+    <article class="guide-card" data-date="2026-04-01">
+      <div class="guide-card-top">
+        <div class="guide-icon">📸</div>
+        <button class="bookmark-btn" data-href="qr-code-instagram.html" aria-label="Save guide">🔖</button>
+      </div>
+      <div class="guide-tag">Marketing & Social</div>
+      <h4><a href="qr-code-instagram.html">QR Code for Instagram — Grow Your Followers with One Scan</a></h4>
+      <p>Put your Instagram QR on flyers, packaging, or your shop window — anyone who scans goes straight to your profile.</p>
+      <div class="guide-card-footer"><span>⏱ 5 min read</span><a href="qr-code-instagram.html">Read guide →</a></div>
+    </article>
 
-  <article class="guide-card" data-category="operations" data-date="2026-07-24">
-    <div class="guide-card-top">
-      <div class="guide-icon">📝</div>
-      <button class="bookmark-btn" data-href="text-qr-code-guide.html" aria-label="Save guide">🔖</button>
-    </div>
-    <div class="guide-tag">Operations & Utility</div>
-    <h3><a href="text-qr-code-guide.html">QR Code for Text — Notes, Instructions & Info Cards</a></h3>
-    <p>Show a message or instructions with one scan — no internet needed to read it. Great for equipment tags and info cards.</p>
-    <div class="guide-card-footer"><span>⏱ 4 min read</span><a href="text-qr-code-guide.html">Read guide →</a></div>
-  </article>
+    <article class="guide-card" data-date="2026-07-24">
+      <div class="guide-card-top">
+        <div class="guide-icon">🔗</div>
+        <button class="bookmark-btn" data-href="qr-code-for-website-url.html" aria-label="Save guide">🔖</button>
+      </div>
+      <div class="guide-tag">Marketing & Social</div>
+      <h4><a href="qr-code-for-website-url.html">How to Create a QR Code for a Website or Link</a></h4>
+      <p>Turn any website, landing page, or link into a scannable QR code — free and instant, no sign-up needed.</p>
+      <div class="guide-card-footer"><span>⏱ 4 min read</span><a href="qr-code-for-website-url.html">Read guide →</a></div>
+    </article>
 
-  <article class="guide-card" data-category="business" data-date="2026-08-29">
-    <div class="guide-card-top">
-      <div class="guide-icon">🛍️</div>
-      <button class="bookmark-btn" data-href="qr-code-for-retail.html" aria-label="Save guide">🔖</button>
-    </div>
-    <div class="guide-tag">Business & Networking</div>
-    <h3><a href="qr-code-for-retail.html">QR Codes for Retail — Packaging, Displays & Loyalty</a></h3>
-    <p>Give shoppers instant access to ingredients, loyalty signup, or reviews — straight from the shelf, window, or receipt.</p>
-    <div class="guide-card-footer"><span>⏱ 4 min read</span><a href="qr-code-for-retail.html">Read guide →</a></div>
-  </article>
+  </div>
+</section>
 
-  <article class="guide-card" data-category="operations" data-date="2026-08-29">
-    <div class="guide-card-top">
-      <div class="guide-icon">📦</div>
-      <button class="bookmark-btn" data-href="qr-code-for-product-packaging.html" aria-label="Save guide">🔖</button>
-    </div>
-    <div class="guide-tag">Operations & Utility</div>
-    <h3><a href="qr-code-for-product-packaging.html">QR Codes for Product Packaging — Ingredients & Sourcing</a></h3>
-    <p>Keep the label clean while still covering ingredients, sourcing, and instructions — all one scan away.</p>
-    <div class="guide-card-footer"><span>⏱ 4 min read</span><a href="qr-code-for-product-packaging.html">Read guide →</a></div>
-  </article>
+<!-- Events & Community -->
+<section class="category-section" id="cat-events">
+  <h3>🎟️ Events & Community <span class="count">(2 guides)</span></h3>
+  <div class="guides-grid">
 
-  <article class="guide-card" data-category="events" data-date="2026-08-29">
-    <div class="guide-card-top">
-      <div class="guide-icon">💛</div>
-      <button class="bookmark-btn" data-href="qr-code-for-nonprofits-donations.html" aria-label="Save guide">🔖</button>
-    </div>
-    <div class="guide-tag">Events & Community</div>
-    <h3><a href="qr-code-for-nonprofits-donations.html">QR Codes for Nonprofits & Donations</a></h3>
-    <p>Turn a flyer or thank-you card into an instant donation or volunteer signup — no typing a long URL.</p>
-    <div class="guide-card-footer"><span>⏱ 4 min read</span><a href="qr-code-for-nonprofits-donations.html">Read guide →</a></div>
-  </article>
+    <article class="guide-card" data-date="2026-07-25">
+      <div class="guide-card-top">
+        <div class="guide-icon">🎟️</div>
+        <button class="bookmark-btn" data-href="qr-code-for-events.html" aria-label="Save guide">🔖</button>
+      </div>
+      <div class="guide-tag">Events & Community</div>
+      <h4><a href="qr-code-for-events.html">QR Codes for Event Check-in & Tickets</a></h4>
+      <p>Link invitations, badges, or signage to registration, schedules, or venue info — one scan, no lost paper tickets.</p>
+      <div class="guide-card-footer"><span>⏱ 4 min read</span><a href="qr-code-for-events.html">Read guide →</a></div>
+    </article>
 
-  <article class="guide-card" data-category="comparisons" data-date="2026-08-29">
-    <div class="guide-card-top">
-      <div class="guide-icon">⚖️</div>
-      <button class="bookmark-btn" data-href="quickqr-vs-canva.html" aria-label="Save guide">🔖</button>
-    </div>
-    <div class="guide-tag">Comparisons</div>
-    <h3><a href="quickqr-vs-canva.html">QuickQR vs Canva — Which Should You Use?</a></h3>
-    <p>An honest comparison of privacy, export formats, and cost — and when Canva's built-in tool is still the right call.</p>
-    <div class="guide-card-footer"><span>⏱ 4 min read</span><a href="quickqr-vs-canva.html">Read guide →</a></div>
-  </article>
+    <article class="guide-card" data-date="2026-08-29">
+      <div class="guide-card-top">
+        <div class="guide-icon">💛</div>
+        <button class="bookmark-btn" data-href="qr-code-for-nonprofits-donations.html" aria-label="Save guide">🔖</button>
+      </div>
+      <div class="guide-tag">Events & Community</div>
+      <h4><a href="qr-code-for-nonprofits-donations.html">QR Codes for Nonprofits & Donations</a></h4>
+      <p>Turn a flyer or thank-you card into an instant donation or volunteer signup — no typing a long URL.</p>
+      <div class="guide-card-footer"><span>⏱ 4 min read</span><a href="qr-code-for-nonprofits-donations.html">Read guide →</a></div>
+    </article>
 
-  <article class="guide-card" data-category="comparisons" data-date="2026-08-29">
-    <div class="guide-card-top">
-      <div class="guide-icon">⚖️</div>
-      <button class="bookmark-btn" data-href="quickqr-vs-qrcode-monkey.html" aria-label="Save guide">🔖</button>
-    </div>
-    <div class="guide-tag">Comparisons</div>
-    <h3><a href="quickqr-vs-qrcode-monkey.html">QuickQR vs QRCode Monkey — Which Should You Use?</a></h3>
-    <p>Two strong free generators, one key difference: what happens to your data along the way.</p>
-    <div class="guide-card-footer"><span>⏱ 4 min read</span><a href="quickqr-vs-qrcode-monkey.html">Read guide →</a></div>
-  </article>
+  </div>
+</section>
 
-</div>
+<!-- Operations & Utility -->
+<section class="category-section" id="cat-operations">
+  <h3>🛠️ Operations & Utility <span class="count">(5 guides)</span></h3>
+  <div class="guides-grid">
 
-<div class="pagination" id="pagination"></div>
+    <article class="guide-card" data-date="2026-07-25">
+      <div class="guide-card-top">
+        <div class="guide-icon">🏥</div>
+        <button class="bookmark-btn" data-href="qr-code-for-patient-forms.html" aria-label="Save guide">🔖</button>
+      </div>
+      <div class="guide-tag">Operations & Utility</div>
+      <h4><a href="qr-code-for-patient-forms.html">QR Codes for Patient Forms & Clinic Check-in</a></h4>
+      <p>Let patients fill out intake forms or check in from their own phone — one scan, no paper clipboard.</p>
+      <div class="guide-card-footer"><span>⏱ 4 min read</span><a href="qr-code-for-patient-forms.html">Read guide →</a></div>
+    </article>
+
+    <article class="guide-card" data-date="2026-07-25">
+      <div class="guide-card-top">
+        <div class="guide-icon">🎓</div>
+        <button class="bookmark-btn" data-href="qr-code-for-classrooms.html" aria-label="Save guide">🔖</button>
+      </div>
+      <div class="guide-tag">Operations & Utility</div>
+      <h4><a href="qr-code-for-classrooms.html">QR Codes for Classrooms & Course Materials</a></h4>
+      <p>Link handouts and worksheets straight to course materials, assignments, or videos — one scan, no typing a URL.</p>
+      <div class="guide-card-footer"><span>⏱ 4 min read</span><a href="qr-code-for-classrooms.html">Read guide →</a></div>
+    </article>
+
+    <article class="guide-card" data-date="2026-07-24">
+      <div class="guide-card-top">
+        <div class="guide-icon">📱</div>
+        <button class="bookmark-btn" data-href="sms-qr-code.html" aria-label="Save guide">🔖</button>
+      </div>
+      <div class="guide-tag">Operations & Utility</div>
+      <h4><a href="sms-qr-code.html">SMS QR Codes: Let Customers Text You Instantly</a></h4>
+      <p>No app needed — one scan opens a pre-filled text message. Perfect for real estate signs, retail, and lead capture.</p>
+      <div class="guide-card-footer"><span>⏱ 4 min read</span><a href="sms-qr-code.html">Read guide →</a></div>
+    </article>
+
+    <article class="guide-card" data-date="2026-07-24">
+      <div class="guide-card-top">
+        <div class="guide-icon">📝</div>
+        <button class="bookmark-btn" data-href="text-qr-code-guide.html" aria-label="Save guide">🔖</button>
+      </div>
+      <div class="guide-tag">Operations & Utility</div>
+      <h4><a href="text-qr-code-guide.html">QR Code for Text — Notes, Instructions & Info Cards</a></h4>
+      <p>Show a message or instructions with one scan — no internet needed to read it. Great for equipment tags and info cards.</p>
+      <div class="guide-card-footer"><span>⏱ 4 min read</span><a href="text-qr-code-guide.html">Read guide →</a></div>
+    </article>
+
+    <article class="guide-card" data-date="2026-08-29">
+      <div class="guide-card-top">
+        <div class="guide-icon">📦</div>
+        <button class="bookmark-btn" data-href="qr-code-for-product-packaging.html" aria-label="Save guide">🔖</button>
+      </div>
+      <div class="guide-tag">Operations & Utility</div>
+      <h4><a href="qr-code-for-product-packaging.html">QR Codes for Product Packaging — Ingredients & Sourcing</a></h4>
+      <p>Keep the label clean while still covering ingredients, sourcing, and instructions — all one scan away.</p>
+      <div class="guide-card-footer"><span>⏱ 4 min read</span><a href="qr-code-for-product-packaging.html">Read guide →</a></div>
+    </article>
+
+  </div>
+</section>
+
+<!-- Comparisons -->
+<section class="category-section" id="cat-comparisons">
+  <h3>⚖️ Comparisons <span class="count">(2 guides)</span></h3>
+  <div class="guides-grid">
+
+    <article class="guide-card" data-date="2026-08-29">
+      <div class="guide-card-top">
+        <div class="guide-icon">⚖️</div>
+        <button class="bookmark-btn" data-href="quickqr-vs-canva.html" aria-label="Save guide">🔖</button>
+      </div>
+      <div class="guide-tag">Comparisons</div>
+      <h4><a href="quickqr-vs-canva.html">QuickQR vs Canva — Which Should You Use?</a></h4>
+      <p>An honest comparison of privacy, export formats, and cost — and when Canva's built-in tool is still the right call.</p>
+      <div class="guide-card-footer"><span>⏱ 4 min read</span><a href="quickqr-vs-canva.html">Read guide →</a></div>
+    </article>
+
+    <article class="guide-card" data-date="2026-08-29">
+      <div class="guide-card-top">
+        <div class="guide-icon">⚖️</div>
+        <button class="bookmark-btn" data-href="quickqr-vs-qrcode-monkey.html" aria-label="Save guide">🔖</button>
+      </div>
+      <div class="guide-tag">Comparisons</div>
+      <h4><a href="quickqr-vs-qrcode-monkey.html">QuickQR vs QRCode Monkey — Which Should You Use?</a></h4>
+      <p>Two strong free generators, one key difference: what happens to your data along the way.</p>
+      <div class="guide-card-footer"><span>⏱ 4 min read</span><a href="quickqr-vs-qrcode-monkey.html">Read guide →</a></div>
+    </article>
+
+  </div>
+</section>
 
 </main>
 
 <footer>
-  <p>© 2026 <a href="../index.html">QuickQR</a> — Free, private QR code generator. No sign-up. No tracking. &nbsp;|&nbsp; <a href="../index.html">Create a QR Code →</a></p>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div style="width:22px;height:22px;border-radius:5px;background:linear-gradient(135deg,#4f46e5,#818cf8);display:flex;align-items:center;justify-content:center;" aria-hidden="true">
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+      </div>
+      <span style="font-family:'Syne',sans-serif;font-size:0.8rem;font-weight:700;color:var(--text);">QuickQR</span>
+    </div>
+    <p class="footer-links">
+      100% client-side processing. No data is ever sent to any server.
+      <br><br>
+      <a href="../privacy-policy.html">Privacy Policy</a>
+      &nbsp;•&nbsp;
+      <a href="../terms.html">Terms</a>
+      &nbsp;•&nbsp;
+      <a href="../about.html">About</a>
+      &nbsp;•&nbsp;
+      <a href="../contact.html">Contact</a>
+      &nbsp;•&nbsp;
+      <a href="../support.html">❤️ Support</a>
+      &nbsp;•&nbsp;
+      <a href="../index.html">Create a QR Code →</a>
+    </p>
+    <div class="footer-live"><div class="footer-live-dot"></div><span>PRIVATE &amp; SECURE</span></div>
+  </div>
 </footer>
 
 <!-- To return to the dedicated page -->
@@ -471,119 +539,56 @@
 
   if (from && VALID_FROM.indexOf(from) !== -1) {
     var target = "../" + from + "-qr.html";
-
-    // Point every "back to generator" link at the specific tool page
     document.querySelectorAll('a[href="../index.html"]').forEach(function (link) {
       link.setAttribute("href", target);
-    });
-
-    // Keep the "from" context when navigating back into the blog
-    document.querySelectorAll('a[href="index.html"]').forEach(function (link) {
-      link.setAttribute("href", "index.html?from=" + from);
     });
   }
 })();
 </script>
 
-<!-- Category filter + sort + pagination + bookmarks -->
+<!-- Category jump-links + sort within each section + bookmarks -->
 <script>
 (function () {
-  var PER_PAGE = 6;
-  var currentFilter = 'all';
-  var currentSort = 'latest';
-  var currentPage = 1;
-
-  var grid = document.getElementById('guides-grid');
-  var allCards = Array.prototype.slice.call(grid.querySelectorAll('.guide-card'));
   var filterBar = document.getElementById('filter-bar');
   var sortSelect = document.getElementById('sort-select');
-  var pagination = document.getElementById('pagination');
-  var countHeading = document.getElementById('guides-count');
+  var sections = Array.prototype.slice.call(document.querySelectorAll('.category-section'));
 
-  function getFiltered() {
-    return currentFilter === 'all'
-      ? allCards.slice()
-      : allCards.filter(function (c) { return c.dataset.category === currentFilter; });
-  }
-
-  function sortCards(cards) {
-    return cards.sort(function (a, b) {
-      var da = new Date(a.dataset.date).getTime();
-      var db = new Date(b.dataset.date).getTime();
-      return currentSort === 'latest' ? db - da : da - db;
+  var pills = Array.prototype.slice.call(filterBar.querySelectorAll('.filter-pill'));
+  function setActivePill(id) {
+    pills.forEach(function (p) {
+      p.classList.toggle('active', p.dataset.target === id);
     });
   }
-
-  function render() {
-    var filtered = sortCards(getFiltered());
-    var totalPages = Math.max(1, Math.ceil(filtered.length / PER_PAGE));
-    if (currentPage > totalPages) currentPage = totalPages;
-
-    // Hide all, then show + re-append current page's cards in sorted order
-    allCards.forEach(function (c) { c.classList.add('hidden'); });
-    var start = (currentPage - 1) * PER_PAGE;
-    var pageCards = filtered.slice(start, start + PER_PAGE);
-    pageCards.forEach(function (c) {
-      c.classList.remove('hidden');
-      grid.appendChild(c);
-    });
-
-    countHeading.textContent = currentFilter === 'all' ? 'All Guides' :
-      filterBar.querySelector('[data-filter="' + currentFilter + '"]').textContent.trim() + ' Guides';
-
-    renderPagination(totalPages);
-  }
-
-  function renderPagination(totalPages) {
-    pagination.innerHTML = '';
-    if (totalPages <= 1) return;
-
-    var prev = document.createElement('button');
-    prev.className = 'page-btn'; prev.textContent = '‹';
-    prev.disabled = currentPage === 1;
-    prev.setAttribute('aria-label', 'Previous page');
-    prev.addEventListener('click', function () { currentPage--; render(); scrollToGrid(); });
-    pagination.appendChild(prev);
-
-    for (var p = 1; p <= totalPages; p++) {
-      (function (p) {
-        var btn = document.createElement('button');
-        btn.className = 'page-btn' + (p === currentPage ? ' active' : '');
-        btn.textContent = p;
-        btn.addEventListener('click', function () { currentPage = p; render(); scrollToGrid(); });
-        pagination.appendChild(btn);
-      })(p);
-    }
-
-    var next = document.createElement('button');
-    next.className = 'page-btn'; next.textContent = '›';
-    next.disabled = currentPage === totalPages;
-    next.setAttribute('aria-label', 'Next page');
-    next.addEventListener('click', function () { currentPage++; render(); scrollToGrid(); });
-    pagination.appendChild(next);
-  }
-
-  function scrollToGrid() {
-    document.getElementById('guides-header').scrollIntoView({ behavior: 'smooth', block: 'start' });
-  }
-
   filterBar.addEventListener('click', function (e) {
-    var btn = e.target.closest('.filter-pill');
-    if (!btn) return;
-    filterBar.querySelectorAll('.filter-pill').forEach(function (p) { p.classList.remove('active'); });
-    btn.classList.add('active');
-    currentFilter = btn.dataset.filter;
-    currentPage = 1;
-    render();
+    var pill = e.target.closest('.filter-pill');
+    if (!pill) return;
+    setActivePill(pill.dataset.target);
   });
+  if ('IntersectionObserver' in window) {
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) setActivePill(entry.target.id);
+      });
+    }, { rootMargin: '-40% 0px -50% 0px' });
+    sections.forEach(function (s) { observer.observe(s); });
+  }
 
-  sortSelect.addEventListener('change', function () {
-    currentSort = sortSelect.value;
-    currentPage = 1;
-    render();
-  });
+  function applySort() {
+    var mode = sortSelect.value;
+    sections.forEach(function (section) {
+      var grid = section.querySelector('.guides-grid');
+      var cards = Array.prototype.slice.call(grid.querySelectorAll('.guide-card'));
+      cards.sort(function (a, b) {
+        var da = new Date(a.dataset.date).getTime();
+        var db = new Date(b.dataset.date).getTime();
+        return mode === 'latest' ? db - da : da - db;
+      });
+      cards.forEach(function (c) { grid.appendChild(c); });
+    });
+  }
+  sortSelect.addEventListener('change', applySort);
+  applySort();
 
-  // Bookmarks (localStorage, personal to this browser — not shared/synced anywhere)
   var SAVED_KEY = 'quickqr_saved_guides';
   function getSaved() {
     try { return JSON.parse(localStorage.getItem(SAVED_KEY) || '[]'); } catch (e) { return []; }
@@ -601,8 +606,6 @@
       setSaved(saved);
     });
   });
-
-  render();
 })();
 </script>
 
