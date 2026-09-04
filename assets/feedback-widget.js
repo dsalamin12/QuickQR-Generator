@@ -3,9 +3,7 @@
    Renders into any element with id="feedback-widget-mount".
    Fully optional/non-forcing: no modal, no auto-popup,
    nothing required to dismiss.
-   Closed-ended reaction → anonymous GA4 event (if gtag present).
-   Open-ended text → routed via mailto (no backend, matches
-   the site's fixed no-backend/no-database architecture).
+   Reactions & written comments sent directly to GA4.
    ══════════════════════════════════════════════ */
 (function () {
   function renderFeedbackWidget(mount) {
@@ -28,9 +26,8 @@
           <div class="qq-fb-more" style="display:none;margin-top:10px;">
             <textarea class="qq-fb-text" rows="3" maxlength="500" placeholder="What worked, or what could be better? (optional)" style="width:100%;box-sizing:border-box;font-size:16px;padding:10px;border-radius:8px;border:1px solid var(--border);background:var(--bg,transparent);color:var(--text);resize:vertical;"></textarea>
             <button type="button" class="btn btn-brand qq-fb-send" style="margin-top:8px;">Send Feedback</button>
-            <p style="font-size:0.72rem;color:var(--text-faint);margin-top:8px;">
-              This opens your email app addressed to support@getquickqr.com — nothing is sent automatically.
-              For longer feedback, feel free to just keep typing there.
+            <p class="qq-fb-comment-thanks" style="display:none;font-size:0.85rem;color:var(--success);margin-top:8px;">
+              Thank you! Your feedback has been received. 🙏
             </p>
           </div>
         </div>
@@ -43,13 +40,16 @@
     const morePanel = mount.querySelector('.qq-fb-more');
     const sendBtn = mount.querySelector('.qq-fb-send');
     const textArea = mount.querySelector('.qq-fb-text');
+    const commentThanks = mount.querySelector('.qq-fb-comment-thanks');
+
+    let selectedReaction = '';
 
     reactionBtns.forEach(btn => {
       btn.addEventListener('click', function () {
-        const reaction = btn.getAttribute('data-reaction');
+        selectedReaction = btn.getAttribute('data-reaction');
         if (typeof gtag === 'function') {
           gtag('event', 'page_feedback', {
-            reaction: reaction,
+            reaction: selectedReaction,
             page_path: window.location.pathname
           });
         }
@@ -66,9 +66,20 @@
 
     sendBtn.addEventListener('click', function () {
       const text = textArea.value.trim();
-      const subject = encodeURIComponent('QuickQR Feedback — ' + window.location.pathname);
-      const body = encodeURIComponent(text || '(No message entered)');
-      window.location.href = `mailto:support@getquickqr.com?subject=${subject}&body=${body}`;
+      if (!text) return;
+
+      if (typeof gtag === 'function') {
+        gtag('event', 'page_feedback', {
+          reaction: selectedReaction || 'comment_only',
+          page_path: window.location.pathname,
+          feedback_text: text
+        });
+      }
+
+      sendBtn.disabled = true;
+      textArea.disabled = true;
+      sendBtn.style.display = 'none';
+      commentThanks.style.display = 'block';
     });
   }
 
